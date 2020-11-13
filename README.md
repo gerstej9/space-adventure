@@ -6,3 +6,44 @@ A fun puzzle game played online to help relax and reduce stress
 Tek Jones
 William Moreno
 James Gerstenberger
+
+
+
+## About
+
+- A game that you control a ship and move across a path of planets to an end goal. At each stop an event will happen that will tell you what happens or present you with a choice to make. The events will be generated randomly with differing outcomes being weighted differently. The ships stats will be affected by events. The goal is to reach the final frontier.
+What problem or pain point does it solve? a. Keep it high level without going into too much detail. 
+
+
+
+
+## What for
+To provide a short entertaining game to play for relaxation.
+
+
+
+
+## MVP
+
+
+1. “About Us” page
+2. Appealing properly themed background
+3. Intro and direction ‘page’
+4. Name entry form
+5. Local storage of high score/leaderboard
+6. Functioning game/webapp
+7. Turn counter
+8. Planets/Events
+9. Moving Ship
+10. Fuel gauge
+11. Crew members
+
+
+
+
+
+
+
+
+
+

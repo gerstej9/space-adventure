@@ -11,36 +11,109 @@ var planetEight = document.getElementById("world-eight");
 var planetNine = document.getElementById("world-nine");
 var planetTen = document.getElementById("world-ten");
 var plotCourse = document.getElementById("player-ship");
+var displayEvent = document.getElementById("display-event");
 var allPlanets = [];
 
 
 function planetOneZoomIn() {
-    var displayEvent = document.getElementById("display-event-one");
     planetOne.classList.remove("easy-choice");
+    planetTwo.classList.remove("easy-choice");
     plotCourse.classList.add("nav-one");
     plotCourse.classList.remove("nav-start");
     if (planetOne.classList.contains("one")) {
-    planetOne.classList.remove("one");
-
-    displayEvent.classList.add("zoom");
+        planetOne.classList.remove("one");
+        planetTwo.removeEventListener("click", planetTwoZoomIn);
+        displayEvent.classList.add("zoom");
     } else {
-    planetOne.classList.add("one");
-    displayEvent.classList.remove("zoom");
+        planetOne.classList.add("one");
+        displayEvent.classList.remove("zoom");
+        planetTwo.classList.add('easy-choice');
+        planetThree.classList.add('easy-choice');
+        planetFour.classList.add('easy-choice');
+        planetFive.classList.add('med-choice');
+        planetTwo.addEventListener("click", planetTwoZoomIn);
+        planetThree.addEventListener("click", planetThreeZoomIn);
+        planetFour.addEventListener("click", planetFourZoomIn);
+        planetFive.addEventListener("click", planetFiveZoomIn);
     }
 }
 
 
 function planetTwoZoomIn() {
-    var displayEvent = document.getElementById("display-event-two");
     planetTwo.classList.remove("easy-choice");
+    planetOne.classList.remove("easy-choice");
+    planetFive.classList.remove('med-choice');
+    planetThree.classList.remove('easy-choice');
+    planetFour.classList.remove('easy-choice');
+    plotCourse.classList.add('nav-two');
+    plotCourse.classList.remove("nav-start");
+    plotCourse.classList.remove("nav-one");
     if (planetTwo.classList.contains("two")) {
     planetTwo.classList.remove("two");
-
+    planetOne.removeEventListener("click", planetOneZoomIn);
+    planetThree.removeEventListener("click", planetThreeZoomIn);
+    planetFour.removeEventListener("click", planetFourZoomIn);
+    planetFive.removeEventListener("click", planetFiveZoomIn);
     displayEvent.classList.add("zoom");
     } else {
     planetTwo.classList.add("two");
     displayEvent.classList.remove("zoom");
+    planetFive.classList.add('easy-choice');
+    planetSix.classList.add('hard-choice');
+    planetFive.addEventListener("click", planetFiveZoomIn);
+    planetSix.addEventListener("click", planetSixZoomIn);
     }
+}
+
+function planetThreeZoomIn() {
+    planetTwo.classList.remove("easy-choice");
+    planetFive.classList.remove('med-choice');
+    planetThree.classList.remove('easy-choice');
+    planetFour.classList.remove('easy-choice');
+    plotCourse.classList.add('nav-three');
+    plotCourse.classList.remove("nav-one");
+    if (planetThree.classList.contains("three")) {
+    planetThree.classList.remove("three");
+    planetTwo.removeEventListener("click", planetTwoZoomIn);
+    planetFour.removeEventListener("click", planetFourZoomIn);
+    planetFive.removeEventListener("click", planetFiveZoomIn);
+    displayEvent.classList.add("zoom");
+    } else {
+    planetThree.classList.add("three");
+    displayEvent.classList.remove("zoom");
+    planetFour.classList.add('easy-choice');
+    planetFour.addEventListener("click", planetFourZoomIn);
+    }
+}
+
+function planetFourZoomIn() {
+    planetTwo.classList.remove("easy-choice");
+    planetFive.classList.remove('med-choice');
+    planetThree.classList.remove('easy-choice');
+    planetFour.classList.remove('easy-choice');
+    plotCourse.classList.add('nav-four');
+    plotCourse.classList.remove("nav-one");
+    plotCourse.classList.remove('nav-three');
+    if (planetFour.classList.contains("four")) {
+    planetFour.classList.remove("four");
+    planetTwo.removeEventListener("click", planetTwoZoomIn);
+    planetThree.removeEventListener("click", planetThreeZoomIn);
+    planetFive.removeEventListener("click", planetFiveZoomIn);
+    displayEvent.classList.add("zoom");
+    } else {
+    planetFour.classList.add("four");
+    displayEvent.classList.remove("zoom");
+    planetFour.classList.add('easy-choice');
+    planetFour.addEventListener("click", planetFourZoomIn);
+    }
+}
+
+function planetFiveZoomIn() {
+
+}
+
+function planetSixZoomIn() {
+
 }
 
 var ctx = document.getElementById("myChart").getContext("2d");

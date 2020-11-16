@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <script src="https://kit.fontawesome.com/4fc1b5d5ea.js" crossorigin="anonymous"></script>
+ <link rel="preconnect" href="https://fonts.gstatic.com" />
+ <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+ <link rel="stylesheet" href="css/game.css" type="text/css" />
+ <title>Space-Adventure</title>
+</head>
+
+<body>
+ <header id="top-bar" class="side-bar"></header>
+ <main>
+  <div id="left-bar" class="side-bar board-segment">
+   <div id="game-title">
+    <h2>Space</h2>
+    <h2>ADVENTURE!!</h2>
+   </div>
+   <div>
+    <h1 id="player-title">Captain Guinea-Pig</h1>
+   </div>
+   <div id="ship-status">
+    <canvas id="myChart" width="180" height="300"></canvas>
+   </div>
+  </div>
+  <div id="game-field" class="board-segment">
+   <div id="start-space"></div>
+   <div id="player-ship" class="nav-start">
+    <i class="fas fa-rocket ship"></i>
+   </div>
+   <div id="world-one" class="planet one choice"></div>
+   <div id="world-two" class="planet two choice"></div>
+   <div id="world-three" class="planet three"></div>
+   <div id="world-four" class="planet four"></div>
+   <div id="world-five" class="planet five"></div>
+   <div id="world-six" class="planet six"></div>
+   <div id="world-seven" class="planet seven"></div>
+   <div id="world-eight" class="planet eight"></div>
+   <div id="world-nine" class="planet nine"></div>
+   <div id="world-ten" class="planet ten"></div>
+   <div id="finish-space"></div>
+   <div id="display-event-one" class="card-container">
+    <div class="event-display card">
+     <h3>Planet X</h3>
+     <img src="img/alien-skateboard.jpg" alt="" title="sample" />
+     <p>
+      Hard-coded Event Text that we will totally have to do
+      dynamically... but, you get the idea
+     </p>
+     <p>This would be a secondary or optional choice</p>
+    </div>
+   </div>
+  </div>
+  <div id="right-bar" class="side-bar board-segment"></div>
+ </main>
+ <footer id="bottom-bar" class="side-bar"></footer>
+ <script src="js/game.js"></script>
+</body>
+
+</html>

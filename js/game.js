@@ -1,6 +1,6 @@
 function planetOneZoomIn() {
     var displayEvent = document.getElementById("display-event-one");
-    planetOneClicked.classList.remove("choice");
+    planetOneClicked.classList.remove("easy-choice");
     plotCourse.classList.add("nav-one");
     plotCourse.classList.remove("nav-start");
     if (planetOneClicked.classList.contains("one")) {
@@ -19,7 +19,7 @@ var plotCourse = document.getElementById("player-ship");
 
 function planetTwoZoomIn() {
     var displayEvent = document.getElementById("display-event-two");
-    planetTwoClicked.classList.remove("choice");
+    planetTwoClicked.classList.remove("easy-choice");
     if (planetTwoClicked.classList.contains("two")) {
     planetTwoClicked.classList.remove("two");
 

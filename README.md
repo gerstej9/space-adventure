@@ -38,7 +38,8 @@ To provide a short entertaining game to play for relaxation.
 10. Fuel gauge
 11. Crew members
 
-
+Domain Modeling
+* See file DOM_model
 
 
 

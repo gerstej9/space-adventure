@@ -68,3 +68,35 @@ var myChart = new Chart(ctx, {
 
 planetTwoClicked.addEventListener("click", planetTwoZoomIn);
 planetOneClicked.addEventListener("click", planetOneZoomIn);
+
+var allPlanets = [];
+
+function Planet(name, location, pathOne = '', pathTwo = '', pathThree = '', pathFour = '', fromOne = '', fromTwo = '', fromThree = ''){
+    this.name = name;
+    this.location = location;
+    this.pathOne = pathOne;
+    this.pathTwo = pathTwo;
+    this.pathThree = pathThree;
+    this.pathFour = pathFour;
+    this.fromOne = fromOne;
+    this.fromTwo = fromTwo;
+    this.fromThree = fromThree;
+
+    allPlanets.push(this);
+}
+
+new Planet('Arrival', 'startnew', 'start-one', 'start-two');
+new Planet('Alpha', 'one', 'one-two', 'one-three', 'one-four', 'one-five', 'fromStart');
+new Planet('Beta', 'two', 'two-five', 'two-six', '', '', 'fromStart', 'fromOne');
+new Planet('Gamma', 'three', 'three-four', '', '', '', 'fromOne');
+new Planet('Delta', 'four', 'four-five', 'four-seven', 'four-eight', '', 'fromOne', 'fromThree')
+new Planet('Epsilon', 'five', 'five-six', 'five-seven', '', '', 'fromOne', 'fromTwo', 'fromFour');
+new Planet('Iota', 'six', 'six-nine', 'six-ten', '', '', 'fromTwo', 'fromFive', 'fromSeven');
+new Planet('Kappa', 'seven', 'seven-eight', 'seven-nine', '', '', 'fromFour', 'fromFive');
+new Planet('Lambda', 'eight', 'eight-goal', '', '', '', 'fromFour', 'fromSeven');
+new Planet('Omicron', 'nine', 'nine-goal', '', '', '', 'fromSix', 'fromSeven', 'fromTen');
+new Planet('Sigma', 'ten', 'ten-nine', '', '', '', 'fromSix');
+new Planet('Destination', 'goal', '', '' ,'' ,'', 'fromEight', 'fromNine');
+
+
+console.log(allPlanets);

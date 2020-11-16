@@ -1,0 +1,288 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  height: 60px;
+}
+
+main {
+  display: flex;
+  flex-direction: inline-block;
+}
+
+#left-bar,
+#right-bar {
+  width: 203px;
+  height: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.side-bar {
+  background-color: darkslategrey;
+}
+
+footer {
+  height: 60px;
+}
+
+body {
+  width: 1366px;
+  height: 768px;
+}
+
+h3 {
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 10px;
+}
+
+#game-field {
+  position: relative;
+  background-image: url(../img/kai-pilger-Ef6iL87-vOA-unsplash.jpg);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  width: 960px;
+  height: 640px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#start-space {
+  position: absolute;
+  background-color: palegreen;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+}
+
+#finish-space {
+  position: absolute;
+  background-color: rgba(252, 66, 66, 0.692);
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  bottom: -100px;
+  right: -100px;
+}
+
+.planet {
+  position: absolute;
+  height: 360px;
+  width: 360px;
+  border-radius: 50%;
+  transition: 1.25s;
+  transition-delay: 0.5s;
+  z-index: 2;
+}
+
+#world-one {
+  height: 360px;
+  width: 360px;
+  background-color: seagreen;
+  border-radius: 50%;
+}
+
+.one {
+  transform: translate(-320px, -100px) scale(0.05);
+  z-index: 1;
+}
+
+.choice {
+  border: 12px solid black;
+  box-shadow: 0 0 60px 120px lime;
+}
+
+#world-two {
+  height: 360px;
+  width: 360px;
+  background-color: tan;
+  border-radius: 50%;
+}
+
+.two {
+  transform: translate(-140px, -260px) scale(0.05);
+  z-index: 1;
+}
+
+.three {
+  height: 360px;
+  width: 360px;
+  background-color: darkred;
+  border-radius: 50%;
+}
+
+.three {
+  transform: translate(-400px, 120px) scale(0.05);
+  z-index: 1;
+}
+
+.four {
+  height: 360px;
+  width: 360px;
+  background-color: orangered;
+  border-radius: 50%;
+}
+
+.four {
+  transform: translate(-220px, 140px) scale(0.05);
+  z-index: 1;
+}
+
+.five {
+  height: 360px;
+  width: 360px;
+  background-color: goldenrod;
+  border-radius: 50%;
+}
+
+.five {
+  transform: translate(-20px, -100px) scale(0.05);
+  z-index: 1;
+}
+
+.six {
+  height: 360px;
+  width: 360px;
+  background-color: lightskyblue;
+  border-radius: 50%;
+}
+
+.six {
+  transform: translate(220px, -180px) scale(0.05);
+  z-index: 1;
+}
+
+.seven {
+  height: 360px;
+  width: 360px;
+  background-color: sandybrown;
+  border-radius: 50%;
+}
+
+.seven {
+  transform: translate(60px, 100px) scale(0.05);
+  z-index: 1;
+}
+
+.eight {
+  height: 360px;
+  width: 360px;
+  background-color: blueviolet;
+  border-radius: 50%;
+}
+
+.eight {
+  transform: translate(200px, 280px) scale(0.05);
+  z-index: 1;
+}
+
+.nine {
+  height: 360px;
+  width: 360px;
+  background-color: grey;
+  border-radius: 50%;
+}
+
+.nine {
+  transform: translate(400px, 80px) scale(0.05);
+  z-index: 1;
+}
+
+.ten {
+  height: 360px;
+  width: 360px;
+  background-color: aqua;
+  border-radius: 50%;
+}
+
+.ten {
+  transform: translate(420px, -200px) scale(0.05);
+  z-index: 1;
+}
+
+.card-container {
+  height: 260px;
+  position: absolute;
+  /* left: 75px;
+  top: 50px; */
+  width: 210px;
+  /* display: none; */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 3;
+  transform: scale(0.005);
+  transition: all 1.25s ease-in-out;
+  transition-delay: 0.75s;
+}
+
+.card {
+  background-color: rgba(252, 253, 253, 0.33);
+  border-radius: 12px;
+  height: 100%;
+  width: 100%;
+}
+
+.zoom {
+  display: block;
+  transform: scale(1);
+}
+
+.card {
+  text-align: center;
+}
+
+.card img {
+  width: 170px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.card p {
+  margin: 10px auto;
+  width: 190px;
+  background-color: rgba(252, 253, 253, 0.33);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+#player-ship {
+  position: absolute;
+  color: slategray;
+
+  text-shadow: 0 0 1px whitesmoke;
+  transform: rotate(90deg);
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  font-size: 20px;
+  z-index: 2;
+}
+.nav-start {
+  left: 50px;
+  top: 50px;
+}
+.nav-one {
+  top: 190px;
+  left: 130px;
+}
+
+#game-title {
+  font-family: "Orbitron", sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#player-title {
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 40px;
+  text-align: center;
+}

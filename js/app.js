@@ -127,8 +127,7 @@ function eventCardSuccess(eventCard){
 //Needs to slot in to render function in game.js, upon selection
 function eventCardSelector(){
     eventCardCounter++
-    console.log(eventCardCounter);
-    console.log(totalPoints);
+    // console.log(eventCardCounter);
     return allEventCards[eventCardCounter];
 }
 
@@ -173,9 +172,13 @@ function tabulatePoints(){
     return totalPoints;
 }
 
+function fuelDecrement(fuel){
+    totalFuel -= fuel;
+}
+
 eventCardArrayGenerator();
 
-console.log(totalPoints,totalCrew, totalFuel);
+// console.log(totalPoints,totalCrew, totalFuel);
 
 // eventCardAction(eventCardSelector());
 

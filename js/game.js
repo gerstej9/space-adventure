@@ -21,6 +21,7 @@ var cardImage = document.getElementById('event-image');
 var allPlanets = [planetOne, planetTwo, planetThree, planetFour, planetFive, planetSix, planetSeven, planetEight, planetNine, planetTen];
 var navPoints = ['nav-start', 'nav-one', 'nav-two', 'nav-three', 'nav-four', 'nav-five', 'nav-six', 'nav-seven', 'nav-eight', 'nav-nine', 'nav-ten'];
 var functionArray = [planetOneZoomIn, planetTwoZoomIn, planetThreeZoomIn, planetFourZoomIn, planetFiveZoomIn, planetSixZoomIn, planetSevenZoomIn, planetEightZoomIn, planetNineZoomIn, planetTenZoomIn];
+var planetFuelCounter = 0;
 
 // game start
 
@@ -336,18 +337,16 @@ function generateChart(){
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-        labels: ['Ship', 'Crew', 'Fuel'],
+        labels: ['Crew', 'Fuel'],
         datasets: [
             {
             label: 'Resources',
-            data: [9, 3, 7],
+            data: [totalCrew, totalFuel],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.4)',
                 'rgba(255, 99, 132, 0.4)',
                 'rgba(255, 99, 132, 0.4)',
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
                 'rgba(255, 99, 132, 1)',
                 'rgba(255, 99, 132, 1)',
             ],

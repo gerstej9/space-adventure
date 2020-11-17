@@ -11,6 +11,7 @@ var planetEight = document.getElementById("world-eight");
 var planetNine = document.getElementById("world-nine");
 var planetTen = document.getElementById("world-ten");
 var plotCourse = document.getElementById("player-ship");
+var planetGoal = document.getElementById('finish-space');
 var displayEvent = document.getElementById("display-event");
 var allPlanets = [];
 
@@ -103,8 +104,12 @@ function planetFourZoomIn() {
     } else {
     planetFour.classList.add("four");
     displayEvent.classList.remove("zoom");
-    planetFour.classList.add('easy-choice');
-    planetFour.addEventListener("click", planetFourZoomIn);
+    planetFive.classList.add('med-choice');
+    planetSeven.classList.add('med-choice');
+    planetEight.classList.add('hard-choice');
+    planetFive.addEventListener("click", planetFiveZoomIn);
+    planetSeven.addEventListener("click", planetSevenZoomIn);
+    planetEight.addEventListener("click", planetEightZoomIn);
     }
 }
 
@@ -114,6 +119,7 @@ function planetFiveZoomIn() {
     planetFive.classList.remove('med-choice');
     planetThree.classList.remove('easy-choice');
     planetFour.classList.remove('easy-choice');
+    planetSix.classList.remove('hard-choice');
     plotCourse.classList.add('nav-five');
     plotCourse.classList.remove("nav-one");
     plotCourse.classList.remove('nav-two');
@@ -128,12 +134,120 @@ function planetFiveZoomIn() {
     } else {
     planetFive.classList.add("five");
     displayEvent.classList.remove("zoom");
-    planetFour.classList.add('easy-choice');
-    planetFour.addEventListener("click", planetFourZoomIn);
+    planetSix.classList.add('med-choice');
+    planetSeven.classList.add('easy-choice');
+    planetSix.addEventListener("click", planetSixZoomIn);
+    planetSeven.addEventListener("click", planetSevenZoomIn);
     }
 }
 
 function planetSixZoomIn() {
+    planetFive.classList.remove('easy-choice');
+    planetSix.classList.remove('med-choice');
+    planetSix.classList.remove('hard-choice');
+    planetSeven.classList.remove('easy-choice');
+    planetEight.classList.remove('med-choice');
+    planetNine.classList.remove('hard-choice');
+    plotCourse.classList.add('nav-six');
+    plotCourse.classList.remove("nav-five");
+    plotCourse.classList.remove('nav-two');
+    plotCourse.classList.remove('nav-seven');
+    if (planetSix.classList.contains("six")) {
+    planetSix.classList.remove("six");
+    planetFive.removeEventListener("click", planetFiveZoomIn);
+    planetSeven.removeEventListener("click", planetSevenZoomIn);
+    planetEight.removeEventListener("click", planetEightZoomIn);
+    planetNine.removeEventListener('click', planetNineZoomIn);
+    displayEvent.classList.add("zoom");
+    } else {
+    planetSix.classList.add("six");
+    displayEvent.classList.remove("zoom");
+    planetNine.classList.add('med-choice');
+    planetTen.classList.add('easy-choice');
+    planetNine.addEventListener("click", planetNineZoomIn);
+    planetTen.addEventListener("click", planetTenZoomIn);
+    }
+}
+
+function planetSevenZoomIn() {
+    planetFive.classList.remove('med-choice');
+    planetSix.classList.remove('med-choice');
+    planetSeven.classList.remove('easy-choice');
+    planetSeven.classList.remove('med-choice');
+    planetEight.classList.remove('hard-choice');
+    plotCourse.classList.add('nav-seven');
+    plotCourse.classList.remove("nav-five");
+    plotCourse.classList.remove('nav-four');
+    if (planetSeven.classList.contains("seven")) {
+    planetSeven.classList.remove("seven");
+    planetFive.removeEventListener("click", planetFiveZoomIn);
+    planetEight.removeEventListener("click", planetEightZoomIn);
+    planetSix.removeEventListener('click', planetSixZoomIn);
+    displayEvent.classList.add("zoom");
+    } else {
+    planetSeven.classList.add("seven");
+    displayEvent.classList.remove("zoom");
+    planetSix.classList.add('med-choice');
+    planetEight.classList.add('med-choice');
+    planetNine.classList.add('hard-choice');
+    planetSix.addEventListener("click", planetSixZoomIn);
+    planetEight.addEventListener("click", planetEightZoomIn);
+    planetNine.addEventListener("click", planetNineZoomIn);
+    }
+}
+
+function planetEightZoomIn() {
+    planetNine.classList.remove('hard-choice');
+    planetSix.classList.remove('med-choice');
+    planetSeven.classList.remove('med-choice');
+    planetEight.classList.remove('med-choice');
+    planetEight.classList.remove('hard-choice');
+    plotCourse.classList.add('nav-eight');
+    plotCourse.classList.remove("nav-seven");
+    plotCourse.classList.remove('nav-four');
+    if (planetEight.classList.contains("eight")) {
+    planetEight.classList.remove("eight");
+    planetNine.removeEventListener("click", planetNineZoomIn);
+    planetSeven.removeEventListener("click", planetSevenZoomIn);
+    planetSix.removeEventListener('click', planetSixZoomIn);
+    displayEvent.classList.add("zoom");
+    } else {
+    planetEight.classList.add("eight");
+    displayEvent.classList.remove("zoom");
+    planetGoal.classList.add('final-choice');
+    planetGoal.addEventListener("click", planetGoalZoomIn);
+    }
+}
+
+function planetNineZoomIn() {
+    planetNine.classList.remove('med-choice');
+    planetNine.classList.remove('hard-choice');
+    planetSix.classList.remove('med-choice');
+    planetTen.classList.remove('easy-choice');
+    planetEight.classList.remove('med-choice');
+    plotCourse.classList.add('nav-nine');
+    plotCourse.classList.remove("nav-six");
+    plotCourse.classList.remove('nav-seven');
+    plotCourse.classList.remove('nav-ten');
+    if (planetNine.classList.contains("nine")) {
+    planetNine.classList.remove("nine");
+    planetSix.removeEventListener("click", planetSixZoomIn);
+    planetEight.removeEventListener("click", planetEightZoomIn);
+    planetTen.removeEventListener('click', planetTenZoomIn);
+    displayEvent.classList.add("zoom");
+    } else {
+    planetNine.classList.add("nine");
+    displayEvent.classList.remove("zoom");
+    planetGoal.classList.add('final-choice');
+    planetGoal.addEventListener("click", planetGoalZoomIn);
+    }
+}
+
+function planetTenZoomIn() {
+
+}
+
+function planetGoalZoomIn() {
 
 }
 

@@ -156,8 +156,7 @@ img#right-planet{
 }
 
 
-/* checkbox of start playing - 
- trigger by pressing "save the world" button */
+/* checkbox of start playing - trigger by pressing "save the world" button */
 #toggleGame:checked{
     ~ .game-menu-frame{ display: none; }
     ~ .game-frame{ 

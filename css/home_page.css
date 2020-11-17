@@ -1,0 +1,12 @@
+body{
+  max-width: 1440px;
+  height: 800px;
+  background-color: #1a0a26;
+
+}
+
+.main-logo{
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}

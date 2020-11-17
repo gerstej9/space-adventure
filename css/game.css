@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+body {
+  width: 1366px;
+  height: 768px;
+}
+
 header {
   height: 60px;
 }
@@ -27,11 +32,6 @@ main {
 
 footer {
   height: 60px;
-}
-
-body {
-  width: 1366px;
-  height: 768px;
 }
 
 h3 {
@@ -111,10 +111,15 @@ h3 {
   box-shadow: 0 0 60px 120px orangered;
 }
 
+.final-choice {
+  border: 1px solid black;
+  box-shadow: 0 0 8px 10px rgb(155, 214, 238);
+}
+
 #world-two {
   height: 360px;
   width: 360px;
-  background-color: tan;
+  background-color: rgb(167, 34, 149);
   border-radius: 50%;
 }
 
@@ -150,7 +155,7 @@ h3 {
 #world-five {
   height: 360px;
   width: 360px;
-  background-color: goldenrod;
+  background-color: rgb(252, 211, 107);
   border-radius: 50%;
 }
 
@@ -174,7 +179,7 @@ h3 {
 #world-seven {
   height: 360px;
   width: 360px;
-  background-color: sandybrown;
+  background-color: rgb(173, 248, 192);
   border-radius: 50%;
 }
 
@@ -259,9 +264,13 @@ h3 {
   font-size: 12px;
 }
 
+.success {
+  background: white;
+}
+
 #player-ship {
   position: absolute;
-  color: slategray;
+  color: rgb(161, 161, 161);
 
   text-shadow: 0 0 1px whitesmoke;
   transform: rotate(90deg);

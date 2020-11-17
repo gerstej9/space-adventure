@@ -1,5 +1,8 @@
 
-html{font-size:25px; font-family: 'novecento_sans_widebold';}
+html{
+  font-size:25px;
+  font-family: 'novecento_sans_widebold';
+}
 
 
 html,body{
@@ -18,7 +21,7 @@ html,body{
   background-color: #3f2a50;
   height: 90px;
   width: 100%;
-  background-image: url(/img/nav\ bar\ copy\ 2.png);
+  background-image: url('/img/nav_bar.png');
 }
 
 

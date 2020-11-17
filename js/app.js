@@ -6,13 +6,23 @@ var totalCrew = 5;
 var totalFuel = 10;
 var totalPoints = 0;
 var pathArray = [];
+var leaderBoard = [];
 
+//Leaderboard input constructor function
+var HighScore = function(name, points){
+    this.name = name;
+    this.points = points;
+    leaderBoard.push(this);
+}
+///points.sort(function(a, b){return a-b}); for sorting high score leaderboard
+//W3Schools contribution
+
+//Spaceship paths constructor function
 var Path = function (length, fuel){
     this.length = length;
     this.fuel = fuel;
     pathArray.push(this);
 }
-
 
 // Event Card Constructor Function
 
@@ -71,6 +81,7 @@ function eventCardArrayGenerator(){
     while(eventCardNumberArray.length>2){
         eventCardNumberArray.pop();
     }
+    console.log(eventCardNumberArray);
     return eventCardNumberArray[1];
 }
 
@@ -96,10 +107,14 @@ function eventCardSelector(){
 // After yes or no selection on rendered Event Card
 //Needs code to signify move on from card to next step
 function eventCardAction(eventCard){
+    console.log(eventCard);
     eventCardSuccess(eventCard);
+    console.log(eventCard.success);
     if(eventCard.type === 'no-action'){
-
+        totalCrew+= eventCard.crew;
+        totalFuel+= eventCard.fuel;
     }else{
+        //In this event they failed in attempt and loss outcome eventCard.lossText should render
         if(!eventCard.success){
             if(eventCard.type === 'fuel'){
                 totalCrew+= eventCard.crew;
@@ -110,6 +125,7 @@ function eventCardAction(eventCard){
             if(eventCard.type === 'treasure'){
                 totalFuel+= eventCard.fuel;
             }
+        //In this event they succeeded in attempt and gain outcome eventCard.gainText should render
         }else{
             if(eventCard.type === 'fuel'){
                 totalFuel+= eventCard.fuel;
@@ -124,8 +140,15 @@ function eventCardAction(eventCard){
     }
 }
 
+function tabulatePoints(){
+    totalPoints+= ((totalCrew * 2000) + (totalFuel * 1000));
+    return totalPoints;
+}
+
 console.log(totalPoints,totalCrew, totalFuel);
 
 eventCardAction(eventCardSelector());
 
 console.log(totalPoints,totalCrew, totalFuel);
+
+console.log(tabulatePoints());

@@ -40,13 +40,14 @@ function startGame(){
 function planetOneZoomIn() {
     removeHalos();
     removeNavPoints();
-    fuelDecrement(1);
-    generateChart();
-    planetFuelCounter = 1;
     plotCourse.classList.add('nav-one');
 
     if (planetOne.classList.contains('one')) {
         planetOne.classList.remove('one');
+        fuelDecrement(1);
+        generateChart();
+        planetFuelCounter = 1;
+        console.log(totalFuel);
         loadEvent();
         removePlanetListeners();
         displayEvent.classList.add('zoom');
@@ -75,6 +76,10 @@ function planetTwoZoomIn() {
 
     if (planetTwo.classList.contains('two')) {
         planetTwo.classList.remove('two');
+        fuelDecrement(1);
+        generateChart();
+        planetFuelCounter = 2;
+        console.log(totalFuel);
         loadEvent();
         removePlanetListeners();
         displayEvent.classList.add('zoom');
@@ -99,6 +104,10 @@ function planetThreeZoomIn() {
 
     if (planetThree.classList.contains('three')) {
         planetThree.classList.remove('three');
+        fuelDecrement(2);
+        generateChart();
+        planetFuelCounter = 3;
+        console.log(totalFuel);
         loadEvent();
         removePlanetListeners();
         displayEvent.classList.add('zoom');
@@ -121,6 +130,14 @@ function planetFourZoomIn() {
 
     if (planetFour.classList.contains('four')) {
         planetFour.classList.remove('four');
+        if(planetFuelCounter === 1){
+            fuelDecrement(2);
+        }else{
+            fuelDecrement(1);
+        }
+        generateChart();
+        planetFuelCounter = 4;
+        console.log(totalFuel);
         loadEvent();
         removePlanetListeners();
         displayEvent.classList.add('zoom');
@@ -147,6 +164,14 @@ function planetFiveZoomIn() {
 
     if (planetFive.classList.contains('five')) {
         planetFive.classList.remove('five');
+        if(planetFuelCounter === 2){
+            fuelDecrement(1);
+        }else{
+            fuelDecrement(2);
+        }
+        generateChart();
+        planetFuelCounter = 5;
+        console.log(totalFuel);
         loadEvent();
         removePlanetListeners();
         displayEvent.classList.add('zoom');
@@ -171,6 +196,14 @@ function planetSixZoomIn() {
 
     if (planetSix.classList.contains('six')) {
         planetSix.classList.remove('six');
+        if(planetFuelCounter === 7){
+            fuelDecrement(1);
+        }else{
+            fuelDecrement(2);
+        }
+        generateChart();
+        planetFuelCounter = 6;
+        console.log(totalFuel);
         loadEvent();
         removePlanetListeners();
         displayEvent.classList.add('zoom');
@@ -195,6 +228,10 @@ function planetSevenZoomIn() {
 
     if (planetSeven.classList.contains('seven')) {
         planetSeven.classList.remove('seven');
+        fuelDecrement(1);
+        generateChart();
+        planetFuelCounter = 7;
+        console.log(totalFuel);
         loadEvent();
         removePlanetListeners();
         displayEvent.classList.add('zoom');
@@ -221,6 +258,14 @@ function planetEightZoomIn() {
 
     if (planetEight.classList.contains('eight')) {
         planetEight.classList.remove('eight');
+        if(planetFuelCounter === 7){
+            fuelDecrement(2);
+        }else{
+            fuelDecrement(3);
+        }
+        generateChart();
+        planetFuelCounter = 8;
+        console.log(totalFuel);
         loadEvent();
         removePlanetListeners();
         displayEvent.classList.add('zoom');
@@ -243,6 +288,14 @@ function planetNineZoomIn() {
 
     if (planetNine.classList.contains('nine')) {
         planetNine.classList.remove('nine');
+        if(planetFuelCounter === 10){
+            fuelDecrement(2);
+        }else{
+            fuelDecrement(3);
+        }
+        generateChart();
+        planetFuelCounter = 9;
+        console.log(totalFuel);
         loadEvent();
         removePlanetListeners();
         displayEvent.classList.add('zoom');
@@ -265,6 +318,10 @@ function planetTenZoomIn() {
 
     if (planetTen.classList.contains('ten')) {
         planetTen.classList.remove('ten');
+        fuelDecrement(1);
+        generateChart();
+        planetFuelCounter = 10;
+        console.log(totalFuel);
         loadEvent();
         removePlanetListeners();
         displayEvent.classList.add('zoom');
@@ -284,6 +341,9 @@ function planetGoalZoomIn() {
     planetGoal.classList.remove('final-choice');
     removeNavPoints();
     removePlanetListeners();
+    fuelDecrement(1);
+    generateChart();
+    planetFuelCounter = 11;
     plotCourse.classList.add('nav-goal');
     var congrats = document.createElement('h3');
     congrats.textContent = 'Congratulations!! You Made It!';
@@ -391,7 +451,6 @@ function generateChart(){
             yAxes: [
             {
                 ticks: {
-                suggestedMax: 15,
                 beginAtZero: true,
                 },
             },

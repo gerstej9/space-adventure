@@ -107,7 +107,7 @@ function eventCardArrayGenerator(){
     while(eventCardNumberArray.length>allEventCards.length){
         eventCardNumberArray.pop();
     }
-    console.log(eventCardNumberArray);
+    // console.log(eventCardNumberArray);
     return eventCardNumberArray;
 }
 
@@ -182,6 +182,6 @@ eventCardArrayGenerator();
 
 // eventCardAction(eventCardSelector());
 
-console.log(totalPoints,totalCrew, totalFuel);
+// console.log(totalPoints,totalCrew, totalFuel);
 
 // console.log(totalPoints);

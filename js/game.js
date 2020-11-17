@@ -18,6 +18,7 @@ var displayEvent = document.getElementById('display-event');
 var cardTitleHolder = document.getElementById('event-title');
 var cardTextHolder = document.getElementById('event-text');
 var cardImage = document.getElementById('event-image');
+var btnContainer = document.getElementById('button-container');
 var allPlanets = [planetOne, planetTwo, planetThree, planetFour, planetFive, planetSix, planetSeven, planetEight, planetNine, planetTen];
 var navPoints = ['nav-start', 'nav-one', 'nav-two', 'nav-three', 'nav-four', 'nav-five', 'nav-six', 'nav-seven', 'nav-eight', 'nav-nine', 'nav-ten'];
 var functionArray = [planetOneZoomIn, planetTwoZoomIn, planetThreeZoomIn, planetFourZoomIn, planetFiveZoomIn, planetSixZoomIn, planetSevenZoomIn, planetEightZoomIn, planetNineZoomIn, planetTenZoomIn];
@@ -67,7 +68,7 @@ function planetTwoZoomIn() {
     removeHalos();
     removeNavPoints();
     plotCourse.classList.add('nav-two');
-    
+
     if (planetTwo.classList.contains('two')) {
         planetTwo.classList.remove('two');
         loadEvent();
@@ -307,6 +308,24 @@ function loadEvent(){
     eventText.textContent = eventInfo.textSummary;
     cardTitleHolder.appendChild(eventTitle);
     cardTextHolder.appendChild(eventText);
+    createButtons(eventInfo);
+}
+
+function createButtons(eventData){
+    var eventInfo = eventData;
+    
+    if(eventInfo.type === 'no-action'){
+        var confirm = document.createElement('button');
+        confirm.textContent = 'Proceed';
+        btnContainer.appendChild(confirm);
+    } else {
+        var acceptRisk = document.createElement('button');
+        acceptRisk.textContent = 'Risk it!';
+        var rejectRisk = document.createElement('button');
+        rejectRisk.textContent = 'No Way!';
+        btnContainer.appendChild(acceptRisk);
+        btnContainer.appendChild(rejectRisk);
+    }
 }
 
 // empty event card
@@ -315,6 +334,7 @@ function blankCard() {
     cardTitleHolder.innerHTML = '';
     cardImage.src = '';
     cardTextHolder.innerHTML = '';
+    btnContainer.innerHTML = '';
 }
 
 // functions to move ship and to remove halos and event listeners

@@ -47,6 +47,7 @@ function planetOneZoomIn() {
         removePlanetListeners();
         displayEvent.classList.add('zoom');
         planetOne.addEventListener('click', planetOneZoomIn); // temp until card button set up
+        btnContainer.addEventListener('click', choiceClick);
     } else {
         planetOne.classList.add('one');
         displayEvent.classList.remove('zoom');
@@ -316,12 +317,15 @@ function createButtons(eventData){
 
     if(eventInfo.type === 'no-action'){
         var confirm = document.createElement('button');
+        confirm.id = 'confirm';
         confirm.textContent = 'Proceed';
         btnContainer.appendChild(confirm);
     } else {
         var acceptRisk = document.createElement('button');
+        acceptRisk.id = 'accept';
         acceptRisk.textContent = 'Risk it!';
         var rejectRisk = document.createElement('button');
+        rejectRisk.id = 'reject';
         rejectRisk.textContent = 'No Way!';
         btnContainer.appendChild(acceptRisk);
         btnContainer.appendChild(rejectRisk);
@@ -357,6 +361,22 @@ function removePlanetListeners(){
     for(var i = 0 ; i < allPlanets.length ; i++){
         allPlanets[i].removeEventListener('click', functionArray[i]);
     }
+}
+
+function choiceClick(e){
+    console.log(e.target);
+    var buttonId = e.target;
+    if(buttonId.id === 'confirm'){
+        console.log(`Confirmed!!`);
+        // show results
+    } else if(buttonId.id === 'accept'){
+        console.log(`Let's Do This!!`);
+        // show results
+    } else if(buttonId.id === 'reject'){
+        console.log(`Are You Crazy?!?`);
+        // show results
+    }
+
 }
 
 // generates chart of resources

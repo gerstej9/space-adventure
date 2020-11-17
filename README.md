@@ -42,6 +42,11 @@ Domain Modeling
 * See file DOM_model
 
 
+## Credit
+Images and font all licensed from envato elements 
+https://elements.envato.com/license-terms
+
+
 
 
 

@@ -7,7 +7,7 @@ html{
 
 html,body{
   
-  height: 80vh;
+  height: 100%;
 
 
 }
@@ -17,6 +17,12 @@ h2{
   font-size: 40px;
   text-transform: uppercase;
   margin-bottom: 1rem;
+}
+
+p{
+  font-family: 'novecento_sans_widebook';
+  line-height: 1.5rem;
+
 }
 
 
@@ -51,6 +57,7 @@ main{
   top: 0px;
   z-index: -1;
   width: 100%;
+  height: auto;
   
 }
 
@@ -158,7 +165,7 @@ img#right-planet{
 
 
 .game-menu-frame{
-  padding: 10% 20px 0 20px;
+  padding: 5% 20px 0 20px;
   max-width: 800px;
 
 
@@ -167,14 +174,7 @@ img#right-planet{
 
 
 
-/* ----- footer ---------*/
 
-div.footer-wrapper{
-  height: 100px;
-  background-color: #3f2a50;
-  margin-top: -50px;
-
-}
 
 /* -----The Modal background ----- */
 .modal {
@@ -192,7 +192,7 @@ div.footer-wrapper{
 
 /* ----Modal Content----- */
 .modal-content {
-  font-family: 'novecento_sans_widebook';
+  
   background-color: #251631;
   margin: 20% auto 0 auto;
   padding: 20px;
@@ -240,4 +240,67 @@ div.footer-wrapper{
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* The Close Button leaderBoard */
+.closeA {
+  
+  color: #83f3df;
+  float: right;
+  font-size: 48px;
+  line-height: 25px;
+  font-weight: bold;
+}
+
+.closeA:hover,
+.closeA:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* The Close Button About */
+.closeB {
+  
+  color: #83f3df;
+  float: right;
+  font-size: 48px;
+  line-height: 25px;
+  font-weight: bold;
+}
+
+.closeB:hover,
+.closeB:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.git-logo-wrapper{
+  padding-top: 2rem;
+  margin: auto;
+  width: 280px;
+  color: aliceblue;
+  font-size: 16px;
+  font-family: 'novecento_sans_widebook';
+  text-transform: uppercase;
+ 
+}
+
+div.git-logo-wrapper img{
+
+  
+  margin: 1rem auto 2rem auto;
+  width: 100px;
+}
+
+
+/* ----- footer ---------*/
+
+div.footer-wrapper{
+  background-color: #3f2a50;
+  height: 90px;
+  width: 100%;
+  background-image: url('/img/nav_bar.png');
+
 }

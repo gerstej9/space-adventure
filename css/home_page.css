@@ -84,7 +84,51 @@ img#right-planet{
 }
 
 
+.game-menu-frame{
+  margin: auto;
+  text-align: center;
+  
 
+  height: 600px;
+}
+
+
+
+html{font-size:25px; font-family: 'novecento_sans_widebold';}
+.button{
+  display:inline-block;
+  padding:5px;
+  border:solid 2px #000;  
+  border-radius:5px;
+  margin-bottom:10px;
+  background-color:#bbb;
+  color:black;
+}
+
+/* checkbox which triggering popup */
+#whoAmIPopup:checked ~ #whoAmI,
+#HowToPlayPopup:checked ~ #HowToPlay{
+  display: block;
+}
+/* checkbox of start playing - 
+ trigger by pressing "save the world" button */
+#toggleGame:checked{
+    ~ .game-menu-frame{ display: none; }
+    ~ .game-frame{ display: relative;}    
+}
+
+/* hide popup and game frame*/
+#whoAmI,
+#HowToPlay,
+.game-frame{display: none;}
+
+.game-menu-frame{
+
+}
+
+.game-frame{background:green; padding:50px; color:#fff; border:solid 2px #000;}
+
+.popup{background:blue; padding:50px; color:#fff; border:solid 2px #000;}
 
 
 

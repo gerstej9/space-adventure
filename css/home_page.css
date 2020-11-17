@@ -1,12 +1,212 @@
-body{
-  max-width: 1440px;
-  height: 800px;
-  background-color: #1a0a26;
 
+html{font-size:25px; font-family: 'novecento_sans_widebold';}
+
+
+html,body{
+  
+  height: 80vh;
+
+
+}
+
+
+
+
+  /* ------------------ nav ------------------*/
+
+.nav-wrapper{
+  background-color: #3f2a50;
+  height: 90px;
+  width: 100%;
+  background-image: url(/img/nav\ bar\ copy\ 2.png);
+}
+
+
+.logo-wrapper{
+  
+  
+  margin: -63px auto 0 auto;
+  width: 186px;
 }
 
 .main-logo{
-  display: inline-block;
-  margin: auto;
+
   width: 100%;
+  height: 100%;
 }
+
+  /* ----- main ---------*/
+
+main{
+  position: fixed;
+  top: 0px;
+  z-index: -1;
+  width: 100%;
+  
+}
+
+#myVideo {
+  z-index: -1;
+  min-width: 100%;
+  min-height: 100%;
+  
+}
+
+.color-overlay{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgb(52, 15, 80);
+  background: linear-gradient(171deg, rgb(21, 3, 34) 0%, rgb(2, 1, 26) 100%);
+  mix-blend-mode: color;
+
+}
+
+
+
+/* ----- Planets ---------*/
+
+
+img#left-planet{
+  top: 300px;
+  left: 0px;
+  position: absolute;
+  z-index: 8;
+  
+
+}
+
+img#right-planet{
+  top: 600px;
+  right: 0px;
+  position: absolute;
+  z-index: 8;
+  
+
+}
+
+.game-button-wrapper{
+  min-height: 100%;
+}
+
+
+.game-menu-frame{
+  margin: auto;
+  text-align: center;
+  padding-bottom: 50px;
+  
+
+  
+}
+
+
+
+.button1:hover {
+  color: #349a87;
+  box-shadow:
+    0 0 .5px .5px #fff,  
+    0 0 3px 3px #83f3df, 
+    0 0 10px 10px #349a87; 
+  
+}
+
+
+
+
+
+.button1{
+
+  display:inline-block;
+  border-radius:5px;
+  padding: 15px 0;
+  margin-bottom:10px;
+  background-color:#291536;
+  color:whitesmoke;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-transform: uppercase;
+
+}
+
+.button{
+
+  display:inline-block;
+  border-radius:5px;
+  padding: 15px 0;
+  
+  background-color:#0c0213;
+  color:whitesmoke;
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  float: right;
+
+}
+
+/* checkbox which triggering popup */
+#whoAmIPopup:checked ~ #whoAmI,
+#aboutCreators:checked ~ #aboutUs,
+#howToPlayPopup:checked ~ #howToPlay{
+  display: block;
+  width: 800px;
+  margin: auto;
+}
+
+
+/* checkbox of start playing - trigger by pressing "save the world" button */
+#toggleGame:checked{
+    ~ .game-menu-frame{ display: none; }
+    ~ .game-frame{ 
+      display: absolute;
+      z-index: 200;
+
+    }    
+}
+
+/* hide popup and game frame*/
+#whoAmI,
+#howToPlay,
+#aboutUs,
+.game-frame{display: none;}
+
+.game-menu-frame{
+  padding:10% 20px 0 20px;
+  max-width: 800px;
+
+
+}
+
+.logic-checkbox{
+  
+  position: absolute;
+  bottom: 0;
+  right:  0;
+}
+
+.game-frame{
+  background:green; 
+  padding:50px; color:#fff; 
+  border:solid 2px #000;
+}
+
+.popup{
+  background:#1e0e29; 
+  padding:50px; color:#fff; 
+  border:solid 20px #493955; 
+  border-radius:10px; 
+}
+
+
+
+/* ----- footer ---------*/
+
+div.footer-wrapper{
+  height: 100px;
+  background-color: #3f2a50;
+  margin-top: -50px;
+
+}
+

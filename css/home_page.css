@@ -176,7 +176,7 @@ div.footer-wrapper{
 
 }
 
-/* The Modal (background) */
+/* -----The Modal background ----- */
 .modal {
   display: none; 
   position: fixed; 
@@ -190,7 +190,7 @@ div.footer-wrapper{
   background-color: rgba(0,0,0,0.4); 
 }
 
-/* Modal Content/Box */
+/* ----Modal Content----- */
 .modal-content {
   font-family: 'novecento_sans_widebook';
   background-color: #251631;

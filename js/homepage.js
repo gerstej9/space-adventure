@@ -2,15 +2,16 @@
 
 
 
-
-
-var modal = document.getElementById("myModal");
+// Get model div
+var modal = document.getElementById("myModalOne");
 
 // Get the label that opens the modal
-var btn = document.getElementById("myBtn");
+var btn = document.getElementById("myBtnOne");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+
+
 
 // When the user clicks on the label, open the modal
 btn.onclick = function() {

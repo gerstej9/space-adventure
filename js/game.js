@@ -109,7 +109,28 @@ function planetFourZoomIn() {
 }
 
 function planetFiveZoomIn() {
-
+    planetTwo.classList.remove("easy-choice");
+    planetFive.classList.remove('easy-choice');
+    planetFive.classList.remove('med-choice');
+    planetThree.classList.remove('easy-choice');
+    planetFour.classList.remove('easy-choice');
+    plotCourse.classList.add('nav-five');
+    plotCourse.classList.remove("nav-one");
+    plotCourse.classList.remove('nav-two');
+    plotCourse.classList.remove('nav-four');
+    if (planetFive.classList.contains("five")) {
+    planetFive.classList.remove("five");
+    planetTwo.removeEventListener("click", planetTwoZoomIn);
+    planetThree.removeEventListener("click", planetThreeZoomIn);
+    planetFour.removeEventListener("click", planetFourZoomIn);
+    planetSix.removeEventListener('click', planetSixZoomIn);
+    displayEvent.classList.add("zoom");
+    } else {
+    planetFive.classList.add("five");
+    displayEvent.classList.remove("zoom");
+    planetFour.classList.add('easy-choice');
+    planetFour.addEventListener("click", planetFourZoomIn);
+    }
 }
 
 function planetSixZoomIn() {

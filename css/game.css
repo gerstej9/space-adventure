@@ -81,7 +81,7 @@ h3 {
   border-radius: 50%;
   transition: 1.25s;
   transition-delay: 0.5s;
-  z-index: 2;
+  z-index: 4;
 }
 
 #world-one {
@@ -96,9 +96,19 @@ h3 {
   z-index: 1;
 }
 
-.choice {
+.easy-choice {
   border: 12px solid black;
   box-shadow: 0 0 60px 120px lime;
+}
+
+.med-choice {
+  border: 12px solid black;
+  box-shadow: 0 0 60px 120px yellow;
+}
+
+.hard-choice {
+  border: 12px solid black;
+  box-shadow: 0 0 60px 120px orangered;
 }
 
 #world-two {
@@ -113,7 +123,7 @@ h3 {
   z-index: 1;
 }
 
-.three {
+#world-three {
   height: 360px;
   width: 360px;
   background-color: darkred;
@@ -125,7 +135,7 @@ h3 {
   z-index: 1;
 }
 
-.four {
+#world-four {
   height: 360px;
   width: 360px;
   background-color: orangered;
@@ -137,7 +147,7 @@ h3 {
   z-index: 1;
 }
 
-.five {
+#world-five {
   height: 360px;
   width: 360px;
   background-color: goldenrod;
@@ -149,7 +159,7 @@ h3 {
   z-index: 1;
 }
 
-.six {
+#world-six {
   height: 360px;
   width: 360px;
   background-color: lightskyblue;
@@ -161,7 +171,7 @@ h3 {
   z-index: 1;
 }
 
-.seven {
+#world-seven {
   height: 360px;
   width: 360px;
   background-color: sandybrown;
@@ -173,7 +183,7 @@ h3 {
   z-index: 1;
 }
 
-.eight {
+#world-eight {
   height: 360px;
   width: 360px;
   background-color: blueviolet;
@@ -185,7 +195,7 @@ h3 {
   z-index: 1;
 }
 
-.nine {
+#world-nine {
   height: 360px;
   width: 360px;
   background-color: grey;
@@ -197,7 +207,7 @@ h3 {
   z-index: 1;
 }
 
-.ten {
+#world-ten {
   height: 360px;
   width: 360px;
   background-color: aqua;
@@ -212,13 +222,8 @@ h3 {
 .card-container {
   height: 260px;
   position: absolute;
-  /* left: 75px;
-  top: 50px; */
   width: 210px;
-  /* display: none; */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  z-index: 3;
+  z-index: 5;
   transform: scale(0.005);
   transition: all 1.25s ease-in-out;
   transition-delay: 0.75s;
@@ -272,6 +277,56 @@ h3 {
 .nav-one {
   top: 190px;
   left: 130px;
+}
+
+.nav-two {
+  top: 70px;
+  left: 290px;
+}
+
+.nav-three {
+  top: 400px;
+  left: 70px;
+}
+
+.nav-four {
+  top: 420px;
+  left: 250px;
+}
+
+.nav-five {
+  top: 200px;
+  left: 400px;
+}
+
+.nav-six {
+  top: 150px;
+  left: 670px;
+}
+
+.nav-seven {
+  top: 410px;
+  left: 500px;
+}
+
+.nav-eight {
+  top: 570px;
+  left: 650px;
+}
+
+.nav-nine {
+  top: 370px;
+  left: 850px;
+}
+
+.nav-ten {
+  top: 110px;
+  left: 860px;
+}
+
+.nav-goal {
+  top: 570px;
+  left: 890px;
 }
 
 #game-title {

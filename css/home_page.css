@@ -12,6 +12,12 @@ html,body{
 
 }
 
+h2{
+  font-family: 'novecento_sans_widebold';
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
 
 
 
@@ -198,7 +204,26 @@ div.footer-wrapper{
   color: #aaa;
   box-sizing: border-box;
   text-align: left;
+ 
 }
+
+.modal-header {
+  padding: 2px 16px;
+  color: white;
+  font-size: 40px;
+  
+}
+
+
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+
+
+
+
 
 /* The Close Button */
 .close {

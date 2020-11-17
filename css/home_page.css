@@ -241,3 +241,37 @@ div.footer-wrapper{
   text-decoration: none;
   cursor: pointer;
 }
+
+/* The Close Button leaderBoard */
+.closeA {
+  
+  color: #83f3df;
+  float: right;
+  font-size: 48px;
+  line-height: 25px;
+  font-weight: bold;
+}
+
+.closeA:hover,
+.closeA:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* The Close Button About */
+.closeB {
+  
+  color: #83f3df;
+  float: right;
+  font-size: 48px;
+  line-height: 25px;
+  font-weight: bold;
+}
+
+.closeB:hover,
+.closeB:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

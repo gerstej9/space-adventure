@@ -46,22 +46,37 @@ new Path('medium', 2);
 new Path('long', 3);
 
 
-new EventCard('Mine for Fuel', 1, -1, 0, .7, 'fuel', 'You have landed on an Orion type planet that is rich in Neptunium fuel but potentially dangerous. Would you like to mine for 1 unit of Neptunium at the risk of losing 1 crew member?', 'Your mining was a success, all crew members survived, and you obtained 1 unit of Neptunium', 'Your mining was a disaster, you lost one crew member and obtained zero Neptunium', false);
+new EventCard('Mine for Fuel', 1, -1, 0, .7, 'fuel', 'You have landed on an Orion type planet that is rich in fuel fuel but potentially dangerous. Would you like to mine for 1 unit of fuel at the risk of losing 1 crew member?', 'Your mining was a success, all crew members survived, and you obtained 1 unit of fuel', 'Your mining was a disaster, you lost one crew member and obtained zero fuel', false);
 
-new EventCard('Steal Fuel', 2, -2, 0, .4, 'fuel', 'This planet is home to space bandits who hoard large amounts of Neptunium fuel. Would you like to steal 2 units of Neptunium at the risk of losing 2 crew members?”', 'You successfully stole 2 units of Neptunium from the bandits without losing any crew members.', 'The bandits were wise to your plan and you lost 2 crew members in the scuffle.', false);
+new EventCard('Steal Fuel', 2, -2, 0, .4, 'fuel', 'This planet is home to space bandits who hoard large amounts of fuel fuel. Would you like to steal 2 units of fuel at the risk of losing 2 crew members?”', 'You successfully stole 2 units of fuel from the bandits without losing any crew members.', 'The bandits were wise to your plan and you lost 2 crew members in the scuffle.', false);
 
-new EventCard('Restock Fuel', 1, -1, 0, .8, 'fuel', 'Upon landing on this planet, you have remembered you have fuel stored in a hatch located on the outside of your ship. Would you like to send a crew member outside to retrieve 1 unit of Neptunium at the risk of them being attacked by aliens?', 'Your crew member safely retrieved the fuel, you have gained 1 unit of Neptunium.', 'Vicious aliens attacked your crew member while they were outside, you have lost 1 crew member.', false);
+new EventCard('Restock Fuel', 1, -1, 0, .8, 'fuel', 'Upon landing on this planet, you have remembered you have fuel stored in a hatch located on the outside of your ship. Would you like to send a crew member outside to retrieve 1 unit of fuel at the risk of them being attacked by aliens?', 'Your crew member safely retrieved the fuel, you have gained 1 unit of fuel.', 'Vicious aliens attacked your crew member while they were outside, you have lost 1 crew member.', false);
 
-new EventCard('New Crew Member', -2, 1, 0, .3, 'crew', 'This planet is home to a space station with potential crew members, but it will take some time to convince them to join your crew. Would you like to risk exhausting 2 units of Neptunium to try and recruit 1 crew member?', 'You successfully convinced someone to join your team, you gain 1 crew member and lose no fuel.', 'Your attempts at convincing someone to join your team have failed, you lost 2 units of Neptunium in the process.', false);
+new EventCard('New Crew Member', -2, 1, 0, .3, 'crew', 'This planet is home to a space station with potential crew members, but it will take some time to convince them to join your crew. Would you like to risk exhausting 2 units of fuel to try and recruit 1 crew member?', 'You successfully convinced someone to join your team, you gain 1 crew member and lose no fuel.', 'Your attempts at convincing someone to join your team have failed, you lost 2 units of fuel in the process.', false);
 
-new EventCard('Hunt for Space Ruby', -3, 0, 5000, .33, 'treasure', 'This planet is home to the rarest space gems, the Space Ruby worth 5,000 points. Would you like to risk 3 units of Neptunium to obtain one?', 'While incredibly rare, you were able to find a Space Ruby! You have gained 5,000 points.', 'The Space Ruby is an elusive treasure, unfortunately you could not find one and lost 3 units of Neptunium in the process.', false);
+new EventCard('Hunt for Space Ruby', -3, 0, 5000, .33, 'treasure', 'This planet is home to the rarest space gems, the Space Ruby worth 5,000 points. Would you like to risk 3 units of fuel to obtain one?', 'While incredibly rare, you were able to find a Space Ruby! You have gained 5,000 points.', 'The Space Ruby is an elusive treasure, unfortunately you could not find one and lost 3 units of fuel in the process.', false);
 
-new EventCard('Search for Moon Gems', -1, 0, 1000, .7, 'treasure', 'This planet is of the Galactico variety and is home to precious Moon Gems that will increase your point total by 1,000. Would you like to risk 1 unit of Neptunium fuel to obtain one?', 'You struck it big by finding a Moon Gem on your first try! You have gained 1,000 points.', 'Your attempts at locating a Moon Gem were in vain, you have lost 1 unit of Neptunium in the process.');
+new EventCard('Search for Moon Gems', -1, 0, 1000, .7, 'treasure', 'This planet is of the Galactico variety and is home to precious Moon Gems that will increase your point total by 1,000. Would you like to risk 1 unit of fuel fuel to obtain one?', 'You struck it big by finding a Moon Gem on your first try! You have gained 1,000 points.', 'Your attempts at locating a Moon Gem were in vain, you have lost 1 unit of fuel in the process.');
+
+new EventCard('Dam Righted!!', -1, 0, 2000, .6, 'treasure', 'The locals offer you 2000 points to help save their town by using your ship to brace the failing dam upstream with your ship while they repair it? It may require 1 unit of fuel.', 'The easiest 2000 points you have made in a while, you even got a free ship wash with the deal!', 'The dam can not be saved. You burn extra fuel trying futily to keep it upright long enough to evacuate, but the town and its wealth are washed away.', false)
+
+new EventCard('Exotic Beastie', 0, -2, 5000, .5, 'treasure', 'A rare albino sabrewraith is on the lose. A live one would fetch 5000 credits on the market. Risk 2 crew to hunt it down and capture it?', 'The two lucky "volunteers" come across it while it is sleeping and net it', 'The erstwhile hunters are never heard from again... You lose 2 crew.', false);
 
 new EventCard('Crew Member Falls Ill', 0, -1, 0, 0, 'no-action', 'Upon arriving at this planet, you realize one of your crew members has fallen ill on the journey, you lose 1 crew member.', '', '', false);
 
-new EventCard('Efficient Journey', 1, 0, 0, 0, 'no-action', 'Upon arriving at this planet, you realize that your trip was more fuel efficient than expected. You gain 1 unit of Neptunium.', '', '', false);
+new EventCard('Efficient Journey', 1, 0, 0, 0, 'no-action', 'Upon arriving at this planet, you realize that your trip was more fuel efficient than expected. You gain 1 unit of fuel.', '', '', false);
 
+new EventCard('Unintended Extraction', -1, 1, 0, 0, 'no-action','A local stows away on your ship. But it turns out they are being hunted. You burn 1 fuel unit to throw off pursuit, but the grateful passenger decides to join your crew for the journey.', '', '', false);
+
+
+function leaderBoardStoreLs(){
+    var stringLeaderBoard = JSON.stringify(leaderBoard);
+    localStorage.setItem('leaderboard', stringLeaderBoard);
+}
+
+function generateLeaderBoardLs(parsedScores){
+    
+}
 
 
 function randomNumberGeneratorEventCard(){
@@ -71,14 +86,14 @@ function randomNumberGeneratorEventCard(){
 
 function eventCardArrayGenerator(){
 
-    for( var i = 0; i < 2; i++){
+    for( var i = 0; i < allEventCards.length; i++){
         var randomNumber = randomNumberGeneratorEventCard();
         while(eventCardNumberArray.includes(randomNumber)){
             randomNumber = randomNumberGeneratorEventCard();
         }
         eventCardNumberArray.unshift(randomNumber);
     }
-    while(eventCardNumberArray.length>2){
+    while(eventCardNumberArray.length>allEventCards.length){
         eventCardNumberArray.pop();
     }
     console.log(eventCardNumberArray);

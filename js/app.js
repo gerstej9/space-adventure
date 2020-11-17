@@ -91,7 +91,7 @@ function randomSuccessGenerator(){
 
 function eventCardSuccess(eventCard){
     eventSuccessNumber = randomSuccessGenerator();
-    if(eventSuccessNumber > eventCard.percentSuccess){
+    if(eventSuccessNumber < eventCard.percentSuccess){
         eventCard.success = true;
     }else{
         eventCard.success = false;

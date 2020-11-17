@@ -40,9 +40,9 @@ function planetOneZoomIn() {
     removeNavPoints();
     plotCourse.classList.add('nav-one');
 
-    loadEvent();
     if (planetOne.classList.contains('one')) {
         planetOne.classList.remove('one');
+        loadEvent();
         removePlanetListeners();
         displayEvent.classList.add('zoom');
         planetOne.addEventListener('click', planetOneZoomIn); // temp until card button set up
@@ -67,20 +67,21 @@ function planetTwoZoomIn() {
     removeHalos();
     removeNavPoints();
     plotCourse.classList.add('nav-two');
-    loadEvent();
+    
     if (planetTwo.classList.contains('two')) {
-    planetTwo.classList.remove('two');
-    removePlanetListeners();
-    displayEvent.classList.add('zoom');
-    planetTwo.addEventListener('click', planetTwoZoomIn); // temp until card button set up
+        planetTwo.classList.remove('two');
+        loadEvent();
+        removePlanetListeners();
+        displayEvent.classList.add('zoom');
+        planetTwo.addEventListener('click', planetTwoZoomIn); // temp until card button set up
     } else {
-    planetTwo.classList.add('two');
-    displayEvent.classList.remove('zoom');
-    blankCard();
-    planetFive.classList.add('easy-choice');
-    planetSix.classList.add('hard-choice');
-    planetFive.addEventListener('click', planetFiveZoomIn);
-    planetSix.addEventListener('click', planetSixZoomIn);
+        planetTwo.classList.add('two');
+        displayEvent.classList.remove('zoom');
+        blankCard();
+        planetFive.classList.add('easy-choice');
+        planetSix.classList.add('hard-choice');
+        planetFive.addEventListener('click', planetFiveZoomIn);
+        planetSix.addEventListener('click', planetSixZoomIn);
     }
 }
 
@@ -90,18 +91,19 @@ function planetThreeZoomIn() {
     removeHalos();
     removeNavPoints();
     plotCourse.classList.add('nav-three');
-    loadEvent();
+
     if (planetThree.classList.contains('three')) {
-    planetThree.classList.remove('three');
-    removePlanetListeners();
-    displayEvent.classList.add('zoom');
-    planetThree.addEventListener('click', planetThreeZoomIn); // temp until card button set up
+        planetThree.classList.remove('three');
+        loadEvent();
+        removePlanetListeners();
+        displayEvent.classList.add('zoom');
+        planetThree.addEventListener('click', planetThreeZoomIn); // temp until card button set up
     } else {
-    planetThree.classList.add('three');
-    displayEvent.classList.remove('zoom');
-    blankCard();
-    planetFour.classList.add('easy-choice');
-    planetFour.addEventListener('click', planetFourZoomIn);
+        planetThree.classList.add('three');
+        displayEvent.classList.remove('zoom');
+        blankCard();
+        planetFour.classList.add('easy-choice');
+        planetFour.addEventListener('click', planetFourZoomIn);
     }
 }
 
@@ -111,22 +113,23 @@ function planetFourZoomIn() {
     removeHalos();
     removeNavPoints();
     plotCourse.classList.add('nav-four');
-    loadEvent();
+
     if (planetFour.classList.contains('four')) {
-    planetFour.classList.remove('four');
-    removePlanetListeners();
-    displayEvent.classList.add('zoom');
-    planetFour.addEventListener('click', planetFourZoomIn); // temp until card button set up
+        planetFour.classList.remove('four');
+        loadEvent();
+        removePlanetListeners();
+        displayEvent.classList.add('zoom');
+        planetFour.addEventListener('click', planetFourZoomIn); // temp until card button set up
     } else {
-    planetFour.classList.add('four');
-    displayEvent.classList.remove('zoom');
-    blankCard();
-    planetFive.classList.add('med-choice');
-    planetSeven.classList.add('med-choice');
-    planetEight.classList.add('hard-choice');
-    planetFive.addEventListener('click', planetFiveZoomIn);
-    planetSeven.addEventListener('click', planetSevenZoomIn);
-    planetEight.addEventListener('click', planetEightZoomIn);
+        planetFour.classList.add('four');
+        displayEvent.classList.remove('zoom');
+        blankCard();
+        planetFive.classList.add('med-choice');
+        planetSeven.classList.add('med-choice');
+        planetEight.classList.add('hard-choice');
+        planetFive.addEventListener('click', planetFiveZoomIn);
+        planetSeven.addEventListener('click', planetSevenZoomIn);
+        planetEight.addEventListener('click', planetEightZoomIn);
     }
 }
 
@@ -136,20 +139,21 @@ function planetFiveZoomIn() {
     removeHalos();
     removeNavPoints();
     plotCourse.classList.add('nav-five');
-    loadEvent();
+
     if (planetFive.classList.contains('five')) {
-    planetFive.classList.remove('five');
-    removePlanetListeners();
-    displayEvent.classList.add('zoom');
-    planetFive.addEventListener('click', planetFiveZoomIn); // temp until card button set up
+        planetFive.classList.remove('five');
+        loadEvent();
+        removePlanetListeners();
+        displayEvent.classList.add('zoom');
+        planetFive.addEventListener('click', planetFiveZoomIn); // temp until card button set up
     } else {
-    planetFive.classList.add('five');
-    displayEvent.classList.remove('zoom');
-    blankCard();
-    planetSix.classList.add('med-choice');
-    planetSeven.classList.add('easy-choice');
-    planetSix.addEventListener('click', planetSixZoomIn);
-    planetSeven.addEventListener('click', planetSevenZoomIn);
+        planetFive.classList.add('five');
+        displayEvent.classList.remove('zoom');
+        blankCard();
+        planetSix.classList.add('med-choice');
+        planetSeven.classList.add('easy-choice');
+        planetSix.addEventListener('click', planetSixZoomIn);
+        planetSeven.addEventListener('click', planetSevenZoomIn);
     }
 }
 
@@ -159,20 +163,21 @@ function planetSixZoomIn() {
     removeHalos();
     removeNavPoints();
     plotCourse.classList.add('nav-six');
-    loadEvent();
+
     if (planetSix.classList.contains('six')) {
-    planetSix.classList.remove('six');
-    removePlanetListeners();
-    displayEvent.classList.add('zoom');
-    planetSix.addEventListener('click', planetSixZoomIn); // temp until card button set up
+        planetSix.classList.remove('six');
+        loadEvent();
+        removePlanetListeners();
+        displayEvent.classList.add('zoom');
+        planetSix.addEventListener('click', planetSixZoomIn); // temp until card button set up
     } else {
-    planetSix.classList.add('six');
-    displayEvent.classList.remove('zoom');
-    blankCard();
-    planetNine.classList.add('med-choice');
-    planetTen.classList.add('easy-choice');
-    planetNine.addEventListener('click', planetNineZoomIn);
-    planetTen.addEventListener('click', planetTenZoomIn);
+        planetSix.classList.add('six');
+        displayEvent.classList.remove('zoom');
+        blankCard();
+        planetNine.classList.add('med-choice');
+        planetTen.classList.add('easy-choice');
+        planetNine.addEventListener('click', planetNineZoomIn);
+        planetTen.addEventListener('click', planetTenZoomIn);
     }
 }
 
@@ -182,22 +187,23 @@ function planetSevenZoomIn() {
     removeHalos();
     removeNavPoints();
     plotCourse.classList.add('nav-seven');
-    loadEvent();
+
     if (planetSeven.classList.contains('seven')) {
-    planetSeven.classList.remove('seven');
-    removePlanetListeners();
-    displayEvent.classList.add('zoom');
-    planetSeven.addEventListener('click', planetSevenZoomIn); // temp until card button set up
+        planetSeven.classList.remove('seven');
+        loadEvent();
+        removePlanetListeners();
+        displayEvent.classList.add('zoom');
+        planetSeven.addEventListener('click', planetSevenZoomIn); // temp until card button set up
     } else {
-    planetSeven.classList.add('seven');
-    displayEvent.classList.remove('zoom');
-    blankCard();
-    planetSix.classList.add('med-choice');
-    planetEight.classList.add('med-choice');
-    planetNine.classList.add('hard-choice');
-    planetSix.addEventListener('click', planetSixZoomIn);
-    planetEight.addEventListener('click', planetEightZoomIn);
-    planetNine.addEventListener('click', planetNineZoomIn);
+        planetSeven.classList.add('seven');
+        displayEvent.classList.remove('zoom');
+        blankCard();
+        planetSix.classList.add('med-choice');
+        planetEight.classList.add('med-choice');
+        planetNine.classList.add('hard-choice');
+        planetSix.addEventListener('click', planetSixZoomIn);
+        planetEight.addEventListener('click', planetEightZoomIn);
+        planetNine.addEventListener('click', planetNineZoomIn);
     }
 }
 
@@ -207,18 +213,19 @@ function planetEightZoomIn() {
     removeHalos();
     removeNavPoints();
     plotCourse.classList.add('nav-eight');
-    loadEvent();
+
     if (planetEight.classList.contains('eight')) {
-    planetEight.classList.remove('eight');
-    removePlanetListeners();
-    displayEvent.classList.add('zoom');
-    planetEight.addEventListener('click', planetEightZoomIn); // temp until card button set up
+        planetEight.classList.remove('eight');
+        loadEvent();
+        removePlanetListeners();
+        displayEvent.classList.add('zoom');
+        planetEight.addEventListener('click', planetEightZoomIn); // temp until card button set up
     } else {
-    planetEight.classList.add('eight');
-    displayEvent.classList.remove('zoom');
-    blankCard();
-    planetGoal.classList.add('final-choice');
-    planetGoal.addEventListener('click', planetGoalZoomIn);
+        planetEight.classList.add('eight');
+        displayEvent.classList.remove('zoom');
+        blankCard();
+        planetGoal.classList.add('final-choice');
+        planetGoal.addEventListener('click', planetGoalZoomIn);
     }
 }
 
@@ -228,18 +235,19 @@ function planetNineZoomIn() {
     removeHalos();
     removeNavPoints();
     plotCourse.classList.add('nav-nine');
-    loadEvent();
+
     if (planetNine.classList.contains('nine')) {
-    planetNine.classList.remove('nine');
-    removePlanetListeners();
-    displayEvent.classList.add('zoom');
-    planetNine.addEventListener('click', planetNineZoomIn); // temp until card button set up
+        planetNine.classList.remove('nine');
+        loadEvent();
+        removePlanetListeners();
+        displayEvent.classList.add('zoom');
+        planetNine.addEventListener('click', planetNineZoomIn); // temp until card button set up
     } else {
-    planetNine.classList.add('nine');
-    displayEvent.classList.remove('zoom');
-    blankCard();
-    planetGoal.classList.add('final-choice');
-    planetGoal.addEventListener('click', planetGoalZoomIn);
+        planetNine.classList.add('nine');
+        displayEvent.classList.remove('zoom');
+        blankCard();
+        planetGoal.classList.add('final-choice');
+        planetGoal.addEventListener('click', planetGoalZoomIn);
     }
 }
 
@@ -249,18 +257,19 @@ function planetTenZoomIn() {
     removeHalos();
     removeNavPoints();
     plotCourse.classList.add('nav-ten');
-    loadEvent();
+
     if (planetTen.classList.contains('ten')) {
-    planetTen.classList.remove('ten');
-    removePlanetListeners();
-    displayEvent.classList.add('zoom');
-    planetTen.addEventListener('click', planetTenZoomIn); // temp until card button set up
+        planetTen.classList.remove('ten');
+        loadEvent();
+        removePlanetListeners();
+        displayEvent.classList.add('zoom');
+        planetTen.addEventListener('click', planetTenZoomIn); // temp until card button set up
     } else {
-    planetTen.classList.add('ten');
-    displayEvent.classList.remove('zoom');
-    blankCard();
-    planetNine.classList.add('med-choice');
-    planetNine.addEventListener('click', planetNineZoomIn);
+        planetTen.classList.add('ten');
+        displayEvent.classList.remove('zoom');
+        blankCard();
+        planetNine.classList.add('med-choice');
+        planetNine.addEventListener('click', planetNineZoomIn);
     }
 }
 

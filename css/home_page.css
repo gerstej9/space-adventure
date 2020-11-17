@@ -12,6 +12,12 @@ html,body{
 
 }
 
+h2{
+  font-family: 'novecento_sans_widebold';
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
 
 
 
@@ -170,7 +176,7 @@ div.footer-wrapper{
 
 }
 
-/* The Modal (background) */
+/* -----The Modal background ----- */
 .modal {
   display: none; 
   position: fixed; 
@@ -184,7 +190,7 @@ div.footer-wrapper{
   background-color: rgba(0,0,0,0.4); 
 }
 
-/* Modal Content/Box */
+/* ----Modal Content----- */
 .modal-content {
   font-family: 'novecento_sans_widebook';
   background-color: #251631;
@@ -198,7 +204,26 @@ div.footer-wrapper{
   color: #aaa;
   box-sizing: border-box;
   text-align: left;
+ 
 }
+
+.modal-header {
+  padding: 2px 16px;
+  color: white;
+  font-size: 40px;
+  
+}
+
+
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+
+
+
+
 
 /* The Close Button */
 .close {

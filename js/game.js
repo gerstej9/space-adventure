@@ -24,6 +24,8 @@ var navPoints = ['nav-one', 'nav-two', 'nav-three', 'nav-four', 'nav-five', 'nav
 var functionArray = [planetOneZoomIn, planetTwoZoomIn, planetThreeZoomIn, planetFourZoomIn, planetFiveZoomIn, planetSixZoomIn, planetSevenZoomIn, planetEightZoomIn, planetNineZoomIn, planetTenZoomIn];
 var planetFuelCounter = 0;
 var navIndex = 10;
+var successText;
+var failureText;
 
 // game start
 
@@ -313,6 +315,8 @@ function planetGoalZoomIn() {
 
 function loadEvent(){
     var eventInfo = eventCardSelector();
+    successText = eventInfo.gainText;
+    failureText = eventInfo.lossText;
     var eventTitle = document.createElement('h3');
     eventTitle.textContent = eventInfo.name;
     cardImage.src = 'img/alien-skateboard.jpg';
@@ -341,6 +345,32 @@ function createButtons(eventData){
         btnContainer.appendChild(acceptRisk);
         btnContainer.appendChild(rejectRisk);
     }
+}
+
+function successCard(){
+    var cardDisplay = document.getElementById('event-card');
+    cardDisplay.classList.add('success');
+    var successTitle = document.createElement('h3');
+    successTitle.textContent = 'SUCCESS!!!';
+    cardImage.src = 'img/alien-skateboard.jpg';
+    var successMsg = document.createElement('p');
+    successMsg.textContent = successText;
+    cardTitleHolder.appendChild(successTitle);
+    cardTextHolder.appendChild(successMsg);
+    cardDisplay.addEventListener('click', planetZoomOut);
+}
+
+function failureCard(){
+    var cardDisplay = document.getElementById('event-card');
+    cardDisplay.classList.add('failure');
+    var failureTitle = document.createElement('h3');
+    failureTitle.textContent = 'FAILURE!!!';
+    cardImage.src = 'img/alien-skateboard.jpg';
+    var failureMsg = document.createElement('p');
+    failureMsg.textContent = failureText;
+    cardTitleHolder.appendChild(failureTitle);
+    cardTextHolder.appendChild(failureMsg);
+    cardDisplay.addEventListener('click', planetZoomOut);
 }
 
 // empty event card
@@ -389,6 +419,9 @@ function choiceClick(e){
 }
 
 function planetZoomOut(){
+    var cardDisplay = document.getElementById('event-card');
+    cardDisplay.classList.remove('success');
+    cardDisplay.classList.remove('failure');
     functionArray[navIndex]();
 }
 

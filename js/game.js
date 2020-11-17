@@ -275,6 +275,15 @@ function planetGoalZoomIn() {
     cardTitleHolder.appendChild(congrats);
     displayEvent.classList.add('success');
     displayEvent.classList.add('zoom');
+    tabulatePoints();
+    console.log(totalFuel,totalCrew,totalPoints);
+    if(!localStorage.leaderboard){
+
+    }else{
+        returnLeaderBoardLs();
+    }
+    new HighScore(userName,totalPoints);
+    leaderBoardStoreLs();
 }
 
 // render random event card from array
@@ -360,6 +369,12 @@ function generateChart(){
     });
 }
 
+function getUserName(){
+    userName = prompt("What is your Captain's name?")
+}
+
+
 
 startGame();
 generateChart();
+getUserName();

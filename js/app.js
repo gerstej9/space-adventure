@@ -7,6 +7,8 @@ var totalFuel = 10;
 var totalPoints = 0;
 var pathArray = [];
 var leaderBoard = [];
+var userName = 'Captain Guinea-Pig';
+var eventCardCounter = -1
 
 //Leaderboard input constructor function
 var HighScore = function(name, points){
@@ -46,7 +48,7 @@ new Path('medium', 2);
 new Path('long', 3);
 
 
-new EventCard('Mine for Fuel', 1, -1, 0, .7, 'fuel', 'You have landed on an Orion type planet that is rich in fuel fuel but potentially dangerous. Would you like to mine for 1 unit of fuel at the risk of losing 1 crew member?', 'Your mining was a success, all crew members survived, and you obtained 1 unit of fuel', 'Your mining was a disaster, you lost one crew member and obtained zero fuel', false);
+new EventCard('Mine for Fuel', 1, -1, 0, .7, 'fuel', 'You have landed on an Orion type planet that is rich in fuel but potentially dangerous. Would you like to mine for 1 unit of fuel at the risk of losing 1 crew member?', 'Your mining was a success, all crew members survived, and you obtained 1 unit of fuel', 'Your mining was a disaster, you lost one crew member and obtained zero fuel', false);
 
 new EventCard('Steal Fuel', 2, -2, 0, .4, 'fuel', 'This planet is home to space bandits who hoard large amounts of fuel fuel. Would you like to steal 2 units of fuel at the risk of losing 2 crew members?”', 'You successfully stole 2 units of fuel from the bandits without losing any crew members.', 'The bandits were wise to your plan and you lost 2 crew members in the scuffle.', false);
 
@@ -75,7 +77,16 @@ function leaderBoardStoreLs(){
 }
 
 function generateLeaderBoardLs(parsedScores){
-    
+    leaderBoard = [];
+    for(var i = 0; i < parsedScores.length; i++){
+        new HighScore (parsedScores[i].name, parsedScores[i].points);
+    }
+}
+
+function returnLeaderBoardLs(){
+    var scoresLs = localStorage.getItem('leaderboard');
+    var parsedScores = JSON.parse(scoresLs);
+    generateLeaderBoardLs(parsedScores);
 }
 
 
@@ -97,7 +108,7 @@ function eventCardArrayGenerator(){
         eventCardNumberArray.pop();
     }
     console.log(eventCardNumberArray);
-    return eventCardNumberArray[1];
+    return eventCardNumberArray;
 }
 
 function randomSuccessGenerator(){
@@ -115,8 +126,10 @@ function eventCardSuccess(eventCard){
 
 //Needs to slot in to render function in game.js, upon selection
 function eventCardSelector(){
-    eventArrayNumber = eventCardArrayGenerator();
-    return allEventCards[eventArrayNumber];
+    eventCardCounter++
+    console.log(eventCardCounter);
+    console.log(totalPoints);
+    return allEventCards[eventCardCounter];
 }
 
 // After yes or no selection on rendered Event Card
@@ -160,10 +173,12 @@ function tabulatePoints(){
     return totalPoints;
 }
 
-console.log(totalPoints,totalCrew, totalFuel);
-
-eventCardAction(eventCardSelector());
+eventCardArrayGenerator();
 
 console.log(totalPoints,totalCrew, totalFuel);
 
-console.log(tabulatePoints());
+// eventCardAction(eventCardSelector());
+
+console.log(totalPoints,totalCrew, totalFuel);
+
+// console.log(totalPoints);

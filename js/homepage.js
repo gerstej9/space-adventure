@@ -23,12 +23,14 @@ span.onclick = function() {
   modal1.style.display = "none";
 }
 
-// When the user clicks anywhere outside of mogal content close it up 
-window.onclick = function(event) {
-  if (event.target == modal) {
+// When the user clicks anywhere outside of mogal content close it up
+
+window.addEventListener("click", function(event) {
+  if (event.target == modal1) {
     modal1.style.display = "none";
   }
-}
+});
+
 // ---------------------- second modal leaderboard ------------------------ 
 
 var modal2 = document.getElementById("myModalTwo");
@@ -51,11 +53,13 @@ span.onclick = function() {
 }
 
 // When the user clicks anywhere outside of mogal content close it up 
-window.onclick = function(event) {
-  if (event.target == modal) {
+
+window.addEventListener("click", function(event) {
+  if (event.target == modal2) {
     modal2.style.display = "none";
   }
-}
+});
+
 // ---------------------- second modal leaderboard ------------------------ 
 
 var modal3 = document.getElementById("myModalThree");
@@ -78,8 +82,15 @@ span.onclick = function() {
 }
 
 // When the user clicks anywhere outside of mogal content close it up 
-window.onclick = function(event) {
-  if (event.target == modal) {
+
+window.addEventListener("click", function(event) {
+  if (event.target == modal3) {
     modal3.style.display = "none";
   }
-}
+});
+
+
+
+// get the leaderboard and render to modual body 
+
+

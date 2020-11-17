@@ -50,7 +50,7 @@ new Path('long', 3);
 
 new EventCard('Mine for Fuel', 1, -1, 0, .7, 'fuel', 'You have landed on an Orion type planet that is rich in fuel but potentially dangerous. Would you like to mine for 1 unit of fuel at the risk of losing 1 crew member?', 'Your mining was a success, all crew members survived, and you obtained 1 unit of fuel', 'Your mining was a disaster, you lost one crew member and obtained zero fuel', false);
 
-new EventCard('Steal Fuel', 2, -2, 0, .4, 'fuel', 'This planet is home to space bandits who hoard large amounts of fuel fuel. Would you like to steal 2 units of fuel at the risk of losing 2 crew members?”', 'You successfully stole 2 units of fuel from the bandits without losing any crew members.', 'The bandits were wise to your plan and you lost 2 crew members in the scuffle.', false);
+new EventCard('Steal Fuel', 2, -2, 0, .4, 'fuel', 'This planet is home to space bandits who hoard large amounts of fuel. Would you like to steal 2 units of fuel at the risk of losing 2 crew members?”', 'You successfully stole 2 units of fuel from the bandits without losing any crew members.', 'The bandits were wise to your plan and you lost 2 crew members in the scuffle.', false);
 
 new EventCard('Restock Fuel', 1, -1, 0, .8, 'fuel', 'Upon landing on this planet, you have remembered you have fuel stored in a hatch located on the outside of your ship. Would you like to send a crew member outside to retrieve 1 unit of fuel at the risk of them being attacked by aliens?', 'Your crew member safely retrieved the fuel, you have gained 1 unit of fuel.', 'Vicious aliens attacked your crew member while they were outside, you have lost 1 crew member.', false);
 
@@ -126,9 +126,9 @@ function eventCardSuccess(eventCard){
 
 //Needs to slot in to render function in game.js, upon selection
 function eventCardSelector(){
-    eventCardCounter++
-    // console.log(eventCardCounter);
-    return allEventCards[eventCardCounter];
+    eventCardCounter++;
+    var eventCardSelect = eventCardNumberArray[eventCardCounter];
+    return allEventCards[eventCardSelect];
 }
 
 // After yes or no selection on rendered Event Card

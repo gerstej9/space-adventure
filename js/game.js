@@ -1,5 +1,6 @@
 'use strict';
 
+
 // global variables
 
 var planetOne = document.getElementById('world-one');
@@ -39,6 +40,9 @@ function startGame(){
 function planetOneZoomIn() {
     removeHalos();
     removeNavPoints();
+    fuelDecrement(1);
+    generateChart();
+    planetFuelCounter = 1;
     plotCourse.classList.add('nav-one');
 
     if (planetOne.classList.contains('one')) {
@@ -360,7 +364,6 @@ function removePlanetListeners(){
 }
 
 // generates chart of resources
-
 function generateChart(){
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
@@ -388,6 +391,7 @@ function generateChart(){
             yAxes: [
             {
                 ticks: {
+                suggestedMax: 15,
                 beginAtZero: true,
                 },
             },

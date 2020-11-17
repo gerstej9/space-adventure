@@ -313,7 +313,7 @@ function loadEvent(){
 
 function createButtons(eventData){
     var eventInfo = eventData;
-    
+
     if(eventInfo.type === 'no-action'){
         var confirm = document.createElement('button');
         confirm.textContent = 'Proceed';
@@ -398,7 +398,9 @@ function generateChart(){
 }
 
 function getUserName(){
-    userName = prompt("What is your Captain's name?")
+    userName = prompt("What is your Captain's name?");
+    var captainName = document.getElementById('player-title');
+    captainName.textContent = `Captain ${userName}`;
 }
 
 

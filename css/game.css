@@ -111,6 +111,11 @@ h3 {
   box-shadow: 0 0 60px 120px orangered;
 }
 
+.final-choice {
+  border: 1px solid black;
+  box-shadow: 0 0 8px 10px rgb(155, 214, 238);
+}
+
 #world-two {
   height: 360px;
   width: 360px;
@@ -259,9 +264,13 @@ h3 {
   font-size: 12px;
 }
 
+.success {
+  background: white;
+}
+
 #player-ship {
   position: absolute;
-  color: slategray;
+  color: rgb(161, 161, 161);
 
   text-shadow: 0 0 1px whitesmoke;
   transform: rotate(90deg);

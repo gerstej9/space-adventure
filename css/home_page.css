@@ -1,13 +1,19 @@
+
+html{font-size:25px; font-family: 'novecento_sans_widebold';}
+
+
 body{
   
   height: 100vh;
 
 
-  /* ----- animated background ---------*/
+ 
 
 
 
 }
+
+
 
 
   /* ------------------ nav ------------------*/
@@ -94,7 +100,17 @@ img#right-planet{
 
 
 
-html{font-size:25px; font-family: 'novecento_sans_widebold';}
+.button1:hover {
+  color: #349a87;
+  box-shadow:
+    0 0 .5px .5px #fff,  
+    0 0 3px 3px #83f3df, 
+    0 0 10px 10px #349a87; 
+  
+}
+
+
+
 
 
 .button1{

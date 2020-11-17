@@ -95,7 +95,9 @@ img#right-planet{
 
 
 html{font-size:25px; font-family: 'novecento_sans_widebold';}
-.button{
+
+
+.button1{
 
   display:inline-block;
   border-radius:5px;
@@ -110,11 +112,29 @@ html{font-size:25px; font-family: 'novecento_sans_widebold';}
 
 }
 
+.button{
+
+  display:inline-block;
+  border-radius:5px;
+  padding: 15px 0;
+  margin-bottom:10px;
+  background-color:#291536;
+  color:whitesmoke;
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  text-transform: uppercase;
+
+}
+
 /* checkbox which triggering popup */
 #whoAmIPopup:checked ~ #whoAmI,
-#HowToPlayPopup:checked ~ #HowToPlay{
+#aboutCreators:checked ~ #aboutUs,
+#howToPlayPopup:checked ~ #howToPlay{
   display: block;
 }
+
+
 /* checkbox of start playing - 
  trigger by pressing "save the world" button */
 #toggleGame:checked{
@@ -128,7 +148,8 @@ html{font-size:25px; font-family: 'novecento_sans_widebold';}
 
 /* hide popup and game frame*/
 #whoAmI,
-#HowToPlay,
+#howToPlay,
+#aboutUs,
 .game-frame{display: none;}
 
 .game-menu-frame{
@@ -147,7 +168,7 @@ html{font-size:25px; font-family: 'novecento_sans_widebold';}
 
 .game-frame{background:green; padding:50px; color:#fff; border:solid 2px #000;}
 
-.popup{background:blue; padding:50px; color:#fff; border:solid 2px #000;}
+.popup{background:#1e0e29; padding:50px; color:#fff; border:solid 2px #000;}
 
 
 

@@ -13,6 +13,7 @@ var planetTen = document.getElementById("world-ten");
 var plotCourse = document.getElementById("player-ship");
 var planetGoal = document.getElementById('finish-space');
 var displayEvent = document.getElementById("display-event");
+var cardContent = document.getElementById('event-card');
 var allPlanets = [];
 
 
@@ -120,6 +121,8 @@ function planetFiveZoomIn() {
     planetThree.classList.remove('easy-choice');
     planetFour.classList.remove('easy-choice');
     planetSix.classList.remove('hard-choice');
+    planetSeven.classList.remove('med-choice');
+    planetEight.classList.remove('hard-choice');
     plotCourse.classList.add('nav-five');
     plotCourse.classList.remove("nav-one");
     plotCourse.classList.remove('nav-two');
@@ -130,6 +133,8 @@ function planetFiveZoomIn() {
     planetThree.removeEventListener("click", planetThreeZoomIn);
     planetFour.removeEventListener("click", planetFourZoomIn);
     planetSix.removeEventListener('click', planetSixZoomIn);
+    planetSeven.removeEventListener('click', planetSevenZoomIn);
+    planetEight.removeEventListener('click', planetEightZoomIn);
     displayEvent.classList.add("zoom");
     } else {
     planetFive.classList.add("five");
@@ -244,11 +249,33 @@ function planetNineZoomIn() {
 }
 
 function planetTenZoomIn() {
-
+    planetNine.classList.remove('med-choice');
+    planetTen.classList.remove('easy-choice');
+    plotCourse.classList.add('nav-ten');
+    plotCourse.classList.remove("nav-six");
+    if (planetTen.classList.contains("ten")) {
+    planetTen.classList.remove("ten");
+    planetNine.removeEventListener("click", planetNineZoomIn);
+    displayEvent.classList.add("zoom");
+    } else {
+    planetTen.classList.add("ten");
+    displayEvent.classList.remove("zoom");
+    planetNine.classList.add('med-choice');
+    planetNine.addEventListener("click", planetNineZoomIn);
+    }
 }
 
 function planetGoalZoomIn() {
-
+    planetGoal.classList.remove('final-choice');
+    plotCourse.classList.add('nav-goal');
+    plotCourse.classList.remove('nav-eight');
+    plotCourse.classList.remove('nav-nine');
+    cardContent.innerHTML = '';
+    var congrats = document.createElement('h3');
+    congrats.textContent = 'Congratulations!! You Made It!';
+    cardContent.appendChild(congrats);
+    displayEvent.classList.add('success');
+    displayEvent.classList.add("zoom");
 }
 
 var ctx = document.getElementById("myChart").getContext("2d");
@@ -322,6 +349,9 @@ console.log(allPlanets);
 function startGame(){
     planetOne.addEventListener("click", planetOneZoomIn);
     planetTwo.addEventListener("click", planetTwoZoomIn);
+    planetOne.classList.add('easy-choice');
+    planetTwo.classList.add('easy-choice');
+
 }
 
 startGame();

@@ -29,6 +29,7 @@ var navIndex = 10;
 var successText;
 var failureText;
 var currentEvent;
+var userName;
 
 // game start
 
@@ -476,7 +477,6 @@ function createButtons(){
 // renders success card and event message
 
 function successCard(){
-    cardImage.classList.remove('vanish');
     blankCard();
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('success');
@@ -493,7 +493,6 @@ function successCard(){
 // renders failure card and event message
 
 function failureCard(){
-    cardImage.classList.remove('vanish');
     blankCard();
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('failure');
@@ -680,8 +679,26 @@ function loseGame(){
     btnContainer.addEventListener('click', refreshNewGame);
 }
 
+function gameKickoff(e){
+    e.preventDefault();
+    userName = e.target.captname.value;
+    var captainName = document.getElementById('player-title');
+    captainName.textContent = `Captain ${userName}`;
+    formElement.reset();
+    formElement.removeEventListener('submit', gameKickoff);
+    formRemoval();
+    startGame();
+}
 
+function formRemoval(){
+    var formClear = document.getElementById('form');
+    formClear.classList.add('vanish');
 
-startGame();
+}
+
+// startGame();
 generateChart();
-getUserName();
+// getUserName();
+
+var formElement = document.getElementById('new-player-form');
+formElement.addEventListener('submit', gameKickoff);

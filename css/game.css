@@ -2,7 +2,6 @@ body {
   width: 1366px;
   height: 768px;
   margin: auto;
-  
 }
 
 header {
@@ -38,6 +37,34 @@ footer {
 h3 {
   font-family: "Orbitron", sans-serif;
   margin-bottom: 10px;
+}
+
+/* name entry form */
+
+#form {
+  z-index: 7;
+  background-color: rgb(155, 155, 155);
+  border: 5px outset gray;
+}
+
+#new-player-form {
+  padding: 20px;
+  text-align: center;
+}
+
+#new-player-form legend {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#new-player-form label {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+#new-player-form input {
+  margin: 12px auto;
 }
 
 /* The board */

@@ -29,6 +29,7 @@ var successText;
 var failureText;
 var currentEvent;
 
+
 // game start
 
 function startGame(){
@@ -50,6 +51,7 @@ function planetOneZoomIn() {
     if (planetOne.classList.contains('one')) {
         planetOne.classList.remove('one');
         fuelDecrement(1);
+        removeChart();
         generateChart();
         planetFuelCounter = 1;
         console.log(totalFuel);
@@ -365,6 +367,7 @@ function planetGoalZoomIn() {
     cardTitleHolder.appendChild(congrats);
     displayEvent.classList.add('success');
     displayEvent.classList.add('zoom');
+    newGame();
     tabulatePoints();
     console.log(totalFuel,totalCrew,totalPoints);
     if(!localStorage.leaderboard){
@@ -374,6 +377,7 @@ function planetGoalZoomIn() {
     }
     new HighScore(userName,totalPoints);
     leaderBoardStoreLs();
+
 }
 
 // render random event card from array
@@ -408,6 +412,13 @@ function createButtons(){
         btnContainer.appendChild(acceptRisk);
         btnContainer.appendChild(rejectRisk);
     }
+}
+
+function newGame(){
+    var startNewGame = document.createElement('button');
+    startNewGame.id = 'start-new-game';
+    startNewGame.textContent = 'Start New Game';
+    btnContainer.appendChild(startNewGame);
 }
 
 function successCard(){
@@ -503,6 +514,16 @@ function planetZoomOut(){
     functionArray[navIndex]();
 }
 
+
+function removeChart(){
+    var divChartEl = document.getElementById('ship-status');
+    divChartEl.innerHTML = '';
+    var canvasEl = document.createElement('canvas');
+    canvasEl.setAttribute('id', 'myChart');
+    canvasEl.setAttribute('width', '180');
+    canvasEl.setAttribute('height', '300');
+    divChartEl.appendChild(canvasEl);
+}
 // generates chart of resources
 function generateChart(){
     var chartDataset = [totalCrew, totalFuel];
@@ -550,7 +571,5 @@ function getUserName(){
 
 
 startGame();
-if(myChart != true){
-    generateChart();
-}
+generateChart();
 getUserName();

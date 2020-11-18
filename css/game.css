@@ -408,3 +408,19 @@ h3 {
   text-align: center;
   letter-spacing: 0.2rem;
 }
+
+/* winning */
+
+.winner {
+  background-color: gold;
+  border: 5px outset gold;
+}
+
+.winner img {
+  border: 4px outset gold;
+}
+
+.zoom2 {
+  display: block;
+  transform: scale(1.5);
+}

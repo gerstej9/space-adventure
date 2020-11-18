@@ -55,6 +55,8 @@ new Path('short', 1);
 new Path('medium', 2);
 new Path('long', 3);
 
+new HighScore('Captain Insane-O', 27000);
+
 
 new EventCard('Mine for Fuel', 'mine-durr', 1, -1, 0, .7, 'fuel', 'You have landed on an Orion type planet that is rich in fuel but potentially dangerous. Would you like to mine for 1 unit of fuel at the risk of losing 1 crew member?', 'Your mining was a success, all crew members survived, and you obtained 1 unit of fuel', 'Your mining was a disaster, you lost one crew member and obtained zero fuel', false);
 

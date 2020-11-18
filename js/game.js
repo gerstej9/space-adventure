@@ -86,6 +86,7 @@ function planetTwoZoomIn() {
     if (planetTwo.classList.contains('two')) {
         planetTwo.classList.remove('two');
         fuelDecrement(1);
+        removeChart();
         generateChart();
         planetFuelCounter = 2;
         console.log(totalFuel);
@@ -115,6 +116,7 @@ function planetThreeZoomIn() {
     if (planetThree.classList.contains('three')) {
         planetThree.classList.remove('three');
         fuelDecrement(2);
+        removeChart();
         generateChart();
         planetFuelCounter = 3;
         console.log(totalFuel);
@@ -146,6 +148,7 @@ function planetFourZoomIn() {
         }else{
             fuelDecrement(1);
         }
+        removeChart();
         generateChart();
         planetFuelCounter = 4;
         console.log(totalFuel);
@@ -181,6 +184,7 @@ function planetFiveZoomIn() {
         }else{
             fuelDecrement(2);
         }
+        removeChart();
         generateChart();
         planetFuelCounter = 5;
         console.log(totalFuel);
@@ -214,6 +218,7 @@ function planetSixZoomIn() {
         }else{
             fuelDecrement(2);
         }
+        removeChart();
         generateChart();
         planetFuelCounter = 6;
         console.log(totalFuel);
@@ -243,6 +248,7 @@ function planetSevenZoomIn() {
     if (planetSeven.classList.contains('seven')) {
         planetSeven.classList.remove('seven');
         fuelDecrement(1);
+        removeChart();
         generateChart();
         planetFuelCounter = 7;
         console.log(totalFuel);
@@ -278,6 +284,7 @@ function planetEightZoomIn() {
         }else{
             fuelDecrement(3);
         }
+        removeChart();
         generateChart();
         planetFuelCounter = 8;
         console.log(totalFuel);
@@ -309,6 +316,7 @@ function planetNineZoomIn() {
         }else{
             fuelDecrement(3);
         }
+        removeChart();
         generateChart();
         planetFuelCounter = 9;
         console.log(totalFuel);
@@ -336,6 +344,7 @@ function planetTenZoomIn() {
     if (planetTen.classList.contains('ten')) {
         planetTen.classList.remove('ten');
         fuelDecrement(1);
+        removeChart();
         generateChart();
         planetFuelCounter = 10;
         console.log(totalFuel);
@@ -359,6 +368,7 @@ function planetGoalZoomIn() {
     removeNavPoints();
     removePlanetListeners();
     fuelDecrement(1);
+    removeChart();
     generateChart();
     planetFuelCounter = 11;
     plotCourse.classList.add('nav-goal');
@@ -377,9 +387,12 @@ function planetGoalZoomIn() {
     }
     new HighScore(userName,totalPoints);
     leaderBoardStoreLs();
-
+    btnContainer.addEventListener('click', refreshNewGame);
 }
 
+function refreshNewGame(){
+    window.location.reload();
+}
 // render random event card from array
 
 function loadEvent(){

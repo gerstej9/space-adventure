@@ -4,14 +4,11 @@ body {
   margin: auto;
 }
 
-
-
 header {
   height: 60px;
 }
 
 main {
-  
   display: flex;
   flex-direction: inline-block;
 }
@@ -25,8 +22,8 @@ main {
   justify-content: space-between;
 }
 
-img.main-logo{
- width: 150px;
+img.main-logo {
+  width: 150px;
 }
 
 .side-bar {
@@ -409,5 +406,5 @@ h3 {
   color: aliceblue;
   margin: 0 5px 40px 5px;
   text-align: center;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
 }

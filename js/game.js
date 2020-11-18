@@ -342,13 +342,11 @@ function planetTenZoomIn() {
 // arrive goal
 
 function planetGoalZoomIn() {
-    planetGoal.classList.remove('final-choice');
     removeNavPoints();
-    removePlanetListeners();
+    plotCourse.classList.add('nav-goal');
     fuelDecrement(1);
     generateChart();
     planetFuelCounter = 11;
-    plotCourse.classList.add('nav-goal');
     var congrats = document.createElement('h3');
     congrats.textContent = 'Congratulations!! You Made It!';
     cardTitleHolder.appendChild(congrats);

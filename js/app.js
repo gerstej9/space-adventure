@@ -16,6 +16,7 @@ var HighScore = function(name, points){
     this.name = name;
     this.points = points;
     leaderBoard.unshift(this);
+    leaderBoard.sort(function(a, b){return b.points - a.points});
     if(leaderBoard.length>10){
         leaderBoard.pop();
     }
@@ -80,7 +81,7 @@ new EventCard('Unintended Extraction', 'stowaway-ratushny', -1, 1, 0, 1.0, 'no-a
 
 
 function leaderBoardStoreLs(){
-    leaderBoard.sort(function(a, b){return b.points - a.points});
+    // leaderBoard.sort(function(a, b){return a.points - b.points});
     var stringLeaderBoard = JSON.stringify(leaderBoard);
     localStorage.setItem('leaderboard', stringLeaderBoard);
 }

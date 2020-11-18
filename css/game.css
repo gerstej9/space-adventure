@@ -270,8 +270,39 @@ h3 {
   justify-content: space-around;
 }
 
+#button-container button {
+  border-radius: 4px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 12px;
+  padding: 3px;
+}
+
+#button-container button:hover {
+  cursor: pointer;
+}
+
+#accept {
+  color: green;
+}
+
+#reject {
+  color: red;
+}
+
 .success {
-  background: white;
+  box-shadow: 0 0 6px lime;
+}
+
+.success h3 {
+  text-shadow: 0 0 3px lime;
+}
+
+.failure {
+  box-shadow: 0 0 6px red;
+}
+
+.failure h3 {
+  text-shadow: 0 0 3px red;
 }
 
 #player-ship {

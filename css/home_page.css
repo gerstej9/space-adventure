@@ -251,6 +251,79 @@ td {
   border-bottom: 10px solid #170d1f;
 }
 
+/* about us modal */
+
+
+
+
+.about-section{
+  
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  max-width: 90%;
+  margin: 20px auto 20px auto;
+  
+}
+
+@media screen and (max-width: 1000px) {
+  .about-section{
+
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: auto;
+    margin: 20px auto 5% auto;
+
+    
+  }
+
+  
+  .first-image{ 
+    width: auto;
+    height: 300px;
+    
+  
+
+  }
+  .second-image{ 
+    width: auto;
+    height: 300px;
+    
+  
+
+  }
+}
+
+
+
+#creators-section .about-section {
+ 
+  padding: 6%;
+  margin-top: 20px;
+  
+
+}
+
+
+
+.first-image{ 
+  
+
+ 
+  background-image: url('/img/alien-skateboard.jpg');
+  background-position: bottom; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+
+
+div#welcome {
+  font-size: 22px;
+  line-height: 2rem;
+  max-width: 500px;
+  padding:  0 30px 0 30px;
+  margin: auto;
+}
 
 
 

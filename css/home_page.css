@@ -260,7 +260,7 @@ td {
   
   display: grid;
   grid-template-columns: 1fr 1.3fr;
-  max-width: 90%;
+  max-width: 1300px;
   margin: 20px auto 20px auto;
   
 }
@@ -399,3 +399,5 @@ div.footer-wrapper{
   width: 100%;
   background-image: url('/img/nav_bar.png');
 }
+
+

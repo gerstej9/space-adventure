@@ -14,8 +14,7 @@ var eventCardCounter = -1
 var HighScore = function(name, points){
     this.name = name;
     this.points = points;
-    leaderBoard.push(this);
-
+    leaderBoard.unshift(this);
     if(leaderBoard.length>10){
         leaderBoard.pop();
     }
@@ -70,14 +69,15 @@ new EventCard('Dam Righted!!', -1, 0, 2000, .6, 'treasure', 'The locals offer yo
 
 new EventCard('Exotic Beastie', 0, -2, 5000, .5, 'treasure', 'A rare albino sabrewraith is on the lose. A live one would fetch 5000 points on the market. Risk 2 crew to hunt it down and capture it?', 'The two lucky "volunteers" come across it while it is sleeping and capture it', 'The erstwhile hunters are never heard from again... You lose 2 crew.', false);
 
-new EventCard('Crew Member Falls Ill', 0, -1, 0, 0, 'no-action', 'Upon arriving at this planet, you realize one of your crew members has fallen ill on the journey, you lose 1 crew member.', '', '', false);
+new EventCard('Crew Member Falls Ill', 0, -1, 0, 1.0, 'no-action', 'Upon arriving at this planet, you realize one of your crew members has fallen ill on the journey, you lose 1 crew member.', '', '', false);
 
-new EventCard('Efficient Journey', 1, 0, 0, 0, 'no-action', 'Upon arriving at this planet, you realize that your trip was more fuel efficient than expected. You gain 1 unit of fuel.', '', '', false);
+new EventCard('Efficient Journey', 1, 0, 0, 1.0, 'no-action', 'Upon arriving at this planet, you realize that your trip was more fuel efficient than expected. You gain 1 unit of fuel.', '', '', false);
 
-new EventCard('Unintended Extraction', -1, 1, 0, 0, 'no-action','A local stows away on your ship. But it turns out they are being hunted. You burn 1 fuel unit to throw off pursuit, but the grateful passenger decides to join your crew for the journey.', '', '', false);
+new EventCard('Unintended Extraction', -1, 1, 0, 1.0, 'no-action','A local stows away on your ship. But it turns out they are being hunted. You burn 1 fuel unit to throw off pursuit, but the grateful passenger decides to join your crew for the journey.', '', '', false);
 
 
 function leaderBoardStoreLs(){
+    leaderBoard.sort(function(a, b){return b.points - a.points});
     var stringLeaderBoard = JSON.stringify(leaderBoard);
     localStorage.setItem('leaderboard', stringLeaderBoard);
 }
@@ -140,39 +140,44 @@ function eventCardSelector(){
 // After yes or no selection on rendered Event Card
 //Needs code to signify move on from card to next step
 function eventCardAction(eventCard){
-    console.log(eventCard);
     eventCardSuccess(eventCard);
     console.log(eventCard.success);
-    if(eventCard.type === 'no-action'){
-        totalCrew+= eventCard.crew;
-        totalFuel+= eventCard.fuel;
-    }else{
+    console.log()
         //In this event they failed in attempt and loss outcome eventCard.lossText should render
-        if(!eventCard.success){
-            if(eventCard.type === 'fuel'){
-                totalCrew+= eventCard.crew;
-            };
-            if(eventCard.type === 'crew'){
-                totalFuel+= eventCard.fuel;
-            }
-            if(eventCard.type === 'treasure'){
-                totalFuel+= eventCard.fuel;
-            }
-        //In this event they succeeded in attempt and gain outcome eventCard.gainText should render
-        }else{
-            if(eventCard.type === 'fuel'){
-                totalFuel+= eventCard.fuel;
-            };
-            if(eventCard.type === 'crew'){
-                totalCrew+= eventCard.crew;
-            }
-            if(eventCard.type === 'treasure'){
-                totalPoints+= eventCard.points;
-            }
+    if(!eventCard.success){
+        if(eventCard.type === 'no-action'){
+            totalCrew+= eventCard.crew;
+            totalFuel+= eventCard.fuel;
+            console.log('no-actin');
+        }
+        if(eventCard.type === 'fuel'){
+            totalCrew+= eventCard.crew;
+        };
+        if(eventCard.type === 'crew'){
+            totalFuel+= eventCard.fuel;
+        }
+        if(eventCard.type === 'treasure'){
+            totalFuel+= eventCard.fuel;
+            totalCrew += eventCard.crew;
+        }
+    //In this event they succeeded in attempt and gain outcome eventCard.gainText should render
+    }else{
+        if(eventCard.type === 'no-action'){
+            totalCrew+= eventCard.crew;
+            totalFuel+= eventCard.fuel;
+            console.log('no-actin');
+        }
+        if(eventCard.type === 'fuel'){
+            totalFuel+= eventCard.fuel;
+        };
+        if(eventCard.type === 'crew'){
+            totalCrew+= eventCard.crew;
+        }
+        if(eventCard.type === 'treasure'){
+            totalPoints+= eventCard.points;
         }
     }
-    return eventCard.success;
-    
+    return eventCard.success; 
 }
 
 function tabulatePoints(){

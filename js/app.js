@@ -70,11 +70,11 @@ new EventCard('Dam Righted!!', 'dam-justinw', -1, 0, 2000, .6, 'treasure', 'The 
 
 new EventCard('Exotic Beastie', 'beastie', 0, -2, 5000, .5, 'treasure', 'A rare albino sabrewraith is on the lose. A live one would fetch 5000 points on the market. Risk 2 crew to hunt it down and capture it?', 'The two lucky "volunteers" come across it while it is sleeping and capture it', 'The erstwhile hunters are never heard from again... You lose 2 crew.', false);
 
-new EventCard('Crew Member Falls Ill', 0, -1, 0, 1.0, 'no-action', 'Upon arriving at this planet, you realize one of your crew members has fallen ill on the journey, you lose 1 crew member.', '', '', false);
+new EventCard('Crew Member Falls Ill', 'ill-cdc', 0, -1, 0, 1.0, 'no-action', 'Upon arriving at this planet, you realize one of your crew members has fallen ill on the journey, you lose 1 crew member.', '', '', false);
 
-new EventCard('Efficient Journey', 1, 0, 0, 1.0, 'no-action', 'Upon arriving at this planet, you realize that your trip was more fuel efficient than expected. You gain 1 unit of fuel.', '', '', false);
+new EventCard('Efficient Journey', 'efficient-halacious', 1, 0, 0, 1.0, 'no-action', 'Upon arriving at this planet, you realize that your trip was more fuel efficient than expected. You gain 1 unit of fuel.', '', '', false);
 
-new EventCard('Unintended Extraction', -1, 1, 0, 1.0, 'no-action','A local stows away on your ship. But it turns out they are being hunted. You burn 1 fuel unit to throw off pursuit, but the grateful passenger decides to join your crew for the journey.', '', '', false);
+new EventCard('Unintended Extraction', 'stowaway-ratushny', -1, 1, 0, 1.0, 'no-action','A local stows away on your ship. But it turns out they are being hunted. You burn 1 fuel unit to throw off pursuit, but the grateful passenger decides to join your crew for the journey.', '', '', false);
 
 
 

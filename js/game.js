@@ -57,7 +57,6 @@ function planetOneZoomIn() {
         loadEvent();
         displayEvent.classList.add('zoom');
         // planetOne.addEventListener('click', planetOneZoomIn); temp until card button set up
-        btnContainer.addEventListener('click', choiceClick);
     } else {
         planetOne.classList.add('one');
         displayEvent.classList.remove('zoom');
@@ -408,6 +407,7 @@ function createButtons(){
         btnContainer.appendChild(acceptRisk);
         btnContainer.appendChild(rejectRisk);
     }
+    btnContainer.addEventListener('click', choiceClick);
 }
 
 function successCard(){
@@ -422,11 +422,12 @@ function successCard(){
     successMsg.textContent = currentEvent.gainText;
     cardTitleHolder.appendChild(successTitle);
     cardTextHolder.appendChild(successMsg);
-    cardDisplay.addEventListener('click', planetZoomOut);
+    acknowledgeButton();
 }
 
 function failureCard(){
     console.log('goodbye');
+    blankCard();
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('failure');
     var failureTitle = document.createElement('h3');
@@ -436,8 +437,24 @@ function failureCard(){
     failureMsg.textContent = currentEvent.lossText;
     cardTitleHolder.appendChild(failureTitle);
     cardTextHolder.appendChild(failureMsg);
-    cardDisplay.addEventListener('click', planetZoomOut);
+    acknowledgeButton();
 }
+
+function acknowledgeButton(){
+    var confirm = document.createElement('button');
+    confirm.id = 'confirm';
+    confirm.textContent = 'Proceed';
+    btnContainer.appendChild(confirm);
+    btnContainer.addEventListener('click', acceptResults);
+}
+
+function acceptResults(e){
+    var buttonId = e.target;
+    if(buttonId.id === 'confirm'){
+        btnContainer.removeEventListener('click', acceptResults);
+        planetZoomOut();
+    }
+}       
 
 // empty event card
 
@@ -474,23 +491,19 @@ function removePlanetListeners(){
 function choiceClick(e){
     var buttonId = e.target;
     if(buttonId.id === 'confirm'){
-        console.log(`Confirmed!!`);
+        btnContainer.removeEventListener('click', choiceClick);
         planetZoomOut();
     } else if(buttonId.id === 'accept'){
-        console.log(`Let's Do This!!`);
+        btnContainer.removeEventListener('click', choiceClick);
         eventCardAction(currentEvent);
         var eventResult = currentEvent.success;
-        console.log(eventResult);
         if(eventResult === true){
-            console.log('success');
             successCard();
         } else {
-            console.log('failure');
             failureCard();
         }
-
     } else if(buttonId.id === 'reject'){
-        console.log(`Are You Crazy?!?`);
+        btnContainer.removeEventListener('click', choiceClick);
         planetZoomOut();
     }
 }
@@ -499,7 +512,6 @@ function planetZoomOut(){
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.remove('success');
     cardDisplay.classList.remove('failure');
-    cardDisplay.removeEventListener('click', planetZoomOut);
     functionArray[navIndex]();
 }
 

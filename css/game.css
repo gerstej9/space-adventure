@@ -314,6 +314,10 @@ h3 {
   text-shadow: 0 0 3px red;
 }
 
+.vanish {
+  display: none;
+}
+
 /* styling for font-awesome ship */
 
 #player-ship {

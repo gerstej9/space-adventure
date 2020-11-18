@@ -1,0 +1,138 @@
+
+html{
+  font-size:25px;
+  font-family: 'novecento_sans_widebold';
+}
+
+
+html,body{
+  height: 100%;
+}
+
+h2{
+  font-family: 'novecento_sans_widebold';
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+p{
+  font-family: 'novecento_sans_widebook';
+  line-height: 1.5rem;
+}
+
+iframe {
+
+  margin-top: 5%;
+  width: 100%;
+  height: 80vh;
+}
+
+.output {
+  background: #eee;
+}
+
+
+  /* ------------------ nav ------------------*/
+
+.nav-wrapper{
+  background-color: #3f2a50;
+  background-color: #3f2a50;
+  height: 90px;
+  width: 100%;
+  background-image: url('/img/nav_bar.png');
+}
+
+
+.logo-wrapper{
+  
+  
+  margin: -63px auto 0 auto;
+  width: 186px;
+}
+
+.main-logo{
+
+  width: 100%;
+  height: 100%;
+}
+
+  /* ----- main ---------*/
+
+main{
+  position: fixed;
+  top: 0px;
+  z-index: -1;
+  width: 100%;
+  height: auto;
+}
+
+#myVideo {
+  z-index: -1;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.color-overlay{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgb(52, 15, 80);
+  background: linear-gradient(171deg, rgb(21, 3, 34) 0%, rgb(2, 1, 26) 100%);
+  mix-blend-mode: color;
+}
+
+
+
+/* ----- Planets ---------*/
+
+
+img#left-planet{
+  top: 25vh;
+  left: 0px;
+  position: absolute;
+  z-index: 8;
+}
+
+img#right-planet{
+  top: 60vh;
+  right: 0px;
+  position: absolute;
+  z-index: 8;
+}
+
+.game-button-wrapper{
+  min-height: 100%;
+}
+
+
+.game-menu-frame{
+  margin: auto;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+
+
+.button1:hover {
+  color: #349a87;
+  box-shadow:
+    0 0 .5px .5px #fff,  
+    0 0 3px 3px #83f3df, 
+    0 0 10px 10px #349a87;  
+}
+
+
+
+
+
+
+
+/* ----- footer ---------*/
+
+div.footer-wrapper{
+  background-color: #3f2a50;
+  height: 90px;
+  width: 100%;
+  background-image: url('/img/nav_bar.png');
+}

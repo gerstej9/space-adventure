@@ -8,7 +8,8 @@ var totalPoints = 0;
 var pathArray = [];
 var leaderBoard = [];
 var userName = 'Captain Guinea-Pig';
-var eventCardCounter = -1
+var eventCardCounter = -1;
+var userLost = false;
 
 //Leaderboard input constructor function
 var HighScore = function(name, points){
@@ -189,6 +190,24 @@ function tabulatePoints(){
 
 function fuelDecrement(fuel){
     totalFuel -= fuel;
+}
+
+function totalStatCheckLand(){
+    if(totalFuel < 0){
+        totalFuel = 0;
+        userLost = true;
+    }
+}
+
+function totalStatCheckLeave(){
+    if(totalCrew < 0){
+        totalCrew = 0;
+        userLost = true
+    }
+    if(totalFuel <= 0){
+        totalFuel = 0;
+        userLost = true;
+    }
 }
 
 eventCardArrayGenerator();

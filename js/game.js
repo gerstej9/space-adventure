@@ -52,6 +52,10 @@ function planetOneZoomIn() {
     if (planetOne.classList.contains('one')) {
         planetOne.classList.remove('one');
         fuelDecrement(1);
+        totalStatCheckLand();
+        if(userLost == true){
+            loseGame();
+        }
         removeChart();
         generateChart();
         planetFuelCounter = 1;
@@ -85,6 +89,10 @@ function planetTwoZoomIn() {
     if (planetTwo.classList.contains('two')) {
         planetTwo.classList.remove('two');
         fuelDecrement(1);
+        totalStatCheckLand();
+        if(userLost == true){
+            loseGame();
+        }
         removeChart();
         generateChart();
         planetFuelCounter = 2;
@@ -114,6 +122,10 @@ function planetThreeZoomIn() {
     if (planetThree.classList.contains('three')) {
         planetThree.classList.remove('three');
         fuelDecrement(2);
+        totalStatCheckLand();
+        if(userLost == true){
+            loseGame();
+        }
         removeChart();
         generateChart();
         planetFuelCounter = 3;
@@ -144,6 +156,10 @@ function planetFourZoomIn() {
             fuelDecrement(2);
         }else{
             fuelDecrement(1);
+        }
+        totalStatCheckLand();
+        if(userLost == true){
+            loseGame();
         }
         removeChart();
         generateChart();
@@ -180,6 +196,10 @@ function planetFiveZoomIn() {
         }else{
             fuelDecrement(2);
         }
+        totalStatCheckLand();
+        if(userLost == true){
+            loseGame();
+        }
         removeChart();
         generateChart();
         planetFuelCounter = 5;
@@ -213,6 +233,10 @@ function planetSixZoomIn() {
         }else{
             fuelDecrement(2);
         }
+        totalStatCheckLand();
+        if(userLost == true){
+            loseGame();
+        }
         removeChart();
         generateChart();
         planetFuelCounter = 6;
@@ -242,6 +266,10 @@ function planetSevenZoomIn() {
     if (planetSeven.classList.contains('seven')) {
         planetSeven.classList.remove('seven');
         fuelDecrement(1);
+        totalStatCheckLand();
+        if(userLost == true){
+            loseGame();
+        }
         removeChart();
         generateChart();
         planetFuelCounter = 7;
@@ -277,6 +305,10 @@ function planetEightZoomIn() {
         }else{
             fuelDecrement(3);
         }
+        totalStatCheckLand();
+        if(userLost == true){
+            loseGame();
+        }
         removeChart();
         generateChart();
         planetFuelCounter = 8;
@@ -308,6 +340,10 @@ function planetNineZoomIn() {
         }else{
             fuelDecrement(3);
         }
+        totalStatCheckLand();
+        if(userLost == true){
+            loseGame();
+        }
         removeChart();
         generateChart();
         planetFuelCounter = 9;
@@ -335,6 +371,10 @@ function planetTenZoomIn() {
     if (planetTen.classList.contains('ten')) {
         planetTen.classList.remove('ten');
         fuelDecrement(1);
+        totalStatCheckLand();
+        if(userLost == true){
+            loseGame();
+        }
         removeChart();
         generateChart();
         planetFuelCounter = 10;
@@ -357,6 +397,10 @@ function planetGoalZoomIn() {
     removeNavPoints();
     plotCourse.classList.add('nav-goal');
     fuelDecrement(1);
+    totalStatCheckLand();
+    if(userLost == true){
+        loseGame();
+    }
     removeChart();
     generateChart();
     planetFuelCounter = 11;
@@ -524,8 +568,13 @@ function choiceClick(e){
         btnContainer.removeEventListener('click', choiceClick);
         planetZoomOut();
     }
+    totalStatCheckLeave();
+    if(userLost == true){
+        loseGame();
+    }
     removeChart();
     generateChart();
+    
     console.log(totalCrew, totalFuel, totalPoints);
 }
 
@@ -589,6 +638,9 @@ function generateChart(){
 
 function getUserName(){
     userName = prompt("What is your Captain's name?");
+    if (userName == ''){
+        userName = 'Guinea-Pig'
+    }
     var captainName = document.getElementById('player-title');
     captainName.textContent = `Captain ${userName}`;
 }
@@ -602,6 +654,19 @@ function newGame(){
 
 function refreshNewGame(){
     window.location.reload();
+}
+
+function loseGame(){
+    var congrats = document.createElement('h3');
+    congrats.textContent = 'Game Over!!!';
+    cardTitleHolder.appendChild(congrats);
+    cardImage.src = 'img/fireworks-hwd.jpg';
+    displayEvent.classList.add('winner');
+    displayEvent.classList.add('zoom2');
+    displayEvent.classList.add('success');
+    displayEvent.classList.add('zoom');
+    newGame();
+    btnContainer.addEventListener('click', refreshNewGame);
 }
 
 

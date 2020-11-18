@@ -16,6 +16,7 @@ var HighScore = function(name, points){
     this.name = name;
     this.points = points;
     leaderBoard.unshift(this);
+    leaderBoard.sort(function(a, b){return b.points - a.points});
     if(leaderBoard.length>10){
         leaderBoard.pop();
     }
@@ -54,6 +55,8 @@ new Path('short', 1);
 new Path('medium', 2);
 new Path('long', 3);
 
+new HighScore('Captain Insane-O', 27000);
+
 
 new EventCard('Mine for Fuel', 'mine-durr', 1, -1, 0, .7, 'fuel', 'You have landed on an Orion type planet that is rich in fuel but potentially dangerous. Would you like to mine for 1 unit of fuel at the risk of losing 1 crew member?', 'Your mining was a success, all crew members survived, and you obtained 1 unit of fuel', 'Your mining was a disaster, you lost one crew member and obtained zero fuel', false);
 
@@ -80,7 +83,7 @@ new EventCard('Unintended Extraction', 'stowaway-ratushny', -1, 1, 0, 1.0, 'no-a
 
 
 function leaderBoardStoreLs(){
-    leaderBoard.sort(function(a, b){return b.points - a.points});
+    // leaderBoard.sort(function(a, b){return a.points - b.points});
     var stringLeaderBoard = JSON.stringify(leaderBoard);
     localStorage.setItem('leaderboard', stringLeaderBoard);
 }

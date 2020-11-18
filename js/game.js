@@ -27,6 +27,7 @@ var planetFuelCounter = 0;
 var navIndex = 10;
 var successText;
 var failureText;
+var currentEvent;
 
 // game start
 
@@ -52,18 +53,18 @@ function planetOneZoomIn() {
         generateChart();
         planetFuelCounter = 1;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetOne.addEventListener('click', planetOneZoomIn); // temp until card button set up
+        // planetOne.addEventListener('click', planetOneZoomIn); temp until card button set up
         btnContainer.addEventListener('click', choiceClick);
     } else {
         planetOne.classList.add('one');
         displayEvent.classList.remove('zoom');
         blankCard();
         planetTwo.classList.add('easy-choice');
-        planetThree.classList.add('easy-choice');
-        planetFour.classList.add('easy-choice');
+        planetThree.classList.add('med-choice');
+        planetFour.classList.add('med-choice');
         planetFive.classList.add('med-choice');
         planetTwo.addEventListener('click', planetTwoZoomIn);
         planetThree.addEventListener('click', planetThreeZoomIn);
@@ -95,7 +96,7 @@ function planetTwoZoomIn() {
         displayEvent.classList.remove('zoom');
         blankCard();
         planetFive.classList.add('easy-choice');
-        planetSix.classList.add('hard-choice');
+        planetSix.classList.add('med-choice');
         planetFive.addEventListener('click', planetFiveZoomIn);
         planetSix.addEventListener('click', planetSixZoomIn);
     }
@@ -155,7 +156,7 @@ function planetFourZoomIn() {
         displayEvent.classList.remove('zoom');
         blankCard();
         planetFive.classList.add('med-choice');
-        planetSeven.classList.add('med-choice');
+        planetSeven.classList.add('easy-choice');
         planetEight.classList.add('hard-choice');
         planetFive.addEventListener('click', planetFiveZoomIn);
         planetSeven.addEventListener('click', planetSevenZoomIn);
@@ -222,7 +223,7 @@ function planetSixZoomIn() {
         planetSix.classList.add('six');
         displayEvent.classList.remove('zoom');
         blankCard();
-        planetNine.classList.add('med-choice');
+        planetNine.classList.add('hard-choice');
         planetTen.classList.add('easy-choice');
         planetNine.addEventListener('click', planetNineZoomIn);
         planetTen.addEventListener('click', planetTenZoomIn);
@@ -251,7 +252,7 @@ function planetSevenZoomIn() {
         planetSeven.classList.add('seven');
         displayEvent.classList.remove('zoom');
         blankCard();
-        planetSix.classList.add('med-choice');
+        planetSix.classList.add('easy-choice');
         planetEight.classList.add('med-choice');
         planetNine.classList.add('hard-choice');
         planetSix.addEventListener('click', planetSixZoomIn);
@@ -378,23 +379,21 @@ function planetGoalZoomIn() {
 // render random event card from array
 
 function loadEvent(){
-    var eventInfo = eventCardSelector();
-    successText = eventInfo.gainText;
-    failureText = eventInfo.lossText;
+    currentEvent = eventCardSelector();
+    successText = currentEvent.gainText;
+    failureText = currentEvent.lossText;
     var eventTitle = document.createElement('h3');
-    eventTitle.textContent = eventInfo.name;
+    eventTitle.textContent = currentEvent.name;
     cardImage.src = 'img/alien-skateboard.jpg';
     var eventText = document.createElement('p');
-    eventText.textContent = eventInfo.textSummary;
+    eventText.textContent = currentEvent.textSummary;
     cardTitleHolder.appendChild(eventTitle);
     cardTextHolder.appendChild(eventText);
-    createButtons(eventInfo);
+    createButtons();
 }
 
-function createButtons(eventData){
-    var eventInfo = eventData;
-
-    if(eventInfo.type === 'no-action'){
+function createButtons(){
+    if(currentEvent.type === 'no-action'){
         var confirm = document.createElement('button');
         confirm.id = 'confirm';
         confirm.textContent = 'Proceed';
@@ -412,26 +411,29 @@ function createButtons(eventData){
 }
 
 function successCard(){
+    console.log('hello');
+    blankCard();
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('success');
     var successTitle = document.createElement('h3');
     successTitle.textContent = 'SUCCESS!!!';
     cardImage.src = 'img/alien-skateboard.jpg';
     var successMsg = document.createElement('p');
-    successMsg.textContent = successText;
+    successMsg.textContent = currentEvent.gainText;
     cardTitleHolder.appendChild(successTitle);
     cardTextHolder.appendChild(successMsg);
     cardDisplay.addEventListener('click', planetZoomOut);
 }
 
 function failureCard(){
+    console.log('goodbye');
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('failure');
     var failureTitle = document.createElement('h3');
     failureTitle.textContent = 'FAILURE!!!';
     cardImage.src = 'img/alien-skateboard.jpg';
     var failureMsg = document.createElement('p');
-    failureMsg.textContent = failureText;
+    failureMsg.textContent = currentEvent.lossText;
     cardTitleHolder.appendChild(failureTitle);
     cardTextHolder.appendChild(failureMsg);
     cardDisplay.addEventListener('click', planetZoomOut);
@@ -444,6 +446,7 @@ function blankCard() {
     cardImage.src = '';
     cardTextHolder.innerHTML = '';
     btnContainer.innerHTML = '';
+
 }
 
 // functions to move ship and to remove halos and event listeners
@@ -475,10 +478,20 @@ function choiceClick(e){
         planetZoomOut();
     } else if(buttonId.id === 'accept'){
         console.log(`Let's Do This!!`);
-        // show results
+        eventCardAction(currentEvent);
+        var eventResult = currentEvent.success;
+        console.log(eventResult);
+        if(eventResult === true){
+            console.log('success');
+            successCard();
+        } else {
+            console.log('failure');
+            failureCard();
+        }
+
     } else if(buttonId.id === 'reject'){
         console.log(`Are You Crazy?!?`);
-        // show results
+        planetZoomOut();
     }
 }
 
@@ -486,6 +499,7 @@ function planetZoomOut(){
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.remove('success');
     cardDisplay.classList.remove('failure');
+    cardDisplay.removeEventListener('click', planetZoomOut);
     functionArray[navIndex]();
 }
 

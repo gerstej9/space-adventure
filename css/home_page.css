@@ -30,7 +30,7 @@ p{
   background-color: #3f2a50;
   height: 90px;
   width: 100%;
-  background-image: url('/img/nav_bar.png');
+  background-image: url('../img/nav_bar.png');
 }
 
 
@@ -309,7 +309,7 @@ td {
   
 
  
-  background-image: url('/img/alien-skateboard.jpg');
+  background-image: url('../img/alien-skateboard.jpg');
   background-position: bottom; 
   background-repeat: no-repeat; 
   background-size: cover;
@@ -397,7 +397,7 @@ div.footer-wrapper{
   background-color: #3f2a50;
   height: 90px;
   width: 100%;
-  background-image: url('/img/nav_bar.png');
+  background-image: url('../img/nav_bar.png');
 }
 
 

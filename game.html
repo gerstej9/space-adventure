@@ -19,12 +19,10 @@
  <main>
 
   <div id="left-bar" class="side-bar board-segment">
-   <div id="game-title">
     <div class="logo-wrapper">
       <img src="./img/logo.png" alt="Space Adventure Logo" class="main-logo">
       
     </div>
-   </div>
    <div>
     <h1 id="player-title"></h1>
    </div>
@@ -35,6 +33,28 @@
   </div>
   <!-- the gamefield -->
   <div id="game-field" class="board-segment">
+  <div id="form">
+    <form id="new-player-form" action="">
+      <fieldset id="form-field">
+        <legend>
+          Welcome to the Lost Sector
+        </legend>
+        <label for="">
+          What is your name, Captain?
+          <input type="text" name="captname" placeholder="Pike">
+        </label>
+        <br />
+        <label for="">
+          What skill level?
+          <input type="radio" name="difficulty" value="easy" checked="checked" /> Easy
+          <input type="radio" name="difficulty" value="medium" checked="checked" /> Medium
+          <input type="radio" name="difficulty" value="hard" checked="checked" /> Hard
+        </label>
+        <br />
+        <input type="submit" id="submit" value="LAUNCH!!">
+      </fieldset>
+    </form>
+    </div>
    <!-- the player ship -->
    <div id="player-ship" class="nav-start">
     <img src="img/space-ship.png"  alt="">

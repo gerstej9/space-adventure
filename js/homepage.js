@@ -1,7 +1,5 @@
 'use strict'
 
-
-
 // create leader board
 function makeLeaderBoard(){
  

@@ -3,13 +3,17 @@
 body {
   width: 1366px;
   height: 768px;
+  margin: auto;
 }
+
+
 
 header {
   height: 60px;
 }
 
 main {
+  
   display: flex;
   flex-direction: inline-block;
 }
@@ -23,8 +27,12 @@ main {
   justify-content: space-between;
 }
 
+img.main-logo{
+ width: 150px;
+}
+
 .side-bar {
-  background-color: darkslategrey;
+  background-color: #1a0a26;
 }
 
 footer {
@@ -398,6 +406,8 @@ h3 {
 
 #player-title {
   font-family: "Orbitron", sans-serif;
-  margin-bottom: 40px;
+  color: aliceblue;
+  margin: 0 5px 40px 5px;
   text-align: center;
+  letter-spacing: .2rem;
 }

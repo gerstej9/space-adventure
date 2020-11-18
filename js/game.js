@@ -32,6 +32,8 @@ var currentEvent;
 // game start
 
 function startGame(){
+    removeNavPoints();
+    plotCourse.classList.add('nav-start');
     planetOne.addEventListener('click', planetOneZoomIn);
     planetTwo.addEventListener('click', planetTwoZoomIn);
     planetOne.classList.add('easy-choice');
@@ -350,8 +352,9 @@ function planetGoalZoomIn() {
     var congrats = document.createElement('h3');
     congrats.textContent = 'Congratulations!! You Made It!';
     cardTitleHolder.appendChild(congrats);
-    displayEvent.classList.add('success');
-    displayEvent.classList.add('zoom');
+    cardImage.src = 'img/fireworks-hwd.jpg';
+    displayEvent.classList.add('winner');
+    displayEvent.classList.add('zoom2');
     tabulatePoints();
     console.log(totalFuel,totalCrew,totalPoints);
     if(!localStorage.leaderboard){
@@ -490,6 +493,7 @@ function choiceClick(e){
     var buttonId = e.target;
     if(buttonId.id === 'confirm'){
         btnContainer.removeEventListener('click', choiceClick);
+        eventCardAction(currentEvent);
         planetZoomOut();
     } else if(buttonId.id === 'accept'){
         btnContainer.removeEventListener('click', choiceClick);

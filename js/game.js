@@ -52,6 +52,7 @@ function planetOneZoomIn() {
     if (planetOne.classList.contains('one')) {
         planetOne.classList.remove('one');
         fuelDecrement(1);
+        removeChart();
         generateChart();
         planetFuelCounter = 1;
         console.log(totalFuel);
@@ -84,6 +85,7 @@ function planetTwoZoomIn() {
     if (planetTwo.classList.contains('two')) {
         planetTwo.classList.remove('two');
         fuelDecrement(1);
+        removeChart();
         generateChart();
         planetFuelCounter = 2;
         console.log(totalFuel);
@@ -112,6 +114,7 @@ function planetThreeZoomIn() {
     if (planetThree.classList.contains('three')) {
         planetThree.classList.remove('three');
         fuelDecrement(2);
+        removeChart();
         generateChart();
         planetFuelCounter = 3;
         console.log(totalFuel);
@@ -142,6 +145,7 @@ function planetFourZoomIn() {
         }else{
             fuelDecrement(1);
         }
+        removeChart();
         generateChart();
         planetFuelCounter = 4;
         console.log(totalFuel);
@@ -176,6 +180,7 @@ function planetFiveZoomIn() {
         }else{
             fuelDecrement(2);
         }
+        removeChart();
         generateChart();
         planetFuelCounter = 5;
         console.log(totalFuel);
@@ -208,6 +213,7 @@ function planetSixZoomIn() {
         }else{
             fuelDecrement(2);
         }
+        removeChart();
         generateChart();
         planetFuelCounter = 6;
         console.log(totalFuel);
@@ -236,6 +242,7 @@ function planetSevenZoomIn() {
     if (planetSeven.classList.contains('seven')) {
         planetSeven.classList.remove('seven');
         fuelDecrement(1);
+        removeChart();
         generateChart();
         planetFuelCounter = 7;
         console.log(totalFuel);
@@ -270,6 +277,7 @@ function planetEightZoomIn() {
         }else{
             fuelDecrement(3);
         }
+        removeChart();
         generateChart();
         planetFuelCounter = 8;
         console.log(totalFuel);
@@ -300,6 +308,7 @@ function planetNineZoomIn() {
         }else{
             fuelDecrement(3);
         }
+        removeChart();
         generateChart();
         planetFuelCounter = 9;
         console.log(totalFuel);
@@ -326,6 +335,7 @@ function planetTenZoomIn() {
     if (planetTen.classList.contains('ten')) {
         planetTen.classList.remove('ten');
         fuelDecrement(1);
+        removeChart();
         generateChart();
         planetFuelCounter = 10;
         console.log(totalFuel);
@@ -347,6 +357,7 @@ function planetGoalZoomIn() {
     removeNavPoints();
     plotCourse.classList.add('nav-goal');
     fuelDecrement(1);
+    removeChart();
     generateChart();
     planetFuelCounter = 11;
     var congrats = document.createElement('h3');
@@ -355,6 +366,9 @@ function planetGoalZoomIn() {
     cardImage.src = 'img/fireworks-hwd.jpg';
     displayEvent.classList.add('winner');
     displayEvent.classList.add('zoom2');
+    displayEvent.classList.add('success');
+    displayEvent.classList.add('zoom');
+    newGame();
     tabulatePoints();
     console.log(totalFuel,totalCrew,totalPoints);
     if(!localStorage.leaderboard){
@@ -364,12 +378,14 @@ function planetGoalZoomIn() {
     }
     new HighScore(userName,totalPoints);
     leaderBoardStoreLs();
+    btnContainer.addEventListener('click', refreshNewGame);
 }
 
 // render random event card from array
 
 function loadEvent(){
     currentEvent = eventCardSelector();
+    console.log(currentEvent);
     successText = currentEvent.gainText;
     failureText = currentEvent.lossText;
     var eventTitle = document.createElement('h3');
@@ -508,6 +524,9 @@ function choiceClick(e){
         btnContainer.removeEventListener('click', choiceClick);
         planetZoomOut();
     }
+    removeChart();
+    generateChart();
+    console.log(totalCrew, totalFuel, totalPoints);
 }
 
 // zooms out from the current planet and prepares the board for the next move
@@ -517,6 +536,16 @@ function planetZoomOut(){
     cardDisplay.classList.remove('success');
     cardDisplay.classList.remove('failure');
     functionArray[navIndex]();
+}
+
+function removeChart(){
+    var divChartEl = document.getElementById('ship-status');
+    divChartEl.innerHTML = '';
+    var canvasEl = document.createElement('canvas');
+    canvasEl.setAttribute('id', 'myChart');
+    canvasEl.setAttribute('width', '180');
+    canvasEl.setAttribute('height', '300');
+    divChartEl.appendChild(canvasEl);
 }
 
 // generates chart of resources
@@ -564,10 +593,19 @@ function getUserName(){
     captainName.textContent = `Captain ${userName}`;
 }
 
+function newGame(){
+    var startNewGame = document.createElement('button');
+    startNewGame.id = 'start-new-game';
+    startNewGame.textContent = 'Start New Game';
+    btnContainer.appendChild(startNewGame);
+}
+
+function refreshNewGame(){
+    window.location.reload();
+}
+
 
 
 startGame();
-if(myChart != true){
-    generateChart();
-}
+generateChart();
 getUserName();

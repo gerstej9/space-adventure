@@ -18,6 +18,7 @@ var planetGoal = document.getElementById('finish-space');
 var displayEvent = document.getElementById('display-event');
 var cardTitleHolder = document.getElementById('event-title');
 var cardTextHolder = document.getElementById('event-text');
+var imageContainer = document.getElementById('image-holder');
 var cardImage = document.getElementById('event-image');
 var btnContainer = document.getElementById('button-container');
 var allPlanets = [planetOne, planetTwo, planetThree, planetFour, planetFive, planetSix, planetSeven, planetEight, planetNine, planetTen];
@@ -51,6 +52,7 @@ function planetOneZoomIn() {
 
     if (planetOne.classList.contains('one')) {
         planetOne.classList.remove('one');
+        cardImage.classList.remove('vanish');
         fuelDecrement(1);
         removeChart();
         generateChart();
@@ -84,6 +86,7 @@ function planetTwoZoomIn() {
 
     if (planetTwo.classList.contains('two')) {
         planetTwo.classList.remove('two');
+        cardImage.classList.remove('vanish');
         fuelDecrement(1);
         removeChart();
         generateChart();
@@ -113,6 +116,7 @@ function planetThreeZoomIn() {
 
     if (planetThree.classList.contains('three')) {
         planetThree.classList.remove('three');
+        cardImage.classList.remove('vanish');
         fuelDecrement(2);
         removeChart();
         generateChart();
@@ -140,6 +144,7 @@ function planetFourZoomIn() {
 
     if (planetFour.classList.contains('four')) {
         planetFour.classList.remove('four');
+        cardImage.classList.remove('vanish');
         if(planetFuelCounter === 1){
             fuelDecrement(2);
         }else{
@@ -175,6 +180,7 @@ function planetFiveZoomIn() {
 
     if (planetFive.classList.contains('five')) {
         planetFive.classList.remove('five');
+        cardImage.classList.remove('vanish');
         if(planetFuelCounter === 2){
             fuelDecrement(1);
         }else{
@@ -208,6 +214,7 @@ function planetSixZoomIn() {
 
     if (planetSix.classList.contains('six')) {
         planetSix.classList.remove('six');
+        cardImage.classList.remove('vanish');
         if(planetFuelCounter === 7){
             fuelDecrement(1);
         }else{
@@ -241,6 +248,7 @@ function planetSevenZoomIn() {
 
     if (planetSeven.classList.contains('seven')) {
         planetSeven.classList.remove('seven');
+        cardImage.classList.remove('vanish');
         fuelDecrement(1);
         removeChart();
         generateChart();
@@ -272,6 +280,7 @@ function planetEightZoomIn() {
 
     if (planetEight.classList.contains('eight')) {
         planetEight.classList.remove('eight');
+        cardImage.classList.remove('vanish');
         if(planetFuelCounter === 7){
             fuelDecrement(2);
         }else{
@@ -303,6 +312,7 @@ function planetNineZoomIn() {
 
     if (planetNine.classList.contains('nine')) {
         planetNine.classList.remove('nine');
+        cardImage.classList.remove('vanish');
         if(planetFuelCounter === 10){
             fuelDecrement(2);
         }else{
@@ -334,6 +344,7 @@ function planetTenZoomIn() {
 
     if (planetTen.classList.contains('ten')) {
         planetTen.classList.remove('ten');
+        cardImage.classList.remove('vanish');
         fuelDecrement(1);
         removeChart();
         generateChart();
@@ -356,6 +367,7 @@ function planetTenZoomIn() {
 function planetGoalZoomIn() {
     removeNavPoints();
     plotCourse.classList.add('nav-goal');
+    cardImage.classList.remove('vanish');
     fuelDecrement(1);
     removeChart();
     generateChart();
@@ -366,8 +378,6 @@ function planetGoalZoomIn() {
     cardImage.src = 'img/fireworks-hwd.jpg';
     displayEvent.classList.add('winner');
     displayEvent.classList.add('zoom2');
-    displayEvent.classList.add('success');
-    displayEvent.classList.add('zoom');
     newGame();
     tabulatePoints();
     console.log(totalFuel,totalCrew,totalPoints);
@@ -422,7 +432,7 @@ function createButtons(){
 // renders success card and event message
 
 function successCard(){
-    console.log('hello');
+    cardImage.classList.remove('vanish');
     blankCard();
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('success');
@@ -439,7 +449,7 @@ function successCard(){
 // renders failure card and event message
 
 function failureCard(){
-    console.log('goodbye');
+    cardImage.classList.remove('vanish');
     blankCard();
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('failure');
@@ -475,6 +485,7 @@ function acceptResults(e){
 
 function blankCard() {
     cardTitleHolder.innerHTML = '';
+    cardImage.classList.add('vanish');
     cardImage.src = '';
     cardTextHolder.innerHTML = '';
     btnContainer.innerHTML = '';

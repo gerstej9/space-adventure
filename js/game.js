@@ -371,7 +371,7 @@ function loadEvent(){
     failureText = currentEvent.lossText;
     var eventTitle = document.createElement('h3');
     eventTitle.textContent = currentEvent.name;
-    cardImage.src = 'img/beastie.JPG';
+    cardImage.src = currentEvent.img;
     var eventText = document.createElement('p');
     eventText.textContent = currentEvent.textSummary;
     cardTitleHolder.appendChild(eventTitle);
@@ -409,7 +409,7 @@ function successCard(){
     cardDisplay.classList.add('success');
     var successTitle = document.createElement('h3');
     successTitle.textContent = 'SUCCESS!!!';
-    cardImage.src = 'img/beastie.JPG';
+    cardImage.src = 'img/success-griffin.jpg';
     var successMsg = document.createElement('p');
     successMsg.textContent = currentEvent.gainText;
     cardTitleHolder.appendChild(successTitle);
@@ -426,7 +426,7 @@ function failureCard(){
     cardDisplay.classList.add('failure');
     var failureTitle = document.createElement('h3');
     failureTitle.textContent = 'FAILURE!!!';
-    cardImage.src = 'img/beastie.JPG';
+    cardImage.src = 'img/failure-radford.jpg';
     var failureMsg = document.createElement('p');
     failureMsg.textContent = currentEvent.lossText;
     cardTitleHolder.appendChild(failureTitle);

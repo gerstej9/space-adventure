@@ -1,12 +1,17 @@
 'use strict'
 
-function makeLeaderBoard(){
-  
-  var leaderboardParent = document.getElementById('leaderboard-list');
 
+
+// create leader board
+function makeLeaderBoard(){
+ 
+  // call table
+  var leaderboardParent = document.getElementById('leaderboard-list');
+  // clear table
+  leaderboardParent.innerHTML = ""; 
+  // make row
   var trElement = document.createElement('tr');
   leaderboardParent.appendChild(trElement);
-
 
   //make a table header
   var thElement = document.createElement('th');
@@ -15,12 +20,13 @@ function makeLeaderBoard(){
 
   //make a td
   var thElement = document.createElement('th')
-
   thElement.textContent = 'Score';
   //append it to table row
   trElement.appendChild(thElement);
 
-
+  
+  var trElement = document.createElement('tr');
+  leaderboardParent.appendChild(trElement);
   
   
   for(var i=0; i<leaderBoard.length;i++){
@@ -30,26 +36,10 @@ function makeLeaderBoard(){
     var tdElement = document.createElement('td');
     tdElement.textContent = leaderBoard[i].name;
     trElement.appendChild(tdElement);
-
-
-    
-    
-
-
-    
-    
-    
-  
-
+    var tdTwoElement = document.createElement('td');
+    tdTwoElement.textContent = leaderBoard[i].points;
+    trElement.appendChild(tdTwoElement);
   }
-
-  
-
-
-
-
-
-
 
 
 }
@@ -98,6 +88,7 @@ var span = document.getElementsByClassName("closeA")[0];
 
 // When the user clicks on the label, open the modal
 btn2.onclick = function() {
+
   modal2.style.display = "block";
   returnLeaderBoardLs();
   makeLeaderBoard();

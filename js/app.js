@@ -15,7 +15,13 @@ var HighScore = function(name, points){
     this.name = name;
     this.points = points;
     leaderBoard.push(this);
+
+    if(leaderBoard.length>10){
+        leaderBoard.pop();
+    }
 }
+
+
 ///points.sort(function(a, b){return a-b}); for sorting high score leaderboard
 //W3Schools contribution
 

@@ -39,9 +39,11 @@ h3 {
   margin-bottom: 10px;
 }
 
+/* The board */
+
 #game-field {
   position: relative;
-  background-image: url(../img/kai-pilger-Ef6iL87-vOA-unsplash.jpg);
+  background-image: url(../img/kai-pilger-Ef6iL87-vOA-unsplash.jpg); /* Photo by Kai Pilger on Unsplash */
   background-repeat: no-repeat;
   overflow: hidden;
   width: 960px;
@@ -74,6 +76,8 @@ h3 {
   right: -100px;
 }
 
+/* the planets (not by Holst) */
+
 .planet {
   position: absolute;
   height: 360px;
@@ -94,26 +98,6 @@ h3 {
 .one {
   transform: translate(-320px, -100px) scale(0.05);
   z-index: 1;
-}
-
-.easy-choice {
-  border: 12px solid black;
-  box-shadow: 0 0 60px 120px lime;
-}
-
-.med-choice {
-  border: 12px solid black;
-  box-shadow: 0 0 60px 120px yellow;
-}
-
-.hard-choice {
-  border: 12px solid black;
-  box-shadow: 0 0 60px 120px orangered;
-}
-
-.final-choice {
-  border: 1px solid black;
-  box-shadow: 0 0 8px 10px rgb(155, 214, 238);
 }
 
 #world-two {
@@ -224,6 +208,30 @@ h3 {
   z-index: 1;
 }
 
+.final-choice {
+  border: 1px solid black;
+  box-shadow: 0 0 8px 10px rgb(155, 214, 238);
+}
+
+/* navigation choice halos */
+
+.easy-choice {
+  border: 12px solid black;
+  box-shadow: 0 0 60px 120px lime;
+}
+
+.med-choice {
+  border: 12px solid black;
+  box-shadow: 0 0 60px 120px yellow;
+}
+
+.hard-choice {
+  border: 12px solid black;
+  box-shadow: 0 0 60px 120px orangered;
+}
+
+/* event card styling */
+
 .card-container {
   height: 260px;
   position: absolute;
@@ -264,15 +272,50 @@ h3 {
   font-size: 12px;
 }
 
+/* buttons for events and success & failure results */
+
 #button-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.success {
-  background: white;
+#button-container button {
+  border-radius: 4px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 12px;
+  padding: 3px;
 }
+
+#button-container button:hover {
+  cursor: pointer;
+}
+
+#accept {
+  color: green;
+}
+
+#reject {
+  color: red;
+}
+
+.success {
+  box-shadow: 0 0 6px lime;
+}
+
+.success h3 {
+  text-shadow: 0 0 3px lime;
+}
+
+.failure {
+  box-shadow: 0 0 6px red;
+}
+
+.failure h3 {
+  text-shadow: 0 0 3px red;
+}
+
+/* styling for font-awesome ship */
 
 #player-ship {
   position: absolute;
@@ -285,6 +328,9 @@ h3 {
   font-size: 20px;
   z-index: 2;
 }
+
+/* nav coordinates for ship */
+
 .nav-start {
   left: 50px;
   top: 50px;
@@ -343,6 +389,8 @@ h3 {
   top: 570px;
   left: 890px;
 }
+
+/* game and player title */
 
 #game-title {
   font-family: "Orbitron", sans-serif;

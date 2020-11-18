@@ -56,8 +56,6 @@ function planetOneZoomIn() {
         removePlanetListeners();
         loadEvent();
         displayEvent.classList.add('zoom');
-        // planetOne.addEventListener('click', planetOneZoomIn); temp until card button set up
-        btnContainer.addEventListener('click', choiceClick);
     } else {
         planetOne.classList.add('one');
         displayEvent.classList.remove('zoom');
@@ -87,10 +85,9 @@ function planetTwoZoomIn() {
         generateChart();
         planetFuelCounter = 2;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetTwo.addEventListener('click', planetTwoZoomIn); // temp until card button set up
     } else {
         planetTwo.classList.add('two');
         displayEvent.classList.remove('zoom');
@@ -116,10 +113,9 @@ function planetThreeZoomIn() {
         generateChart();
         planetFuelCounter = 3;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetThree.addEventListener('click', planetThreeZoomIn); // temp until card button set up
     } else {
         planetThree.classList.add('three');
         displayEvent.classList.remove('zoom');
@@ -147,10 +143,9 @@ function planetFourZoomIn() {
         generateChart();
         planetFuelCounter = 4;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetFour.addEventListener('click', planetFourZoomIn); // temp until card button set up
     } else {
         planetFour.classList.add('four');
         displayEvent.classList.remove('zoom');
@@ -182,10 +177,9 @@ function planetFiveZoomIn() {
         generateChart();
         planetFuelCounter = 5;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetFive.addEventListener('click', planetFiveZoomIn); // temp until card button set up
     } else {
         planetFive.classList.add('five');
         displayEvent.classList.remove('zoom');
@@ -215,10 +209,9 @@ function planetSixZoomIn() {
         generateChart();
         planetFuelCounter = 6;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetSix.addEventListener('click', planetSixZoomIn); // temp until card button set up
     } else {
         planetSix.classList.add('six');
         displayEvent.classList.remove('zoom');
@@ -244,10 +237,9 @@ function planetSevenZoomIn() {
         generateChart();
         planetFuelCounter = 7;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetSeven.addEventListener('click', planetSevenZoomIn); // temp until card button set up
     } else {
         planetSeven.classList.add('seven');
         displayEvent.classList.remove('zoom');
@@ -279,10 +271,9 @@ function planetEightZoomIn() {
         generateChart();
         planetFuelCounter = 8;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetEight.addEventListener('click', planetEightZoomIn); // temp until card button set up
     } else {
         planetEight.classList.add('eight');
         displayEvent.classList.remove('zoom');
@@ -310,10 +301,9 @@ function planetNineZoomIn() {
         generateChart();
         planetFuelCounter = 9;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetNine.addEventListener('click', planetNineZoomIn); // temp until card button set up
     } else {
         planetNine.classList.add('nine');
         displayEvent.classList.remove('zoom');
@@ -337,10 +327,9 @@ function planetTenZoomIn() {
         generateChart();
         planetFuelCounter = 10;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetTen.addEventListener('click', planetTenZoomIn); // temp until card button set up
     } else {
         planetTen.classList.add('ten');
         displayEvent.classList.remove('zoom');
@@ -353,13 +342,11 @@ function planetTenZoomIn() {
 // arrive goal
 
 function planetGoalZoomIn() {
-    planetGoal.classList.remove('final-choice');
     removeNavPoints();
-    removePlanetListeners();
+    plotCourse.classList.add('nav-goal');
     fuelDecrement(1);
     generateChart();
     planetFuelCounter = 11;
-    plotCourse.classList.add('nav-goal');
     var congrats = document.createElement('h3');
     congrats.textContent = 'Congratulations!! You Made It!';
     cardTitleHolder.appendChild(congrats);
@@ -392,6 +379,8 @@ function loadEvent(){
     createButtons();
 }
 
+// creates buttons on event cards
+
 function createButtons(){
     if(currentEvent.type === 'no-action'){
         var confirm = document.createElement('button');
@@ -408,7 +397,10 @@ function createButtons(){
         btnContainer.appendChild(acceptRisk);
         btnContainer.appendChild(rejectRisk);
     }
+    btnContainer.addEventListener('click', choiceClick);
 }
+
+// renders success card and event message
 
 function successCard(){
     console.log('hello');
@@ -422,11 +414,14 @@ function successCard(){
     successMsg.textContent = currentEvent.gainText;
     cardTitleHolder.appendChild(successTitle);
     cardTextHolder.appendChild(successMsg);
-    cardDisplay.addEventListener('click', planetZoomOut);
+    acknowledgeButton();
 }
+
+// renders failure card and event message
 
 function failureCard(){
     console.log('goodbye');
+    blankCard();
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('failure');
     var failureTitle = document.createElement('h3');
@@ -436,10 +431,28 @@ function failureCard(){
     failureMsg.textContent = currentEvent.lossText;
     cardTitleHolder.appendChild(failureTitle);
     cardTextHolder.appendChild(failureMsg);
-    cardDisplay.addEventListener('click', planetZoomOut);
+    acknowledgeButton();
 }
 
-// empty event card
+// button to close success or failure card after reading
+
+function acknowledgeButton(){
+    var confirm = document.createElement('button');
+    confirm.id = 'confirm';
+    confirm.textContent = 'Proceed';
+    btnContainer.appendChild(confirm);
+    btnContainer.addEventListener('click', acceptResults);
+}
+
+function acceptResults(e){
+    var buttonId = e.target;
+    if(buttonId.id === 'confirm'){
+        btnContainer.removeEventListener('click', acceptResults);
+        planetZoomOut();
+    }
+}       
+
+// clear out the event card
 
 function blankCard() {
     cardTitleHolder.innerHTML = '';
@@ -471,39 +484,39 @@ function removePlanetListeners(){
     }
 }
 
+// function to determine which event button was clicked and call the appropriate function
+
 function choiceClick(e){
     var buttonId = e.target;
     if(buttonId.id === 'confirm'){
-        console.log(`Confirmed!!`);
+        btnContainer.removeEventListener('click', choiceClick);
         planetZoomOut();
     } else if(buttonId.id === 'accept'){
-        console.log(`Let's Do This!!`);
+        btnContainer.removeEventListener('click', choiceClick);
         eventCardAction(currentEvent);
         var eventResult = currentEvent.success;
-        console.log(eventResult);
         if(eventResult === true){
-            console.log('success');
             successCard();
         } else {
-            console.log('failure');
             failureCard();
         }
-
     } else if(buttonId.id === 'reject'){
-        console.log(`Are You Crazy?!?`);
+        btnContainer.removeEventListener('click', choiceClick);
         planetZoomOut();
     }
 }
+
+// zooms out from the current planet and prepares the board for the next move
 
 function planetZoomOut(){
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.remove('success');
     cardDisplay.classList.remove('failure');
-    cardDisplay.removeEventListener('click', planetZoomOut);
     functionArray[navIndex]();
 }
 
 // generates chart of resources
+
 function generateChart(){
     var chartDataset = [totalCrew, totalFuel];
     var ctx = document.getElementById('myChart').getContext('2d');

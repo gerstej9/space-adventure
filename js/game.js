@@ -491,6 +491,7 @@ function planetZoomOut(){
 
 // generates chart of resources
 function generateChart(){
+    var chartDataset = [totalCrew, totalFuel];
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -499,7 +500,7 @@ function generateChart(){
         datasets: [
             {
             label: 'Resources',
-            data: [totalCrew, totalFuel],
+            data: chartDataset,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.4)',
                 'rgba(255, 99, 132, 0.4)',
@@ -535,5 +536,7 @@ function getUserName(){
 
 
 startGame();
-generateChart();
+if(myChart != true){
+    generateChart();
+}
 getUserName();

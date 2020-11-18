@@ -1,5 +1,59 @@
 'use strict'
 
+function makeLeaderBoard(){
+  
+  var leaderboardParent = document.getElementById('leaderboard-list');
+
+  var trElement = document.createElement('tr');
+  leaderboardParent.appendChild(trElement);
+
+
+  //make a table header
+  var thElement = document.createElement('th');
+  thElement.textContent = 'Name';
+  trElement.appendChild(thElement);
+
+  //make a td
+  var thElement = document.createElement('th')
+
+  thElement.textContent = 'Score';
+  //append it to table row
+  trElement.appendChild(thElement);
+
+
+  
+  
+  for(var i=0; i<leaderBoard.length;i++){
+    //make a table row
+    var trElement = document.createElement('tr');
+    leaderboardParent.appendChild(trElement);
+    var tdElement = document.createElement('td');
+    tdElement.textContent = leaderBoard[i].name;
+    trElement.appendChild(tdElement);
+
+
+    
+    
+
+
+    
+    
+    
+  
+
+  }
+
+  
+
+
+
+
+
+
+
+
+}
+
 
 
 
@@ -45,6 +99,8 @@ var span = document.getElementsByClassName("closeA")[0];
 // When the user clicks on the label, open the modal
 btn2.onclick = function() {
   modal2.style.display = "block";
+  returnLeaderBoardLs();
+  makeLeaderBoard();
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -60,7 +116,7 @@ window.addEventListener("click", function(event) {
   }
 });
 
-// ---------------------- second modal leaderboard ------------------------ 
+// ---------------------- Third modal About the Creators ------------------------ 
 
 var modal3 = document.getElementById("myModalThree");
 
@@ -92,5 +148,6 @@ window.addEventListener("click", function(event) {
 
 
 // get the leaderboard and render to modual body 
+
 
 

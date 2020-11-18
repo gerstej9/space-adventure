@@ -56,7 +56,6 @@ function planetOneZoomIn() {
         removePlanetListeners();
         loadEvent();
         displayEvent.classList.add('zoom');
-        // planetOne.addEventListener('click', planetOneZoomIn); temp until card button set up
     } else {
         planetOne.classList.add('one');
         displayEvent.classList.remove('zoom');
@@ -86,10 +85,9 @@ function planetTwoZoomIn() {
         generateChart();
         planetFuelCounter = 2;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetTwo.addEventListener('click', planetTwoZoomIn); // temp until card button set up
     } else {
         planetTwo.classList.add('two');
         displayEvent.classList.remove('zoom');
@@ -115,10 +113,9 @@ function planetThreeZoomIn() {
         generateChart();
         planetFuelCounter = 3;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetThree.addEventListener('click', planetThreeZoomIn); // temp until card button set up
     } else {
         planetThree.classList.add('three');
         displayEvent.classList.remove('zoom');
@@ -146,10 +143,9 @@ function planetFourZoomIn() {
         generateChart();
         planetFuelCounter = 4;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetFour.addEventListener('click', planetFourZoomIn); // temp until card button set up
     } else {
         planetFour.classList.add('four');
         displayEvent.classList.remove('zoom');
@@ -181,10 +177,9 @@ function planetFiveZoomIn() {
         generateChart();
         planetFuelCounter = 5;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetFive.addEventListener('click', planetFiveZoomIn); // temp until card button set up
     } else {
         planetFive.classList.add('five');
         displayEvent.classList.remove('zoom');
@@ -214,10 +209,9 @@ function planetSixZoomIn() {
         generateChart();
         planetFuelCounter = 6;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetSix.addEventListener('click', planetSixZoomIn); // temp until card button set up
     } else {
         planetSix.classList.add('six');
         displayEvent.classList.remove('zoom');
@@ -243,10 +237,9 @@ function planetSevenZoomIn() {
         generateChart();
         planetFuelCounter = 7;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetSeven.addEventListener('click', planetSevenZoomIn); // temp until card button set up
     } else {
         planetSeven.classList.add('seven');
         displayEvent.classList.remove('zoom');
@@ -278,10 +271,9 @@ function planetEightZoomIn() {
         generateChart();
         planetFuelCounter = 8;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetEight.addEventListener('click', planetEightZoomIn); // temp until card button set up
     } else {
         planetEight.classList.add('eight');
         displayEvent.classList.remove('zoom');
@@ -309,10 +301,9 @@ function planetNineZoomIn() {
         generateChart();
         planetFuelCounter = 9;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetNine.addEventListener('click', planetNineZoomIn); // temp until card button set up
     } else {
         planetNine.classList.add('nine');
         displayEvent.classList.remove('zoom');
@@ -336,10 +327,9 @@ function planetTenZoomIn() {
         generateChart();
         planetFuelCounter = 10;
         console.log(totalFuel);
-        loadEvent();
         removePlanetListeners();
+        loadEvent();
         displayEvent.classList.add('zoom');
-        planetTen.addEventListener('click', planetTenZoomIn); // temp until card button set up
     } else {
         planetTen.classList.add('ten');
         displayEvent.classList.remove('zoom');

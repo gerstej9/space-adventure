@@ -165,6 +165,8 @@ function eventCardAction(eventCard){
             }
         }
     }
+    return eventCard.success;
+    
 }
 
 function tabulatePoints(){

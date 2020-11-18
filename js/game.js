@@ -379,6 +379,8 @@ function loadEvent(){
     createButtons();
 }
 
+// creates buttons on event cards
+
 function createButtons(){
     if(currentEvent.type === 'no-action'){
         var confirm = document.createElement('button');
@@ -398,6 +400,8 @@ function createButtons(){
     btnContainer.addEventListener('click', choiceClick);
 }
 
+// renders success card and event message
+
 function successCard(){
     console.log('hello');
     blankCard();
@@ -413,6 +417,8 @@ function successCard(){
     acknowledgeButton();
 }
 
+// renders failure card and event message
+
 function failureCard(){
     console.log('goodbye');
     blankCard();
@@ -427,6 +433,8 @@ function failureCard(){
     cardTextHolder.appendChild(failureMsg);
     acknowledgeButton();
 }
+
+// button to close success or failure card after reading
 
 function acknowledgeButton(){
     var confirm = document.createElement('button');
@@ -444,7 +452,7 @@ function acceptResults(e){
     }
 }       
 
-// empty event card
+// clear out the event card
 
 function blankCard() {
     cardTitleHolder.innerHTML = '';
@@ -476,6 +484,8 @@ function removePlanetListeners(){
     }
 }
 
+// function to determine which event button was clicked and call the appropriate function
+
 function choiceClick(e){
     var buttonId = e.target;
     if(buttonId.id === 'confirm'){
@@ -496,6 +506,8 @@ function choiceClick(e){
     }
 }
 
+// zooms out from the current planet and prepares the board for the next move
+
 function planetZoomOut(){
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.remove('success');
@@ -504,6 +516,7 @@ function planetZoomOut(){
 }
 
 // generates chart of resources
+
 function generateChart(){
     var chartDataset = [totalCrew, totalFuel];
     var ctx = document.getElementById('myChart').getContext('2d');

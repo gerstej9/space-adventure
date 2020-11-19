@@ -668,11 +668,17 @@ function generateChart(){
         ],
         },
         options: {
+            legend: {
+            display: true,
+            labels: {
+                fontColor: ['rgb(255,255,255)']}
+            },
         scales: {
             yAxes: [
             {
                 ticks: {
                 beginAtZero: true,
+                fontColor: ['rgb(255,255,255)']
                 },
             },
             ],

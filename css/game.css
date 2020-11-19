@@ -87,7 +87,9 @@ h3 {
 
 #start-space {
   position: absolute;
-  background-color: palegreen;
+  background-image: url(../img/locations/padure-start.png);
+  background-size: 200px 200px;
+  opacity: 0.6;
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -97,7 +99,7 @@ h3 {
 
 #finish-space {
   position: absolute;
-  background-image: url(../img/goal.png);
+  background-image: url(../img/locations/goal.png);
   background-size: 200px 200px;
   opacity: 0.7;
   height: 200px;
@@ -123,7 +125,7 @@ h3 {
   height: 360px;
   width: 360px;
   /* background-color: seagreen; */
-  background-image: url(../img/krcmarek-planet.png);
+  background-image: url(../img/locations/krcmarek-planet.png);
   background-size: 360px 360px;
   border-radius: 50%;
 }
@@ -136,7 +138,7 @@ h3 {
 #world-two {
   height: 360px;
   width: 360px;
-  background-image: url(../img/kato-planet.png);
+  background-image: url(../img/locations/kato-planet.png);
   background-size: 360px 360px;
   border-radius: 50%;
 }
@@ -149,7 +151,7 @@ h3 {
 #world-three {
   height: 360px;
   width: 360px;
-  background-image: url(../img/planet-test.png);
+  background-image: url(../img/locations/planet-test.png);
   background-size: 360px 360px;
   border-radius: 50%;
 }
@@ -162,7 +164,8 @@ h3 {
 #world-four {
   height: 360px;
   width: 360px;
-  background-color: orangered;
+  background-image: url(../img/locations/czerwinski1-planet.png);
+  background-size: 360px 360px;
   border-radius: 50%;
 }
 
@@ -174,7 +177,8 @@ h3 {
 #world-five {
   height: 360px;
   width: 360px;
-  background-color: rgb(252, 211, 107);
+  background-image: url(../img/locations/olah-planet.png);
+  background-size: 360px 360px;
   border-radius: 50%;
 }
 
@@ -186,7 +190,8 @@ h3 {
 #world-six {
   height: 360px;
   width: 360px;
-  background-color: lightskyblue;
+  background-image: url(../img/locations/duck-planet.png);
+  background-size: 360px 360px;
   border-radius: 50%;
 }
 
@@ -198,7 +203,8 @@ h3 {
 #world-seven {
   height: 360px;
   width: 360px;
-  background-color: rgb(173, 248, 192);
+  background-image: url(../img/locations/olah2-planet.png);
+  background-size: 360px 360px;
   border-radius: 50%;
 }
 
@@ -210,7 +216,8 @@ h3 {
 #world-eight {
   height: 360px;
   width: 360px;
-  background-color: blueviolet;
+  background-image: url(../img/locations/baranyai-planet.png);
+  background-size: 360px 360px;
   border-radius: 50%;
 }
 
@@ -222,7 +229,8 @@ h3 {
 #world-nine {
   height: 360px;
   width: 360px;
-  background-color: grey;
+  background-image: url(../img/locations/czerwinski2-planet.png);
+  background-size: 360px 360px;
   border-radius: 50%;
 }
 
@@ -234,7 +242,8 @@ h3 {
 #world-ten {
   height: 360px;
   width: 360px;
-  background-color: aqua;
+  background-image: url(../img/locations/czerwinski3-planet.png);
+  background-size: 360px 360px;
   border-radius: 50%;
 }
 

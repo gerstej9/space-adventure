@@ -43,8 +43,9 @@ Domain Modeling
 
 
 ## Credit
-Images and font all licensed from envato elements 
-https://elements.envato.com/license-terms
+* Images and font all licensed from envato elements https://elements.envato.com/license-terms
+* W3Schools for help in sorting arrays numerically
+
 
 
 

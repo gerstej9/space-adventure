@@ -15,7 +15,10 @@ var radioEasy = document.getElementById('radio-easy');
 var radioMedium = document.getElementById('radio-medium');
 var radioHard = document.getElementById('radio-hard');
 
+//Constructor Functions
+
 //Leaderboard input constructor function
+//sorts leaderboard numerically and keeps only top 10 high scores
 var HighScore = function(name, points){
     this.name = name;
     this.points = points;
@@ -27,18 +30,7 @@ var HighScore = function(name, points){
 }
 
 
-///points.sort(function(a, b){return a-b}); for sorting high score leaderboard
-//W3Schools contribution
-
-//Spaceship paths constructor function
-var Path = function (length, fuel){
-    this.length = length;
-    this.fuel = fuel;
-    pathArray.push(this);
-}
-
 // Event Card Constructor Function
-
 var EventCard = function (name, img, fuel, crew, points, percentSuccess, type, textSummary, gainText, lossText, success = false){
     this.name = name;
     this.textSummary = textSummary;
@@ -55,13 +47,10 @@ var EventCard = function (name, img, fuel, crew, points, percentSuccess, type, t
     allEventCards.push(this);
 }
 
-new Path('short', 1);
-new Path('medium', 2);
-new Path('long', 3);
-
+//Starting leaderboard value
 new HighScore('Insane-O', 27000);
 
-
+//Event card instantiations 
 new EventCard('Mine for Fuel', 'mine-durr', 1, -1, 0, .7, 'fuel', 'You have landed on an Orion type planet that is rich in fuel but potentially dangerous. Would you like to mine for 1 unit of fuel at the risk of losing 1 crew member?', 'Your mining was a success, all crew members survived, and you obtained 1 unit of fuel', 'Your mining was a disaster, you lost one crew member and obtained zero fuel', false);
 
 new EventCard('Steal Fuel', 'steal-dahms', 2, -2, 0, .4, 'fuel', 'This planet is home to space bandits who hoard large amounts of fuel. Would you like to steal 2 units of fuel at the risk of losing 2 crew members?”', 'You successfully stole 2 units of fuel from the bandits without losing any crew members.', 'The bandits were wise to your plan and you lost 2 crew members in the scuffle.', false);
@@ -80,7 +69,7 @@ new EventCard('Exotic Beastie', 'beastie', 0, -2, 5000, .5, 'treasure', 'A rare 
 
 new EventCard('Start Your Engines!', 'race-lampel', -1, 0, 5000, .3, 'treasure', 'You have arrived in time to enter the Orion IV Grand Prix. Stake 1 fuel unit to enter the race?', 'You blow the competition away and leave with the 5000 point purse.', 'You make a good showing, but still lose one fuel.', false);
 
-new EventCard('Special Modifications', 'flashing-mcgowan', 2, 0, -2000, .5, 'fuel', 'A trader offers you an experimental engine part that could reduce fuel consumption. Invest points to purchase it?', 'It works like a charm easily, paying for itself and saving fuel', 'What a piece of junk. You burn 2000 points replacing it.', false);
+new EventCard('Special Modifications', 'flashing-mcgowan', 2, 0, -2000, .5, 'fuel', 'A trader offers you an experimental engine part that could reduce fuel consumption. Invest 2000 points to purchase it and gain 2 units of fuel?', 'It works like a charm easily, paying for itself and saving fuel', 'What a piece of junk. You burn 2000 points replacing it.', false);
 
 new EventCard('Crew Member Falls Ill', 'ill-cdc', 0, -1, 0, 1.0, 'no-action', 'Upon arriving at this planet, you realize one of your crew members has fallen ill on the journey, you lose 1 crew member.', '', '', false);
 
@@ -95,7 +84,36 @@ new EventCard('Look out!!', 'sticky-lee', 0, -1, 0, 1.0, 'no-action', 'The settl
 new EventCard('Intruder!!', 'intruder-rasmussen', 0, 0, -3000, 1.0, 'no-action', `A local invades your ship and makes off with 3000 points out of your cargo hold. You've been robbed!!`, '', '', false);
 
 
+//Event Handlers
 
+//Event Handler for establishing game difficulty and adjusting starting resources accordingly
+function difficultyLevel(){
+    if(radioEasy.checked == true){
+        totalCrew = 5;
+        totalFuel = 10;
+        gameDifficulty = 'easy';
+        removeChart();
+        generateChart();
+    }
+    if(radioMedium.checked == true){
+        totalCrew = 3;
+        totalFuel = 7;
+        gameDifficulty = 'medium';
+        removeChart();
+        generateChart();
+    }
+    if(radioHard.checked == true){
+        totalCrew = 2;
+        totalFuel = 5;
+        gameDifficulty = 'hard';
+        removeChart();
+        generateChart();
+    }
+}
+
+//General Helper Functions
+
+//Function to remove fuel and crew resources chart to prevent old data appearing on mouseover
 function removeChart(){
     var divChartEl = document.getElementById('ship-status');
     divChartEl.innerHTML = '';
@@ -106,8 +124,7 @@ function removeChart(){
     divChartEl.appendChild(canvasEl);
 }
 
-// generates chart of resources
-
+// Generates chart of fuel and crew resources
 function generateChart(){
     var chartDataset = [totalCrew, totalFuel];
     var ctx = document.getElementById('myChart').getContext('2d');
@@ -145,39 +162,14 @@ function generateChart(){
     });
 }
 
-function difficultyLevel(){
-    if(radioEasy.checked == true){
-        totalCrew = 5;
-        totalFuel = 10;
-        gameDifficulty = 'easy';
-        removeChart();
-        generateChart();
-    }
-    if(radioMedium.checked == true){
-        totalCrew = 3;
-        totalFuel = 7;
-        gameDifficulty = 'medium';
-        removeChart();
-        generateChart();
-    }
-    if(radioHard.checked == true){
-        totalCrew = 2;
-        totalFuel = 5;
-        gameDifficulty = 'hard';
-        removeChart();
-        generateChart();
-    }
-}
-
-
-
-
+//Stringifies leaderboard high score data and stores it in local storage
 function leaderBoardStoreLs(){
     // leaderBoard.sort(function(a, b){return a.points - b.points});
     var stringLeaderBoard = JSON.stringify(leaderBoard);
     localStorage.setItem('leaderboard', stringLeaderBoard);
 }
 
+//Parses local storage leaderboard and returns values to object instances
 function generateLeaderBoardLs(parsedScores){
     leaderBoard = [];
     for(var i = 0; i < parsedScores.length; i++){
@@ -185,20 +177,20 @@ function generateLeaderBoardLs(parsedScores){
     }
 }
 
+//Returns leaderboard array in the form of object instances from local storage
 function returnLeaderBoardLs(){
     var scoresLs = localStorage.getItem('leaderboard');
     var parsedScores = JSON.parse(scoresLs);
     generateLeaderBoardLs(parsedScores);
 }
 
-
+//Generates a random number for use in random selection of event cards
 function randomNumberGeneratorEventCard(){
-    
     return Math.floor(Math.random() * allEventCards.length);
 }
 
+//Creates an array of non-repeating random numbers for use in random event card selection
 function eventCardArrayGenerator(){
-
     for( var i = 0; i < allEventCards.length; i++){
         var randomNumber = randomNumberGeneratorEventCard();
         while(eventCardNumberArray.includes(randomNumber)){
@@ -209,14 +201,15 @@ function eventCardArrayGenerator(){
     while(eventCardNumberArray.length>allEventCards.length){
         eventCardNumberArray.pop();
     }
-    // console.log(eventCardNumberArray);
     return eventCardNumberArray;
 }
 
+//Generates a random decimal for use in event card action success or failure
 function randomSuccessGenerator(){
     return Math.random();
 }
 
+//Analyzes if random decimal generated is within the rang of probability of success for a given event card
 function eventCardSuccess(eventCard){
     eventSuccessNumber = randomSuccessGenerator();
     if(eventSuccessNumber < eventCard.percentSuccess){
@@ -226,25 +219,20 @@ function eventCardSuccess(eventCard){
     }
 }
 
-//Needs to slot in to render function in game.js, upon selection
+//Selects an event card using the non-repeating random number array eventCardNumberArray and cycles through array for each invocation
 function eventCardSelector(){
     eventCardCounter++;
     var eventCardSelect = eventCardNumberArray[eventCardCounter];
     return allEventCards[eventCardSelect];
 }
 
-// After yes or no selection on rendered Event Card
-//Needs code to signify move on from card to next step
+//Analyzes type of event card and performs necessary actions based on event card success, failure, or no action
 function eventCardAction(eventCard){
     eventCardSuccess(eventCard);
-    console.log(eventCard.success);
-    console.log()
-        //In this event they failed in attempt and loss outcome eventCard.lossText should render
     if(!eventCard.success){
         if(eventCard.type === 'no-action'){
             totalCrew+= eventCard.crew;
             totalFuel+= eventCard.fuel;
-            console.log('no-actin');
         }
         if(eventCard.type === 'fuel'){
             totalCrew+= eventCard.crew;
@@ -256,12 +244,10 @@ function eventCardAction(eventCard){
             totalFuel+= eventCard.fuel;
             totalCrew += eventCard.crew;
         }
-    //In this event they succeeded in attempt and gain outcome eventCard.gainText should render
     }else{
         if(eventCard.type === 'no-action'){
             totalCrew+= eventCard.crew;
             totalFuel+= eventCard.fuel;
-            console.log('no-actin');
         }
         if(eventCard.type === 'fuel'){
             totalFuel+= eventCard.fuel;
@@ -276,6 +262,7 @@ function eventCardAction(eventCard){
     return eventCard.success; 
 }
 
+//Tabulates total points using pre-determined algorithm for points
 function tabulatePoints(){
     totalPoints+= ((totalCrew * 2000) + (totalFuel * 1000));
     if(totalPoints < 0){
@@ -284,10 +271,12 @@ function tabulatePoints(){
     return totalPoints;
 }
 
+//Decrements fuel based on fuel needed to reach each planet
 function fuelDecrement(fuel){
     totalFuel -= fuel;
 }
 
+//Analyzes if user has run out of fuel on trip to a given planet and if true user loses
 function totalStatCheckLand(){
     if(totalFuel < 0){
         totalFuel = 0;
@@ -295,6 +284,7 @@ function totalStatCheckLand(){
     }
 }
 
+//Analyzes if user has run out of a given resource after an event card action and if true user loses
 function totalStatCheckLeave(){
     if(totalCrew < 0){
         totalCrew = 0;
@@ -306,24 +296,15 @@ function totalStatCheckLeave(){
     }
 }
 
+//Reloads game from start if user chooses "new captain" option after a game ends
 function refreshNewGame(){
     window.location.reload();
 }
 
+//Adds value to local storage in the event user has wiped local storage upon loading
 if(localStorage.leaderboard == undefined){
     leaderBoardStoreLs();
 }
 
+//Generates event card array for use in game.js
 eventCardArrayGenerator();
-
-radioEasy.addEventListener('click', difficultyLevel)
-radioMedium.addEventListener('click', difficultyLevel)
-radioHard.addEventListener('click', difficultyLevel)
-
-// console.log(totalPoints,totalCrew, totalFuel);
-
-// eventCardAction(eventCardSelector());
-
-// console.log(totalPoints,totalCrew, totalFuel);
-
-// console.log(totalPoints);

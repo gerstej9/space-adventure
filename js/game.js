@@ -63,7 +63,6 @@ function planetOneZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 1;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -104,7 +103,6 @@ function planetTwoZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 2;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -141,7 +139,6 @@ function planetThreeZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 3;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -180,7 +177,6 @@ function planetFourZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 4;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -223,7 +219,6 @@ function planetFiveZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 5;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -264,7 +259,6 @@ function planetSixZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 6;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -301,7 +295,6 @@ function planetSevenZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 7;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -344,7 +337,6 @@ function planetEightZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 8;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -383,7 +375,6 @@ function planetNineZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 9;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -418,7 +409,6 @@ function planetTenZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 10;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -455,12 +445,7 @@ function planetGoalZoomIn() {
     displayEvent.classList.add('zoom2');
     newGame();
     tabulatePoints();
-    console.log(totalFuel,totalCrew,totalPoints);
-    if(!localStorage.leaderboard){
-
-    }else{
-        returnLeaderBoardLs();
-    }
+    returnLeaderBoardLs();
     new HighScore(userName,totalPoints);
     leaderBoardStoreLs();
     document.getElementById('start-new-game').addEventListener('click', refreshNewGame);
@@ -502,7 +487,6 @@ function removePlanetListeners(){
 
 function loadEvent(){
     currentEvent = eventCardSelector();
-    console.log(currentEvent);
     successText = currentEvent.gainText;
     failureText = currentEvent.lossText;
     var eventTitle = document.createElement('h3');
@@ -624,11 +608,13 @@ function choiceClick(e){
     if(userLost == true){
         planetZoomOut();
         loseGame();
+        tabulatePoints();
+        returnLeaderBoardLs();
+        new HighScore(userName,totalPoints);
+        leaderBoardStoreLs();
     }
     removeChart();
     generateChart();
-    
-    console.log(totalCrew, totalFuel, totalPoints);
 }
 
 
@@ -716,4 +702,7 @@ function formRemoval(){
 generateChart();
 
 var formElement = document.getElementById('new-player-form');
+radioEasy.addEventListener('click', difficultyLevel)
+radioMedium.addEventListener('click', difficultyLevel)
+radioHard.addEventListener('click', difficultyLevel)
 formElement.addEventListener('submit', gameKickoff);

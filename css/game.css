@@ -97,9 +97,7 @@ h3 {
 
 #finish-space {
   position: absolute;
-  background-image: url(../img/goal.png);
-  background-size: 200px 200px;
-  opacity: 0.7;
+  background-color: rgba(252, 66, 66, 0.692);
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -122,9 +120,7 @@ h3 {
 #world-one {
   height: 360px;
   width: 360px;
-  /* background-color: seagreen; */
-  background-image: url(../img/krcmarek-planet.png);
-  background-size: 360px 360px;
+  background-color: seagreen;
   border-radius: 50%;
 }
 
@@ -136,8 +132,7 @@ h3 {
 #world-two {
   height: 360px;
   width: 360px;
-  background-image: url(../img/kato-planet.png);
-  background-size: 360px 360px;
+  background-color: rgb(167, 34, 149);
   border-radius: 50%;
 }
 
@@ -149,8 +144,7 @@ h3 {
 #world-three {
   height: 360px;
   width: 360px;
-  background-image: url(../img/planet-test.png);
-  background-size: 360px 360px;
+  background-color: darkred;
   border-radius: 50%;
 }
 
@@ -278,7 +272,7 @@ h3 {
 }
 
 .card {
-  background-color: rgba(252, 253, 253, 0.4);
+  background-color: rgba(252, 253, 253, 0.33);
   border-radius: 12px;
   height: 100%;
   width: 100%;
@@ -301,7 +295,7 @@ h3 {
 .card p {
   margin: 10px auto;
   width: 190px;
-  background-color: rgba(252, 253, 253, 0.4);
+  background-color: rgba(252, 253, 253, 0.33);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
 }
@@ -353,10 +347,13 @@ h3 {
   display: none;
 }
 
-/* styling for player ship */
+/* styling for font-awesome ship */
 
 #player-ship {
   position: absolute;
+  /* color: rgb(161, 161, 161);
+
+  text-shadow: 0 0 1px whitesmoke; */
   transform: rotate(45deg);
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;

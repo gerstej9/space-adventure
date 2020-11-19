@@ -1,3 +1,21 @@
+
+
+
+// console.log("this is total points " + totalPoints);
+// var getGameStatshFour = document.getElementById("score-h4");
+// // ---------------------- game score ------------------------ 
+// function replaceScore(){
+//     getGameStatshFour.innerText = "";
+//     getsGameStatsFour.innerText = totalPoints;
+//     getGameStatshFour.appendChild(getGameStatshFour);
+//     console.log(totalPoints);
+  
+//   }
+  
+//   replaceScore();
+
+
+
 // create leader board
 function makeLeaderBoard(){
  

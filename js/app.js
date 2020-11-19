@@ -46,7 +46,7 @@ var EventCard = function (name, img, fuel, crew, points, percentSuccess, type, t
     this.lossText = lossText;
     this.success = success
     this.type = type;
-    this.img = `img/${img}.jpg`;
+    this.img = `img/events/${img}.jpg`;
 
     allEventCards.push(this);
 }

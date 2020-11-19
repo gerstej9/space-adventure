@@ -89,7 +89,7 @@ h3 {
   position: absolute;
   background-image: url(../img/locations/padure-start.png);
   background-size: 200px 200px;
-  opacity: 0.6;
+  opacity: 0.33;
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -366,7 +366,7 @@ h3 {
 
 #player-ship {
   position: absolute;
-  transform: rotate(45deg);
+  /* transform: rotate(45deg); */
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
   z-index: 2;
@@ -381,40 +381,48 @@ h3 {
 .nav-start {
   left: 50px;
   top: 50px;
+  transform: rotate(45deg);
 }
 .nav-one {
   top: 180px;
   left: 130px;
+  transform: rotate(45deg);
 }
 
 .nav-two {
   top: 55px;
   left: 295px;
+  transform: rotate(-10deg);
 }
 
 .nav-three {
   top: 400px;
   left: 70px;
+  transform: rotate(60deg);
 }
 
 .nav-four {
   top: 420px;
   left: 250px;
+  transform: rotate(-5deg);
 }
 
 .nav-five {
   top: 210px;
   left: 410px;
+  transform: rotate(60deg);
 }
 
 .nav-six {
   top: 140px;
   left: 660px;
+  transform: rotate(15deg);
 }
 
 .nav-seven {
   top: 380px;
   left: 525px;
+  transform: rotate(20deg);
 }
 
 .nav-eight {
@@ -425,16 +433,19 @@ h3 {
 .nav-nine {
   top: 385px;
   left: 835px;
+  transform: rotate(95deg);
 }
 
 .nav-ten {
   top: 115px;
   left: 860px;
+  transform: rotate(70deg);
 }
 
 .nav-goal {
   top: 570px;
   left: 890px;
+  transform: rotate(45deg);
 }
 
 /* game and player title */

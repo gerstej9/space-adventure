@@ -63,7 +63,6 @@ function planetOneZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 1;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -104,7 +103,6 @@ function planetTwoZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 2;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -141,7 +139,6 @@ function planetThreeZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 3;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -180,7 +177,6 @@ function planetFourZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 4;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -223,7 +219,6 @@ function planetFiveZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 5;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -264,7 +259,6 @@ function planetSixZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 6;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -301,7 +295,6 @@ function planetSevenZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 7;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -344,7 +337,6 @@ function planetEightZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 8;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -383,7 +375,6 @@ function planetNineZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 9;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -418,7 +409,6 @@ function planetTenZoomIn() {
         removeChart();
         generateChart();
         planetFuelCounter = 10;
-        console.log(totalFuel);
         removePlanetListeners();
         if(userLost == false){
         loadEvent();
@@ -455,12 +445,7 @@ function planetGoalZoomIn() {
     displayEvent.classList.add('zoom2');
     newGame();
     tabulatePoints();
-    console.log(totalFuel,totalCrew,totalPoints);
-    if(!localStorage.leaderboard){
-
-    }else{
-        returnLeaderBoardLs();
-    }
+    returnLeaderBoardLs();
     new HighScore(userName,totalPoints);
     leaderBoardStoreLs();
     document.getElementById('start-new-game').addEventListener('click', refreshNewGame);
@@ -502,7 +487,6 @@ function removePlanetListeners(){
 
 function loadEvent(){
     currentEvent = eventCardSelector();
-    console.log(currentEvent);
     successText = currentEvent.gainText;
     failureText = currentEvent.lossText;
     var eventTitle = document.createElement('h3');
@@ -624,68 +608,15 @@ function choiceClick(e){
     if(userLost == true){
         planetZoomOut();
         loseGame();
+        tabulatePoints();
+        returnLeaderBoardLs();
+        new HighScore(userName,totalPoints);
+        leaderBoardStoreLs();
     }
     removeChart();
     generateChart();
-    
-    console.log(totalCrew, totalFuel, totalPoints);
 }
 
-
-function removeChart(){
-    var divChartEl = document.getElementById('ship-status');
-    divChartEl.innerHTML = '';
-    var canvasEl = document.createElement('canvas');
-    canvasEl.setAttribute('id', 'myChart');
-    canvasEl.setAttribute('width', '180');
-    canvasEl.setAttribute('height', '300');
-    divChartEl.appendChild(canvasEl);
-}
-
-// generates chart of resources
-
-function generateChart(){
-    var chartDataset = [totalCrew, totalFuel];
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-        labels: ['Crew', 'Fuel'],
-        datasets: [
-            {
-            label: 'Resources',
-            data: chartDataset,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.4)',
-                'rgba(255, 99, 132, 0.4)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(255, 99, 132, 1)',
-            ],
-            borderWidth: 1,
-            },
-        ],
-        },
-        options: {
-            legend: {
-            display: true,
-            labels: {
-                fontColor: ['rgb(255,255,255)']}
-            },
-        scales: {
-            yAxes: [
-            {
-                ticks: {
-                beginAtZero: true,
-                fontColor: ['rgb(255,255,255)']
-                },
-            },
-            ],
-        },
-        },
-    });
-}
 
 // functions to start a new game
 
@@ -711,8 +642,18 @@ function refreshNewGame(e){
         plotCourse.classList.add('nav-start');
         planetGoal.classList.remove('final-choice');
         navIndex = 10;
-        totalCrew = 5;
-        totalFuel = 10;
+        if(gameDifficulty === 'easy'){
+            totalCrew = 5;
+            totalFuel = 10;
+        }
+        if(gameDifficulty === 'medium'){
+            totalCrew = 3;
+            totalFuel = 7;
+        }
+        if(gameDifficulty === 'hard'){
+            totalCrew = 2;
+            totalFuel = 5;
+        }
         totalPoints = 0;
         planetFuelCounter = 0;
         userLost = false;
@@ -759,4 +700,7 @@ function formRemoval(){
 generateChart();
 
 var formElement = document.getElementById('new-player-form');
+radioEasy.addEventListener('click', difficultyLevel)
+radioMedium.addEventListener('click', difficultyLevel)
+radioHard.addEventListener('click', difficultyLevel)
 formElement.addEventListener('submit', gameKickoff);

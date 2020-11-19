@@ -433,7 +433,8 @@ function planetGoalZoomIn() {
     }
     new HighScore(userName,totalPoints);
     leaderBoardStoreLs();
-    btnContainer.addEventListener('click', refreshNewGame);
+    document.getElementById('start-new-game').addEventListener('click', refreshNewGame);
+    document.getElementById('new-captain').addEventListener('click', refreshNewGame);
 }
 
 // render random event card from array
@@ -660,6 +661,11 @@ function newGame(){
     startNewGame.id = 'start-new-game';
     startNewGame.textContent = 'Start New Game';
     btnContainer.appendChild(startNewGame);
+
+    var newCaptain = document.createElement('button');
+    newCaptain.id = 'new-captain';
+    startNewGame.textContent = 'New Captain';
+    btnContainer.appendChild(newCaptain);
 }
 
 function refreshNewGame(){

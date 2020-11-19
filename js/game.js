@@ -699,6 +699,8 @@ function refreshNewGame(e){
         removeHalos();
         removeNavPoints();
         removePlanetListeners();
+        plotCourse.classList.remove('nav-goal');
+        plotCourse.classList.add('nav-start');
         startGame();
     } else if(buttonClicked.id === 'new-captain'){
         window.location.reload();  

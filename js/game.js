@@ -618,8 +618,6 @@ function choiceClick(e){
 }
 
 
-
-
 // functions to start a new game
 
 function newGame(){

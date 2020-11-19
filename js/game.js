@@ -687,11 +687,13 @@ function refreshNewGame(){
 }
 
 function loseGame(){
+    blankCard();
+    cardImage.classList.remove('vanish');
     var gameOver = document.createElement('h3');
     gameOver.textContent = 'Game Over!!!';
     cardTitleHolder.appendChild(gameOver);
     cardImage.src = 'img/failure-radford.jpg';
-    displayEvent.classList.add('winner');
+    displayEvent.classList.add('loser');
     displayEvent.classList.add('zoom2');
     newGame();
     btnContainer.addEventListener('click', refreshNewGame);
@@ -714,9 +716,7 @@ function formRemoval(){
 
 }
 
-// startGame();
 generateChart();
-// getUserName();
 
 var formElement = document.getElementById('new-player-form');
 formElement.addEventListener('submit', gameKickoff);

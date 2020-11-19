@@ -20,7 +20,7 @@ function makeLeaderBoard(){
   //append it to table row
   trElement.appendChild(thElement);
 
-  
+  // create tr and append to leaderboard
   var trElement = document.createElement('tr');
   leaderboardParent.appendChild(trElement);
   
@@ -30,7 +30,7 @@ function makeLeaderBoard(){
     var trElement = document.createElement('tr');
     leaderboardParent.appendChild(trElement);
     var tdElement = document.createElement('td');
-    tdElement.textContent = leaderBoard[i].name;
+    tdElement.textContent = `Captain ${leaderBoard[i].name}`;
     trElement.appendChild(tdElement);
     var tdTwoElement = document.createElement('td');
     tdTwoElement.textContent = leaderBoard[i].points;

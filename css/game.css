@@ -28,7 +28,9 @@ img.main-logo {
 }
 
 .side-bar {
-  background-color: #1a0a26;
+  /* background-color: #1a0a26; */
+  background-image: url(../img/nav_bar.png);
+  background-repeat: repeat;
 }
 
 footer {

@@ -10,6 +10,10 @@ var leaderBoard = [];
 var userName = 'Captain Guinea-Pig';
 var eventCardCounter = -1;
 var userLost = false;
+var gameDifficulty = 'easy';
+var radioEasy = document.getElementById('radio-easy');
+var radioMedium = document.getElementById('radio-medium');
+var radioHard = document.getElementById('radio-hard');
 
 //Leaderboard input constructor function
 var HighScore = function(name, points){
@@ -89,6 +93,84 @@ new EventCard('Cha-Ching', 'chaching-strauss', 0, 0, 2000, 1.0, 'no-action', 'Th
 new EventCard('Look out!!', 'sticky-lee', 0, -1, 0, 1.0, 'no-action', 'The settlements on this planet are deserted. You discover why when one of your crew are engulfed by a land anenome!! Lose 1 crew.', '', '', false);
 
 new EventCard('Intruder!!', 'intruder-rasmussen', 0, 0, -3000, 1.0, 'no-action', `A local invades your ship and makes off with 3000 points out of your cargo hold. You've been robbed!!`, '', '', false);
+
+
+
+function removeChart(){
+    var divChartEl = document.getElementById('ship-status');
+    divChartEl.innerHTML = '';
+    var canvasEl = document.createElement('canvas');
+    canvasEl.setAttribute('id', 'myChart');
+    canvasEl.setAttribute('width', '180');
+    canvasEl.setAttribute('height', '300');
+    divChartEl.appendChild(canvasEl);
+}
+
+// generates chart of resources
+
+function generateChart(){
+    var chartDataset = [totalCrew, totalFuel];
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+        labels: ['Crew', 'Fuel'],
+        datasets: [
+            {
+            label: 'Resources',
+            data: chartDataset,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.4)',
+                'rgba(255, 99, 132, 0.4)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 99, 132, 1)',
+            ],
+            borderWidth: 1,
+            },
+        ],
+        },
+        options: {
+        scales: {
+            yAxes: [
+            {
+                ticks: {
+                beginAtZero: true,
+                },
+            },
+            ],
+        },
+        },
+    });
+}
+
+function difficultyLevel(){
+    if(radioEasy.checked == true){
+        totalCrew = 5;
+        totalFuel = 10;
+        gameDifficulty = 'easy';
+        removeChart();
+        generateChart();
+    }
+    if(radioMedium.checked == true){
+        totalCrew = 3;
+        totalFuel = 7;
+        gameDifficulty = 'medium';
+        removeChart();
+        generateChart();
+    }
+    if(radioHard.checked == true){
+        totalCrew = 2;
+        totalFuel = 5;
+        gameDifficulty = 'hard';
+        removeChart();
+        generateChart();
+    }
+}
+
+
+
 
 function leaderBoardStoreLs(){
     // leaderBoard.sort(function(a, b){return a.points - b.points});
@@ -196,6 +278,9 @@ function eventCardAction(eventCard){
 
 function tabulatePoints(){
     totalPoints+= ((totalCrew * 2000) + (totalFuel * 1000));
+    if(totalPoints < 0){
+        totalPoints = 0;
+    }
     return totalPoints;
 }
 
@@ -230,6 +315,10 @@ if(localStorage.leaderboard == undefined){
 }
 
 eventCardArrayGenerator();
+
+radioEasy.addEventListener('click', difficultyLevel)
+radioMedium.addEventListener('click', difficultyLevel)
+radioHard.addEventListener('click', difficultyLevel)
 
 // console.log(totalPoints,totalCrew, totalFuel);
 

@@ -632,54 +632,7 @@ function choiceClick(e){
 }
 
 
-function removeChart(){
-    var divChartEl = document.getElementById('ship-status');
-    divChartEl.innerHTML = '';
-    var canvasEl = document.createElement('canvas');
-    canvasEl.setAttribute('id', 'myChart');
-    canvasEl.setAttribute('width', '180');
-    canvasEl.setAttribute('height', '300');
-    divChartEl.appendChild(canvasEl);
-}
 
-// generates chart of resources
-
-function generateChart(){
-    var chartDataset = [totalCrew, totalFuel];
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-        labels: ['Crew', 'Fuel'],
-        datasets: [
-            {
-            label: 'Resources',
-            data: chartDataset,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.4)',
-                'rgba(255, 99, 132, 0.4)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(255, 99, 132, 1)',
-            ],
-            borderWidth: 1,
-            },
-        ],
-        },
-        options: {
-        scales: {
-            yAxes: [
-            {
-                ticks: {
-                beginAtZero: true,
-                },
-            },
-            ],
-        },
-        },
-    });
-}
 
 // functions to start a new game
 
@@ -705,8 +658,18 @@ function refreshNewGame(e){
         plotCourse.classList.add('nav-start');
         planetGoal.classList.remove('final-choice');
         navIndex = 10;
-        totalCrew = 5;
-        totalFuel = 10;
+        if(gameDifficulty === 'easy'){
+            totalCrew = 5;
+            totalFuel = 10;
+        }
+        if(gameDifficulty === 'medium'){
+            totalCrew = 3;
+            totalFuel = 7;
+        }
+        if(gameDifficulty === 'hard'){
+            totalCrew = 2;
+            totalFuel = 5;
+        }
         totalPoints = 0;
         planetFuelCounter = 0;
         userLost = false;

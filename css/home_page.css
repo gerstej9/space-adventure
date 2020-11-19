@@ -330,7 +330,7 @@ td {
 }
 .third-image{ 
   min-height: 500px;
-  background-image: url('/img/tek_jones_pic.jpg');
+  background-image: url('../img/tek_jones_pic.jpg');
   background-position: bottom; 
   background-repeat: no-repeat; 
   background-size: cover;

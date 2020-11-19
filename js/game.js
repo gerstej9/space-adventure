@@ -467,6 +467,37 @@ function planetGoalZoomIn() {
     document.getElementById('new-captain').addEventListener('click', refreshNewGame);
 }
 
+// zooms out from the current planet and prepares the board for the next move
+
+function planetZoomOut(){
+    var cardDisplay = document.getElementById('event-card');
+    cardDisplay.classList.remove('success');
+    cardDisplay.classList.remove('failure');
+    functionArray[navIndex]();
+}
+
+// functions to move ship and to remove halos and event listeners
+
+function removeHalos(){
+    for(var i = 0 ; i < allPlanets.length ; i++){
+        allPlanets[i].classList.remove('easy-choice');
+        allPlanets[i].classList.remove('med-choice');
+        allPlanets[i].classList.remove('hard-choice');
+    }
+}
+
+function removeNavPoints(){
+    for(var i = 0 ; i < navPoints.length ; i++){
+        plotCourse.classList.remove(navPoints[i]);
+    }
+}
+
+function removePlanetListeners(){
+    for(var i = 0 ; i < allPlanets.length ; i++){
+        allPlanets[i].removeEventListener('click', functionArray[i]);
+    }
+}
+
 // render random event card from array
 
 function loadEvent(){
@@ -539,7 +570,7 @@ function failureCard(){
     acknowledgeButton();
 }
 
-// button to close success or failure card after reading
+// button to close success or failure card after reading result
 
 function acknowledgeButton(){
     var confirm = document.createElement('button');
@@ -565,30 +596,8 @@ function blankCard() {
     cardImage.src = '';
     cardTextHolder.innerHTML = '';
     btnContainer.innerHTML = '';
-
 }
 
-// functions to move ship and to remove halos and event listeners
-
-function removeHalos(){
-    for(var i = 0 ; i < allPlanets.length ; i++){
-        allPlanets[i].classList.remove('easy-choice');
-        allPlanets[i].classList.remove('med-choice');
-        allPlanets[i].classList.remove('hard-choice');
-    }
-}
-
-function removeNavPoints(){
-    for(var i = 0 ; i < navPoints.length ; i++){
-        plotCourse.classList.remove(navPoints[i]);
-    }
-}
-
-function removePlanetListeners(){
-    for(var i = 0 ; i < allPlanets.length ; i++){
-        allPlanets[i].removeEventListener('click', functionArray[i]);
-    }
-}
 
 // function to determine which event button was clicked and call the appropriate function
 
@@ -621,14 +630,6 @@ function choiceClick(e){
     console.log(totalCrew, totalFuel, totalPoints);
 }
 
-// zooms out from the current planet and prepares the board for the next move
-
-function planetZoomOut(){
-    var cardDisplay = document.getElementById('event-card');
-    cardDisplay.classList.remove('success');
-    cardDisplay.classList.remove('failure');
-    functionArray[navIndex]();
-}
 
 function removeChart(){
     var divChartEl = document.getElementById('ship-status');
@@ -687,6 +688,8 @@ function generateChart(){
 //     var captainName = document.getElementById('player-title');
 //     captainName.textContent = `Captain ${userName}`;
 // }
+
+// functions to start a new game
 
 function newGame(){
     var startNewGame = document.createElement('button');

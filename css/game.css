@@ -442,7 +442,7 @@ h3 {
   letter-spacing: 0.2rem;
 }
 
-/* winning */
+/* ending game */
 
 .winner {
   background-color: gold;
@@ -451,6 +451,12 @@ h3 {
 
 .winner img {
   border: 4px outset gold;
+}
+
+.loser {
+  background-color: black;
+  border: 5px outset black;
+  color: red;
 }
 
 .zoom2 {

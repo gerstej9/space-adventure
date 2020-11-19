@@ -64,7 +64,9 @@ function planetOneZoomIn() {
         planetFuelCounter = 1;
         console.log(totalFuel);
         removePlanetListeners();
+        if(userLost == false){
         loadEvent();
+        }
         displayEvent.classList.add('zoom');
     } else {
         planetOne.classList.add('one');
@@ -102,7 +104,9 @@ function planetTwoZoomIn() {
         planetFuelCounter = 2;
         console.log(totalFuel);
         removePlanetListeners();
+        if(userLost == false){
         loadEvent();
+        }
         displayEvent.classList.add('zoom');
     } else {
         planetTwo.classList.add('two');
@@ -136,7 +140,9 @@ function planetThreeZoomIn() {
         planetFuelCounter = 3;
         console.log(totalFuel);
         removePlanetListeners();
+        if(userLost == false){
         loadEvent();
+        }
         displayEvent.classList.add('zoom');
     } else {
         planetThree.classList.add('three');
@@ -172,7 +178,9 @@ function planetFourZoomIn() {
         planetFuelCounter = 4;
         console.log(totalFuel);
         removePlanetListeners();
+        if(userLost == false){
         loadEvent();
+        }
         displayEvent.classList.add('zoom');
     } else {
         planetFour.classList.add('four');
@@ -212,7 +220,9 @@ function planetFiveZoomIn() {
         planetFuelCounter = 5;
         console.log(totalFuel);
         removePlanetListeners();
+        if(userLost == false){
         loadEvent();
+        }
         displayEvent.classList.add('zoom');
     } else {
         planetFive.classList.add('five');
@@ -250,7 +260,9 @@ function planetSixZoomIn() {
         planetFuelCounter = 6;
         console.log(totalFuel);
         removePlanetListeners();
+        if(userLost == false){
         loadEvent();
+        }
         displayEvent.classList.add('zoom');
     } else {
         planetSix.classList.add('six');
@@ -284,7 +296,9 @@ function planetSevenZoomIn() {
         planetFuelCounter = 7;
         console.log(totalFuel);
         removePlanetListeners();
+        if(userLost == false){
         loadEvent();
+        }
         displayEvent.classList.add('zoom');
     } else {
         planetSeven.classList.add('seven');
@@ -324,7 +338,9 @@ function planetEightZoomIn() {
         planetFuelCounter = 8;
         console.log(totalFuel);
         removePlanetListeners();
+        if(userLost == false){
         loadEvent();
+        }
         displayEvent.classList.add('zoom');
     } else {
         planetEight.classList.add('eight');
@@ -360,7 +376,9 @@ function planetNineZoomIn() {
         planetFuelCounter = 9;
         console.log(totalFuel);
         removePlanetListeners();
+        if(userLost == false){
         loadEvent();
+        }
         displayEvent.classList.add('zoom');
     } else {
         planetNine.classList.add('nine');
@@ -392,7 +410,9 @@ function planetTenZoomIn() {
         planetFuelCounter = 10;
         console.log(totalFuel);
         removePlanetListeners();
+        if(userLost == false){
         loadEvent();
+        }
         displayEvent.classList.add('zoom');
     } else {
         planetTen.classList.add('ten');
@@ -673,14 +693,14 @@ function refreshNewGame(){
 }
 
 function loseGame(){
-    var congrats = document.createElement('h3');
-    congrats.textContent = 'Game Over!!!';
-    cardTitleHolder.appendChild(congrats);
-    cardImage.src = 'img/fireworks-hwd.jpg';
-    displayEvent.classList.add('winner');
+    blankCard();
+    cardImage.classList.remove('vanish');
+    var gameOver = document.createElement('h3');
+    gameOver.textContent = 'Game Over!!!';
+    cardTitleHolder.appendChild(gameOver);
+    cardImage.src = 'img/failure-radford.jpg';
+    displayEvent.classList.add('loser');
     displayEvent.classList.add('zoom2');
-    displayEvent.classList.add('success');
-    displayEvent.classList.add('zoom');
     newGame();
     btnContainer.addEventListener('click', refreshNewGame);
 }
@@ -702,9 +722,7 @@ function formRemoval(){
 
 }
 
-// startGame();
 generateChart();
-// getUserName();
 
 var formElement = document.getElementById('new-player-form');
 formElement.addEventListener('submit', gameKickoff);

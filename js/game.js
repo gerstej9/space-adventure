@@ -57,6 +57,7 @@ function planetOneZoomIn() {
         fuelDecrement(1);
         totalStatCheckLand();
         if(userLost == true){
+            planetOne.classList.add('one');
             loseGame();
         }
         removeChart();
@@ -97,6 +98,7 @@ function planetTwoZoomIn() {
         fuelDecrement(1);
         totalStatCheckLand();
         if(userLost == true){
+            planetTwo.classList.add('two');
             loseGame();
         }
         removeChart();
@@ -133,6 +135,7 @@ function planetThreeZoomIn() {
         fuelDecrement(2);
         totalStatCheckLand();
         if(userLost == true){
+            planetThree.classList.add('three');
             loseGame();
         }
         removeChart();
@@ -171,6 +174,7 @@ function planetFourZoomIn() {
         }
         totalStatCheckLand();
         if(userLost == true){
+            planetFour.classList.add('four');
             loseGame();
         }
         removeChart();
@@ -213,6 +217,7 @@ function planetFiveZoomIn() {
         }
         totalStatCheckLand();
         if(userLost == true){
+            planetFive.classList.add('five');
             loseGame();
         }
         removeChart();
@@ -253,6 +258,7 @@ function planetSixZoomIn() {
         }
         totalStatCheckLand();
         if(userLost == true){
+            planetSix.classList.add('six');
             loseGame();
         }
         removeChart();
@@ -289,6 +295,7 @@ function planetSevenZoomIn() {
         fuelDecrement(1);
         totalStatCheckLand();
         if(userLost == true){
+            planetSeven.classList.add('seven');
             loseGame();
         }
         removeChart();
@@ -331,6 +338,7 @@ function planetEightZoomIn() {
         }
         totalStatCheckLand();
         if(userLost == true){
+            planetEight.classList.add('eight');
             loseGame();
         }
         removeChart();
@@ -369,6 +377,7 @@ function planetNineZoomIn() {
         }
         totalStatCheckLand();
         if(userLost == true){
+            planetNine.classList.add('nine');
             loseGame();
         }
         removeChart();
@@ -403,6 +412,7 @@ function planetTenZoomIn() {
         fuelDecrement(1);
         totalStatCheckLand();
         if(userLost == true){
+            planetTen.classList.add('ten');
             loseGame();
         }
         removeChart();
@@ -669,19 +679,19 @@ function generateChart(){
     });
 }
 
-function getUserName(){
-    userName = prompt("What is your Captain's name?");
-    if (userName == ''){
-        userName = 'Guinea-Pig'
-    }
-    var captainName = document.getElementById('player-title');
-    captainName.textContent = `Captain ${userName}`;
-}
+// function getUserName(){
+//     userName = prompt("What is your Captain's name?");
+//     if (userName == ''){
+//         userName = 'Guinea-Pig'
+//     }
+//     var captainName = document.getElementById('player-title');
+//     captainName.textContent = `Captain ${userName}`;
+// }
 
 function newGame(){
     var startNewGame = document.createElement('button');
     startNewGame.id = 'start-new-game';
-    startNewGame.textContent = 'Start New Game';
+    startNewGame.textContent = 'Play Again?';
     var newCaptain = document.createElement('button');
     newCaptain.id = 'new-captain';
     newCaptain.textContent = 'New Captain';
@@ -696,11 +706,16 @@ function refreshNewGame(e){
 
 
     if(buttonClicked.id === 'start-new-game'){
-        removeHalos();
-        removeNavPoints();
-        removePlanetListeners();
         plotCourse.classList.remove('nav-goal');
         plotCourse.classList.add('nav-start');
+        navIndex = 10;
+        totalCrew = 5;
+        totalFuel = 10;
+        totalPoints = 0;
+        planetFuelCounter = 0;
+        userLost = false;
+        removeChart();
+        generateChart();
         startGame();
     } else if(buttonClicked.id === 'new-captain'){
         window.location.reload();  
@@ -719,6 +734,8 @@ function loseGame(){
     newGame();
     btnContainer.addEventListener('click', refreshNewGame);
 }
+
+// functions to get the user's name from the form and then hide it
 
 function gameKickoff(e){
     e.preventDefault();

@@ -24,6 +24,7 @@ main {
 
 img.main-logo {
   width: 150px;
+  padding-left: 30px;
 }
 
 .side-bar {

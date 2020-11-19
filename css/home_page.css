@@ -294,7 +294,9 @@ td {
   .third-image{ 
     width: auto;
     height: 300px;
-    background-position: bottom; 
+    
+    background-position: center; 
+    background-repeat: no-repeat;  
   
 
   }
@@ -313,18 +315,21 @@ td {
 
 
 .first-image{ 
+  min-height: 500px;
   background-image: url('../img/james_gerstenberger_pic.jpg');
   background-position: bottom; 
   background-repeat: no-repeat; 
   background-size: cover;
 }
 .second-image{ 
+  min-height: 500px;
   background-image: url('../img/william_monreno_pic.jpg');
   background-position: bottom; 
   background-repeat: no-repeat; 
   background-size: cover;
 }
 .third-image{ 
+  min-height: 500px;
   background-image: url('/img/tek_jones_pic.jpg');
   background-position: bottom; 
   background-repeat: no-repeat; 

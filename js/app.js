@@ -213,6 +213,10 @@ function totalStatCheckLeave(){
     }
 }
 
+function refreshNewGame(){
+    window.location.reload();
+}
+
 if(localStorage.leaderboard == undefined){
     leaderBoardStoreLs();
 }

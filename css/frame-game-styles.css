@@ -1,7 +1,7 @@
 
 html{
   font-size:20px;
-  font-family: 'novecento_sans_widebold';
+  font-family: 'Rubik', sans-serif;
 }
 
 
@@ -10,14 +10,16 @@ html,body{
 }
 
 h2{
-  font-family: 'novecento_sans_widebold';
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
   font-size: 40px;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
 
 p{
-  font-family: 'novecento_sans_widebook';
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
   line-height: 1.5rem;
 }
 
@@ -80,6 +82,8 @@ iframe {
 
 
 .button1{
+  font-weight: 900;
+  letter-spacing: .04rem;
   display:inline-block;
   border-radius:5px;
   padding: 10px 15px;
@@ -168,6 +172,7 @@ iframe {
 /* leader board table*/
 
 table{
+  font-weight: 900;
   margin: auto;
   font-size: 40px;
   padding: 20px 10px;
@@ -179,7 +184,7 @@ table{
   color: #349a87;
   text-align: left;
   margin: 0px;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 th{

@@ -1,7 +1,8 @@
 
 html{
   font-size:25px;
-  font-family: 'novecento_sans_widebold';
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
 }
 
 
@@ -10,18 +11,22 @@ html,body{
 }
 
 h2{
-  font-family: 'novecento_sans_widebold';
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
   font-size: 40px;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
 
 p{
-  font-family: 'novecento_sans_widebook';
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
   line-height: 1.5rem;
 }
 
-
+a:link {
+  text-decoration: none;
+}
 
   /* ------------------ nav ------------------*/
 
@@ -113,10 +118,13 @@ img#right-planet{
 }
 
 
+/* ----- buttons ---------*/
 
 
 
 .button1{
+  font-weight: 900;
+  letter-spacing: .04rem;
   display:inline-block;
   border-radius:5px;
   padding: 15px 0;
@@ -211,6 +219,8 @@ img#right-planet{
 /* leader board table*/
 
 table{
+  letter-spacing: .02;
+  font-weight: 900;
   margin: auto;
   font-size: 40px;
   padding: 20px 10px;
@@ -222,7 +232,7 @@ table{
   color: #349a87;
   text-align: left;
   margin: 0px;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 th{
@@ -330,7 +340,7 @@ td {
 }
 .third-image{ 
   min-height: 500px;
-  background-image: url('/img/tek_jones_pic.jpg');
+  background-image: url('../img/tek_jones_pic.jpg');
   background-position: bottom; 
   background-repeat: no-repeat; 
   background-size: cover;
@@ -401,7 +411,6 @@ div#welcome {
   width: 280px;
   color: aliceblue;
   font-size: 16px;
-  font-family: 'novecento_sans_widebook';
   text-transform: uppercase;
 }
 

@@ -622,6 +622,7 @@ function choiceClick(e){
     }
     totalStatCheckLeave();
     if(userLost == true){
+        planetZoomOut();
         loseGame();
     }
     removeChart();
@@ -679,15 +680,6 @@ function generateChart(){
         },
     });
 }
-
-// function getUserName(){
-//     userName = prompt("What is your Captain's name?");
-//     if (userName == ''){
-//         userName = 'Guinea-Pig'
-//     }
-//     var captainName = document.getElementById('player-title');
-//     captainName.textContent = `Captain ${userName}`;
-// }
 
 // functions to start a new game
 

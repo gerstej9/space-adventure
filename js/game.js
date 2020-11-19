@@ -682,16 +682,27 @@ function newGame(){
     var startNewGame = document.createElement('button');
     startNewGame.id = 'start-new-game';
     startNewGame.textContent = 'Start New Game';
-    btnContainer.appendChild(startNewGame);
-
     var newCaptain = document.createElement('button');
     newCaptain.id = 'new-captain';
-    startNewGame.textContent = 'New Captain';
+    newCaptain.textContent = 'New Captain';
+    btnContainer.appendChild(startNewGame);
     btnContainer.appendChild(newCaptain);
 }
 
-function refreshNewGame(){
-    window.location.reload();
+function refreshNewGame(e){
+    var buttonClicked = e.target;
+    btnContainer.removeEventListener('click', refreshNewGame);
+    displayEvent.classList.remove('loser', 'winner', 'zoom2', 'zoom');
+
+
+    if(buttonClicked.id === 'start-new-game'){
+        removeHalos();
+        removeNavPoints();
+        removePlanetListeners();
+        startGame();
+    } else if(buttonClicked.id === 'new-captain'){
+        window.location.reload();  
+    }
 }
 
 function loseGame(){

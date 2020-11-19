@@ -73,3 +73,13 @@ window.addEventListener("click", function(event) {
     modal2.style.display = "none";
   }
 });
+
+
+// ---------------------- new game button ------------------------ 
+
+var btnNewGame = document.getElementById("myBtnOne");
+
+btnNewGame.addEventListener("click", refreshNewGame);
+
+
+

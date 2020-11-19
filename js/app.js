@@ -213,6 +213,11 @@ function totalStatCheckLeave(){
     }
 }
 
+function refreshNewGame(){
+    window.location.reload();
+}
+
+
 eventCardArrayGenerator();
 
 // console.log(totalPoints,totalCrew, totalFuel);

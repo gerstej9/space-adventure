@@ -1,6 +1,18 @@
 'use strict'
+// video speed change on hover
 
+// get video by id
+var vid = document.getElementById('myVideo');
 
+// new video speed on mouse over
+function newVideoSpeed(){
+  vid.playbackRate = 10;
+}
+
+// original video speed on mouse off
+function orginalVideoSpeed(){
+  vid.playbackRate = 1;
+}
 
 // create leader board
 function makeLeaderBoard(){

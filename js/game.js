@@ -703,6 +703,7 @@ function refreshNewGame(e){
     if(buttonClicked.id === 'start-new-game'){
         plotCourse.classList.remove('nav-goal');
         plotCourse.classList.add('nav-start');
+        planetGoal.classList.remove('final-choice');
         navIndex = 10;
         totalCrew = 5;
         totalFuel = 10;

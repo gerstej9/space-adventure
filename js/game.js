@@ -499,6 +499,7 @@ function createButtons(){
 
 function successCard(){
     blankCard();
+    cardImage.classList.remove('vanish');
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('success');
     var successTitle = document.createElement('h3');
@@ -515,6 +516,7 @@ function successCard(){
 
 function failureCard(){
     blankCard();
+    cardImage.classList.remove('vanish');
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('failure');
     var failureTitle = document.createElement('h3');

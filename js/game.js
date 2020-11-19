@@ -57,6 +57,7 @@ function planetOneZoomIn() {
         fuelDecrement(1);
         totalStatCheckLand();
         if(userLost == true){
+            planetOne.classList.add('one');
             loseGame();
         }
         removeChart();
@@ -97,6 +98,7 @@ function planetTwoZoomIn() {
         fuelDecrement(1);
         totalStatCheckLand();
         if(userLost == true){
+            planetTwo.classList.add('two');
             loseGame();
         }
         removeChart();
@@ -133,6 +135,7 @@ function planetThreeZoomIn() {
         fuelDecrement(2);
         totalStatCheckLand();
         if(userLost == true){
+            planetThree.classList.add('three');
             loseGame();
         }
         removeChart();
@@ -171,6 +174,7 @@ function planetFourZoomIn() {
         }
         totalStatCheckLand();
         if(userLost == true){
+            planetFour.classList.add('four');
             loseGame();
         }
         removeChart();
@@ -213,6 +217,7 @@ function planetFiveZoomIn() {
         }
         totalStatCheckLand();
         if(userLost == true){
+            planetFive.classList.add('five');
             loseGame();
         }
         removeChart();
@@ -253,6 +258,7 @@ function planetSixZoomIn() {
         }
         totalStatCheckLand();
         if(userLost == true){
+            planetSix.classList.add('six');
             loseGame();
         }
         removeChart();
@@ -289,6 +295,7 @@ function planetSevenZoomIn() {
         fuelDecrement(1);
         totalStatCheckLand();
         if(userLost == true){
+            planetSeven.classList.add('seven');
             loseGame();
         }
         removeChart();
@@ -331,6 +338,7 @@ function planetEightZoomIn() {
         }
         totalStatCheckLand();
         if(userLost == true){
+            planetEight.classList.add('eight');
             loseGame();
         }
         removeChart();
@@ -369,6 +377,7 @@ function planetNineZoomIn() {
         }
         totalStatCheckLand();
         if(userLost == true){
+            planetNine.classList.add('nine');
             loseGame();
         }
         removeChart();
@@ -403,6 +412,7 @@ function planetTenZoomIn() {
         fuelDecrement(1);
         totalStatCheckLand();
         if(userLost == true){
+            planetTen.classList.add('ten');
             loseGame();
         }
         removeChart();
@@ -457,6 +467,37 @@ function planetGoalZoomIn() {
     document.getElementById('new-captain').addEventListener('click', refreshNewGame);
 }
 
+// zooms out from the current planet and prepares the board for the next move
+
+function planetZoomOut(){
+    var cardDisplay = document.getElementById('event-card');
+    cardDisplay.classList.remove('success');
+    cardDisplay.classList.remove('failure');
+    functionArray[navIndex]();
+}
+
+// functions to move ship and to remove halos and event listeners
+
+function removeHalos(){
+    for(var i = 0 ; i < allPlanets.length ; i++){
+        allPlanets[i].classList.remove('easy-choice');
+        allPlanets[i].classList.remove('med-choice');
+        allPlanets[i].classList.remove('hard-choice');
+    }
+}
+
+function removeNavPoints(){
+    for(var i = 0 ; i < navPoints.length ; i++){
+        plotCourse.classList.remove(navPoints[i]);
+    }
+}
+
+function removePlanetListeners(){
+    for(var i = 0 ; i < allPlanets.length ; i++){
+        allPlanets[i].removeEventListener('click', functionArray[i]);
+    }
+}
+
 // render random event card from array
 
 function loadEvent(){
@@ -499,6 +540,7 @@ function createButtons(){
 
 function successCard(){
     blankCard();
+    cardImage.classList.remove('vanish');
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('success');
     var successTitle = document.createElement('h3');
@@ -515,6 +557,7 @@ function successCard(){
 
 function failureCard(){
     blankCard();
+    cardImage.classList.remove('vanish');
     var cardDisplay = document.getElementById('event-card');
     cardDisplay.classList.add('failure');
     var failureTitle = document.createElement('h3');
@@ -527,7 +570,7 @@ function failureCard(){
     acknowledgeButton();
 }
 
-// button to close success or failure card after reading
+// button to close success or failure card after reading result
 
 function acknowledgeButton(){
     var confirm = document.createElement('button');
@@ -553,30 +596,8 @@ function blankCard() {
     cardImage.src = '';
     cardTextHolder.innerHTML = '';
     btnContainer.innerHTML = '';
-
 }
 
-// functions to move ship and to remove halos and event listeners
-
-function removeHalos(){
-    for(var i = 0 ; i < allPlanets.length ; i++){
-        allPlanets[i].classList.remove('easy-choice');
-        allPlanets[i].classList.remove('med-choice');
-        allPlanets[i].classList.remove('hard-choice');
-    }
-}
-
-function removeNavPoints(){
-    for(var i = 0 ; i < navPoints.length ; i++){
-        plotCourse.classList.remove(navPoints[i]);
-    }
-}
-
-function removePlanetListeners(){
-    for(var i = 0 ; i < allPlanets.length ; i++){
-        allPlanets[i].removeEventListener('click', functionArray[i]);
-    }
-}
 
 // function to determine which event button was clicked and call the appropriate function
 
@@ -601,6 +622,7 @@ function choiceClick(e){
     }
     totalStatCheckLeave();
     if(userLost == true){
+        planetZoomOut();
         loseGame();
     }
     removeChart();
@@ -609,14 +631,6 @@ function choiceClick(e){
     console.log(totalCrew, totalFuel, totalPoints);
 }
 
-// zooms out from the current planet and prepares the board for the next move
-
-function planetZoomOut(){
-    var cardDisplay = document.getElementById('event-card');
-    cardDisplay.classList.remove('success');
-    cardDisplay.classList.remove('failure');
-    functionArray[navIndex]();
-}
 
 function removeChart(){
     var divChartEl = document.getElementById('ship-status');
@@ -667,29 +681,41 @@ function generateChart(){
     });
 }
 
-function getUserName(){
-    userName = prompt("What is your Captain's name?");
-    if (userName == ''){
-        userName = 'Guinea-Pig'
-    }
-    var captainName = document.getElementById('player-title');
-    captainName.textContent = `Captain ${userName}`;
-}
+// functions to start a new game
 
 function newGame(){
     var startNewGame = document.createElement('button');
     startNewGame.id = 'start-new-game';
-    startNewGame.textContent = 'Start New Game';
-    btnContainer.appendChild(startNewGame);
-
+    startNewGame.textContent = 'Play Again?';
     var newCaptain = document.createElement('button');
     newCaptain.id = 'new-captain';
-    startNewGame.textContent = 'New Captain';
+    newCaptain.textContent = 'New Captain';
+    btnContainer.appendChild(startNewGame);
     btnContainer.appendChild(newCaptain);
 }
 
-function refreshNewGame(){
-    window.location.reload();
+function refreshNewGame(e){
+    var buttonClicked = e.target;
+    btnContainer.removeEventListener('click', refreshNewGame);
+    displayEvent.classList.remove('loser', 'winner', 'zoom2', 'zoom');
+
+
+    if(buttonClicked.id === 'start-new-game'){
+        plotCourse.classList.remove('nav-goal');
+        plotCourse.classList.add('nav-start');
+        planetGoal.classList.remove('final-choice');
+        navIndex = 10;
+        totalCrew = 5;
+        totalFuel = 10;
+        totalPoints = 0;
+        planetFuelCounter = 0;
+        userLost = false;
+        removeChart();
+        generateChart();
+        startGame();
+    } else if(buttonClicked.id === 'new-captain'){
+        window.location.reload();  
+    }
 }
 
 function loseGame(){
@@ -704,6 +730,8 @@ function loseGame(){
     newGame();
     btnContainer.addEventListener('click', refreshNewGame);
 }
+
+// functions to get the user's name from the form and then hide it
 
 function gameKickoff(e){
     e.preventDefault();

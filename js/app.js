@@ -46,7 +46,7 @@ var EventCard = function (name, img, fuel, crew, points, percentSuccess, type, t
     this.lossText = lossText;
     this.success = success
     this.type = type;
-    this.img = `img/${img}.jpg`;
+    this.img = `img/events/${img}.jpg`;
 
     allEventCards.push(this);
 }
@@ -74,13 +74,21 @@ new EventCard('Dam Righted!!', 'dam-justinw', -1, 0, 2000, .6, 'treasure', 'The 
 
 new EventCard('Exotic Beastie', 'beastie', 0, -2, 5000, .5, 'treasure', 'A rare albino sabrewraith is on the lose. A live one would fetch 5000 points on the market. Risk 2 crew to hunt it down and capture it?', 'The two lucky "volunteers" come across it while it is sleeping and capture it', 'The erstwhile hunters are never heard from again... You lose 2 crew.', false);
 
+new EventCard('Start Your Engines!', 'race-lampel', -1, 0, 5000, .3, 'treasure', 'You have arrived in time to enter the Orion IV Grand Prix. Stake 1 fuel unit to enter the race?', 'You blow the competition away and leave with the 5000 point purse.', 'You make a good showing, but still lose one fuel.', false);
+
+new EventCard('Special Modifications', 'flashing-mcgowan', 2, 0, -2000, .5, 'fuel', 'A trader offers you an experimental engine part that could reduce fuel consumption. Invest points to purchase it?', 'It works like a charm easily, paying for itself and saving fuel', 'What a piece of junk. You burn 2000 points replacing it.', false);
+
 new EventCard('Crew Member Falls Ill', 'ill-cdc', 0, -1, 0, 1.0, 'no-action', 'Upon arriving at this planet, you realize one of your crew members has fallen ill on the journey, you lose 1 crew member.', '', '', false);
 
 new EventCard('Efficient Journey', 'efficient-halacious', 1, 0, 0, 1.0, 'no-action', 'Upon arriving at this planet, you realize that your trip was more fuel efficient than expected. You gain 1 unit of fuel.', '', '', false);
 
-new EventCard('Unintended Extraction', 'stowaway-ratushny', -1, 1, 0, 1.0, 'no-action','A local stows away on your ship. But it turns out they are being hunted. You burn 1 fuel unit to throw off pursuit, but the grateful passenger decides to join your crew for the journey.', '', '', false);
+new EventCard('Unintended Extraction', 'stowaway-ratushny', -1, 1, 0, 1.0, 'no-action', 'A local stows away on your ship. But it turns out they are being hunted. You burn 1 fuel unit to throw off pursuit, but the grateful passenger decides to join your crew for the journey.', '', '', false);
 
+new EventCard('Cha-Ching', 'chaching-strauss', 0, 0, 2000, 1.0, 'no-action', 'The only thing you discover on this remote planet is a concealed pod of teasure worth 2000 points', '', '', false);
 
+new EventCard('Look out!!', 'sticky-lee', 0, -1, 0, 1.0, 'no-action', 'The settlements on this planet are deserted. You discover why when one of your crew are engulfed by a land anenome!! Lose 1 crew.', '', '', false);
+
+new EventCard('Intruder!!', 'intruder-rasmussen', 0, 0, -3000, 1.0, 'no-action', `A local invades your ship and makes off with 3000 points out of your cargo hold. You've been robbed!!`, '', '', false);
 
 function leaderBoardStoreLs(){
     // leaderBoard.sort(function(a, b){return a.points - b.points});

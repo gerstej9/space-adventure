@@ -67,7 +67,7 @@ new EventCard('Search for Moon Gems', 'gems-wolf', -1, 0, 1000, .7, 'fuelTreasur
 
 new EventCard('Dam Righted!!', 'dam-justinw', -1, 0, 2000, .6, 'fuelTreasure', 'The locals offer you 2000 points to help save their town by using your ship to brace the failing dam upstream while they repair it? It may require 1 unit of fuel.', 'The easiest 2000 points you have made in a while, you even got a free ship wash with the deal!', 'The dam can not be saved. You burn extra fuel trying futily to keep it upright long enough to evacuate, but the town and its wealth are washed away.', false)
 
-new EventCard('Exotic Beastie', 'beastie', 0, -2, 5000, .5, 'crewTreasure', 'A rare albino sabrewraith is on the lose. A live one would fetch 5000 points on the market. Risk 2 crew to hunt it down and capture it?', 'The two lucky "volunteers" come across it while it is sleeping and capture it', 'The erstwhile hunters are never heard from again... You lose 2 crew.', false);
+new EventCard('Exotic Beastie', 'beastie2', 0, -2, 5000, .5, 'crewTreasure', 'A rare albino sabrewraith is on the lose. A live one would fetch 5000 points on the market. Risk 2 crew to hunt it down and capture it?', 'The two lucky "volunteers" come across it while it is sleeping and capture it', 'The erstwhile hunters are never heard from again... You lose 2 crew.', false);
 
 new EventCard('Start Your Engines!', 'race-lampel', -1, 0, 5000, .3, 'race', 'You have arrived in time to enter the Orion IV Grand Prix. Stake 1 fuel unit to enter the race and try to win 5000 points?', 'You blow the competition away and leave with the 5000 point purse.', 'You make a good showing, but still lose one fuel.', false);
 
@@ -130,6 +130,7 @@ function removeChart(){
 function generateChart(){
     var chartDataset = [totalCrew, totalFuel];
     var ctx = document.getElementById('myChart').getContext('2d');
+    Chart.defaults.global.defaultFontColor='white';
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {

@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/4fc1b5d5ea.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="css/game.css" type="text/css" />
     <title>Space-Adventure</title>
@@ -23,7 +24,7 @@
         </div>
       <!-- the chart of ship resources -->
         <div id="ship-status">
-          <canvas id="myChart" width="180" height="300"></canvas>
+          <canvas id="myChart" width="180" height="380"></canvas>
         </div>
       </section>
       <!-- the gamefield -->
@@ -83,7 +84,15 @@
         </div>
       <!-- end of event card display -->
       </section>
-      <div id="right-bar" class="side-bar board-segment"></div>  
+      <div id="right-bar" class="side-bar board-segment">
+        <div class="score-area">
+          <h3 id="score-title">Score</h3>
+          <h5 id="current-score-h5">This is your current score</h5>
+          <h6> <span id="green-span">Green</span> highlighted planets take 1 fuel units</h6>
+          <h6> <span id="yellow-span">Yellow</span> highlighted planets take 3 fuel units</h6>
+          <h6> <span id="red-span">Red</span> highlighted planets take 3 fuel units</h6>
+        </div>
+      </div>  
     </main>
     <footer id="bottom-bar" class="side-bar"></footer>
     <script src = "js/app.js"></script>

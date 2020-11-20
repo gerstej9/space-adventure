@@ -39,7 +39,43 @@ footer {
 
 h3 {
   font-family: "Orbitron", sans-serif;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+h5{
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+}
+
+
+
+h3#score-title{
+  font-size: 30px;
+  letter-spacing: .2rem;
+}
+
+
+/* score on right bar */
+.score-area{
+  color: aliceblue;
+  background-color: #201329;
+  height: 350px;
+  margin: 40px 15px 0 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 8px solid #2d1c3b;
+
+}
+
+#ship-status{
+  margin: 0px 15px 10px 15px;;
+  background-color: #201329;
+  border-radius: 5px;
+  border: 8px solid #2d1c3b;
+  box-sizing: border-box;
+
 }
 
 /* name entry form */

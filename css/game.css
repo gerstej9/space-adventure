@@ -464,7 +464,7 @@ h3 {
   color: aliceblue;
   margin: 0 5px 40px 5px;
   text-align: center;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.15rem;
 }
 
 /* ending game */
@@ -487,4 +487,13 @@ h3 {
 .zoom2 {
   display: block;
   transform: scale(1.5);
+}
+
+header {
+  text-align: center;
+}
+
+#sound {
+  opacity: 0.1;
+  transform: translateY(10px) scale(0.7);
 }

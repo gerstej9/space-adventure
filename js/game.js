@@ -517,7 +517,10 @@ function planetGoalZoom() {
     planetFuelCounter = 11;
     var congrats = document.createElement('h3');
     congrats.textContent = 'Congratulations!! You Made It!';
+    var winMsg = document.createElement('p');
+    winMsg.textContent = `Well done Captain ${userName}!! You have escaped the 'Lost Sector' with at least a portion of your crew, enough fuel to return home, and any extra points you may have come across.`;
     cardTitleHolder.appendChild(congrats);
+    cardTextHolder.appendChild(winMsg);
     cardImage.src = 'img/fireworks-hwd.jpg';
     displayEvent.classList.add('winner');
     displayEvent.classList.add('zoom2');

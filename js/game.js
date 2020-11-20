@@ -682,8 +682,11 @@ function loseGame(){
     blankCard();
     cardImage.classList.remove('vanish');
     var gameOver = document.createElement('h3');
+    var lossMsg = document.createElement('p');
+    lossMsg.textContent = `I'm sorry Captain ${userName}. You have failed to escape the 'Lost Sector'...`;
     gameOver.textContent = 'Game Over!!!';
     cardTitleHolder.appendChild(gameOver);
+    cardTextHolder.appendChild(lossMsg);
     cardImage.src = 'img/failure-radford.jpg';
     displayEvent.classList.add('loser');
     displayEvent.classList.add('zoom2');

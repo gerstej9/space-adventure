@@ -150,7 +150,5 @@ window.addEventListener("click", function(event) {
 
 
 
-// get the leaderboard and render to modual body 
-
 
 

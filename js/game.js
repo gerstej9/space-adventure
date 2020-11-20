@@ -56,6 +56,7 @@ function planetOneZoomIn() {
         cardImage.classList.remove('vanish');
         fuelDecrement(1);
         totalStatCheckLand();
+        tabulatePoints();
         if(userLost == true){
             planetOne.classList.add('one');
             loseGame();
@@ -95,6 +96,7 @@ function planetTwoZoomIn() {
         planetTwo.classList.remove('two');
         cardImage.classList.remove('vanish');
         fuelDecrement(1);
+        tabulatePoints();
         totalStatCheckLand();
         if(userLost == true){
             planetTwo.classList.add('two');
@@ -131,6 +133,7 @@ function planetThreeZoomIn() {
         planetThree.classList.remove('three');
         cardImage.classList.remove('vanish');
         fuelDecrement(2);
+        tabulatePoints();
         totalStatCheckLand();
         if(userLost == true){
             planetThree.classList.add('three');
@@ -169,6 +172,7 @@ function planetFourZoomIn() {
         }else{
             fuelDecrement(1);
         }
+        tabulatePoints();
         totalStatCheckLand();
         if(userLost == true){
             planetFour.classList.add('four');
@@ -211,6 +215,7 @@ function planetFiveZoomIn() {
         }else{
             fuelDecrement(2);
         }
+        tabulatePoints();
         totalStatCheckLand();
         if(userLost == true){
             planetFive.classList.add('five');
@@ -251,6 +256,7 @@ function planetSixZoomIn() {
         }else{
             fuelDecrement(2);
         }
+        tabulatePoints();
         totalStatCheckLand();
         if(userLost == true){
             planetSix.classList.add('six');
@@ -287,6 +293,7 @@ function planetSevenZoomIn() {
         planetSeven.classList.remove('seven');
         cardImage.classList.remove('vanish');
         fuelDecrement(1);
+        tabulatePoints();
         totalStatCheckLand();
         if(userLost == true){
             planetSeven.classList.add('seven');
@@ -329,6 +336,7 @@ function planetEightZoomIn() {
         }else{
             fuelDecrement(3);
         }
+        tabulatePoints();
         totalStatCheckLand();
         if(userLost == true){
             planetEight.classList.add('eight');
@@ -367,6 +375,7 @@ function planetNineZoomIn() {
         }else{
             fuelDecrement(3);
         }
+        tabulatePoints();
         totalStatCheckLand();
         if(userLost == true){
             planetNine.classList.add('nine');
@@ -406,6 +415,7 @@ function planetTenZoomIn() {
             planetTen.classList.add('ten');
             loseGame();
         }
+        tabulatePoints();
         removeChart();
         generateChart();
         planetFuelCounter = 10;
@@ -431,6 +441,7 @@ function planetGoalZoomIn() {
     cardImage.classList.remove('vanish');
     fuelDecrement(1);
     totalStatCheckLand();
+    tabulatePoints();
     if(userLost == true){
         loseGame();
     }
@@ -604,11 +615,11 @@ function choiceClick(e){
         btnContainer.removeEventListener('click', choiceClick);
         planetZoomOut();
     }
+    tabulatePoints();
     totalStatCheckLeave();
     if(userLost == true){
         planetZoomOut();
         loseGame();
-        tabulatePoints();
         returnLeaderBoardLs();
         new HighScore(userName,totalPoints);
         leaderBoardStoreLs();
@@ -655,6 +666,8 @@ function refreshNewGame(e){
             totalFuel = 5;
         }
         totalPoints = 0;
+        inGamePoints = 0
+        resourcePoints = 0
         planetFuelCounter = 0;
         userLost = false;
         removeChart();

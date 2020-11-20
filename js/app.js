@@ -61,17 +61,17 @@ new EventCard('Restock Fuel', 'restock-dziedzic', 1, -1, 0, .8, 'fuel', 'Upon la
 
 new EventCard('New Crew Member', 'crew-lobos', -2, 1, 0, .3, 'crew', 'This planet is home to a space station with potential crew members, but it will take some time to convince them to join your crew. Would you like to risk exhausting 2 units of fuel to try and recruit 1 crew member?', 'You successfully convinced someone to join your team, you gain 1 crew member and lose no fuel.', 'Your attempts at convincing someone to join your team have failed, you lost 2 units of fuel in the process.', false);
 
-new EventCard('Hunt for Space Ruby', 'ruby-jasond', -3, 0, 5000, .33, 'treasure', 'This planet is home to the rarest space gems, the Space Ruby worth 5,000 points. Would you like to risk 3 units of fuel to obtain one?', 'While incredibly rare, you were able to find a Space Ruby! You have gained 5,000 points.', 'The Space Ruby is an elusive treasure, unfortunately you could not find one and lost 3 units of fuel in the process.', false);
+new EventCard('Hunt for Space Ruby', 'ruby-jasond', -3, 0, 5000, .33, 'fuelTreasure', 'This planet is home to the rarest space gems, the Space Ruby worth 5,000 points. Would you like to risk 3 units of fuel to obtain one?', 'While incredibly rare, you were able to find a Space Ruby! You have gained 5,000 points.', 'The Space Ruby is an elusive treasure, unfortunately you could not find one and lost 3 units of fuel in the process.', false);
 
-new EventCard('Search for Moon Gems', 'gems-wolf', -1, 0, 1000, .7, 'treasure', 'This planet is of the Galactico variety and is home to precious Moon Gems that will increase your point total by 1,000. Would you like to risk 1 unit of fuel fuel to obtain one?', 'You struck it big by finding a Moon Gem on your first try! You have gained 1,000 points.', 'Your attempts at locating a Moon Gem were in vain, you have lost 1 unit of fuel in the process.');
+new EventCard('Search for Moon Gems', 'gems-wolf', -1, 0, 1000, .7, 'fuelTreasure', 'This planet is of the Galactico variety and is home to precious Moon Gems that will increase your point total by 1,000. Would you like to risk 1 unit of fuel fuel to obtain one?', 'You struck it big by finding a Moon Gem on your first try! You have gained 1,000 points.', 'Your attempts at locating a Moon Gem were in vain, you have lost 1 unit of fuel in the process.');
 
-new EventCard('Dam Righted!!', 'dam-justinw', -1, 0, 2000, .6, 'treasure', 'The locals offer you 2000 points to help save their town by using your ship to brace the failing dam upstream while they repair it? It may require 1 unit of fuel.', 'The easiest 2000 points you have made in a while, you even got a free ship wash with the deal!', 'The dam can not be saved. You burn extra fuel trying futily to keep it upright long enough to evacuate, but the town and its wealth are washed away.', false)
+new EventCard('Dam Righted!!', 'dam-justinw', -1, 0, 2000, .6, 'fuelTreasure', 'The locals offer you 2000 points to help save their town by using your ship to brace the failing dam upstream while they repair it? It may require 1 unit of fuel.', 'The easiest 2000 points you have made in a while, you even got a free ship wash with the deal!', 'The dam can not be saved. You burn extra fuel trying futily to keep it upright long enough to evacuate, but the town and its wealth are washed away.', false)
 
-new EventCard('Exotic Beastie', 'beastie', 0, -2, 5000, .5, 'treasure', 'A rare albino sabrewraith is on the lose. A live one would fetch 5000 points on the market. Risk 2 crew to hunt it down and capture it?', 'The two lucky "volunteers" come across it while it is sleeping and capture it', 'The erstwhile hunters are never heard from again... You lose 2 crew.', false);
+new EventCard('Exotic Beastie', 'beastie', 0, -2, 5000, .5, 'crewTreasure', 'A rare albino sabrewraith is on the lose. A live one would fetch 5000 points on the market. Risk 2 crew to hunt it down and capture it?', 'The two lucky "volunteers" come across it while it is sleeping and capture it', 'The erstwhile hunters are never heard from again... You lose 2 crew.', false);
 
-new EventCard('Start Your Engines!', 'race-lampel', -1, 0, 5000, .3, 'treasure', 'You have arrived in time to enter the Orion IV Grand Prix. Stake 1 fuel unit to enter the race and try to win 5000 points?', 'You blow the competition away and leave with the 5000 point purse.', 'You make a good showing, but still lose one fuel.', false);
+new EventCard('Start Your Engines!', 'race-lampel', -1, 0, 5000, .3, 'race', 'You have arrived in time to enter the Orion IV Grand Prix. Stake 1 fuel unit to enter the race and try to win 5000 points?', 'You blow the competition away and leave with the 5000 point purse.', 'You make a good showing, but still lose one fuel.', false);
 
-new EventCard('Special Modifications', 'flashing-mcgowan', 2, 0, -2000, .5, 'fuel', 'A trader offers you an experimental engine part that could reduce fuel consumption. Invest 2000 points to purchase it and gain 2 units of fuel?', 'It works like a charm easily, paying for itself and saving fuel', 'What a piece of junk. You burn 2000 points replacing it.', false);
+new EventCard('Special Modifications', 'flashing-mcgowan', 2, 0, -2000, .5, 'special', 'A trader offers you an experimental engine part that could reduce fuel consumption. Invest 2000 points to purchase it and gain 2 units of fuel?', 'It works like a charm easily, paying for itself and saving fuel', 'What a piece of junk. You burn 2000 points replacing it.', false);
 
 new EventCard('Crew Member Falls Ill', 'ill-cdc', 0, -1, 0, 1.0, 'no-action', 'Upon arriving at this planet, you realize one of your crew members has fallen ill on the journey, you lose 1 crew member.', '', '', false);
 
@@ -151,11 +151,17 @@ function generateChart(){
         ],
         },
         options: {
+            legend: {
+            display: true,
+            labels: {
+                fontColor: ['rgb(255,255,255)']}
+            },
         scales: {
             yAxes: [
             {
                 ticks: {
                 beginAtZero: true,
+                fontColor: ['rgb(255,255,255)']
                 },
             },
             ],
@@ -238,18 +244,22 @@ function eventCardAction(eventCard){
             inGamePoints+= eventCard.points;
         }
         if(eventCard.type === 'fuel'){
-            if(eventCard.name === 'Special Modifications'){
-                inGamePoints+= eventCard.points;
-            }
             totalCrew+= eventCard.crew;
         };
         if(eventCard.type === 'crew'){
             totalFuel+= eventCard.fuel;
         }
-        if(eventCard.type === 'treasure'){
+        if(eventCard.type === 'fuelTreasure'){
             totalFuel+= eventCard.fuel;
-            totalCrew += eventCard.crew;
+        }
+        if(eventCard.type === 'crewTreasure'){
+            totalCrew+= eventCard.crew;
+        }
+        if(eventCard.type === 'special'){
             inGamePoints+= eventCard.points;
+        }
+        if(eventCard.type === 'race'){
+            totalFuel+= eventCard.fuel;
         }
     }else{
         if(eventCard.type === 'no-action'){
@@ -259,12 +269,19 @@ function eventCardAction(eventCard){
         }
         if(eventCard.type === 'fuel'){
             totalFuel+= eventCard.fuel;
-            inGamePoints+= eventCard.points;
         };
         if(eventCard.type === 'crew'){
             totalCrew+= eventCard.crew;
         }
-        if(eventCard.type === 'treasure'){
+        if(eventCard.type === 'fuelTreasure'){
+            inGamePoints+= eventCard.points;
+        }
+        if(eventCard.type === 'special'){
+            inGamePoints+= eventCard.points;
+            totalFuel+= eventCard.fuel;
+        }
+        if(eventCard.type === 'race'){
+            totalFuel+= eventCard.fuel;
             inGamePoints+= eventCard.points;
         }
     }
@@ -280,6 +297,7 @@ function tabulatePoints(){
     if(totalPoints < 0){
         totalPoints = 0;
     }
+    document.getElementById("current-score-h5").innerHTML = `Your current score is ${totalPoints}`;
     return totalPoints;
 }
 
@@ -322,4 +340,4 @@ if(localStorage.leaderboard == undefined){
 eventCardArrayGenerator();
 
 //Add score to right side bar on game page
-document.getElementById("current-score-h5").innerHTML = `Your current score is ${totalPoints}`;
+// document.getElementById("current-score-h5").innerHTML = `Your current score is ${totalPoints}`;

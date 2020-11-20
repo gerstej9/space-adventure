@@ -280,6 +280,7 @@ function tabulatePoints(){
     if(totalPoints < 0){
         totalPoints = 0;
     }
+    document.getElementById("current-score-h5").innerHTML = `Your current score is ${totalPoints}`;
     return totalPoints;
 }
 
@@ -322,4 +323,4 @@ if(localStorage.leaderboard == undefined){
 eventCardArrayGenerator();
 
 //Add score to right side bar on game page
-document.getElementById("current-score-h5").innerHTML = `Your current score is ${totalPoints}`;
+// document.getElementById("current-score-h5").innerHTML = `Your current score is ${totalPoints}`;

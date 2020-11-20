@@ -42,57 +42,53 @@ h3 {
   margin-bottom: 5px;
 }
 
-h5{
+h5 {
   font-size: 20px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 300;
 }
 
-h6{
-  font-family: 'Rubik', sans-serif;
+h6 {
+  font-family: "Rubik", sans-serif;
   font-weight: 300;
   font-size: 15px;
-  letter-spacing: .03rem;
+  letter-spacing: 0.03rem;
   margin: 0 0 10px 0;
 }
 
-.seperator{
+.seperator {
   width: 100%;
   height: 5px;
   background-color: #2d1c3b;
   margin-bottom: 10px;
 }
 
-
-#green-span{
+#green-span {
   color: green;
 }
 
-#yellow-span{
+#yellow-span {
   color: yellow;
 }
 
-#orange-span{
+#orange-span {
   color: orange;
 }
 
-.line-divider{
+.line-divider {
   width: 100%;
   height: 5px;
   background-color: #2d1c3b;
   margin-bottom: 8px;
-
 }
 
-
-h3#score-title{
+h3#score-title {
   font-size: 30px;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
 }
-
 
 /* score on right bar */
-.score-area{
+.score-area {
   color: aliceblue;
   background-color: #201329;
   height: 490px;
@@ -101,16 +97,14 @@ h3#score-title{
   box-sizing: border-box;
   border-radius: 5px;
   border: 8px solid #2d1c3b;
-
 }
 
-#ship-status{
-  margin: 0px 15px 10px 15px;;
+#ship-status {
+  margin: 0px 15px 10px 15px;
   background-color: #201329;
   border-radius: 5px;
   border: 8px solid #2d1c3b;
   box-sizing: border-box;
-
 }
 
 /* name entry form */

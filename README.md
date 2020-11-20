@@ -1,26 +1,31 @@
 # space-adventure
+
 Code Fellows Code 201 Final Project
 
 ## Authors
-* Tek Jones
-* William Moreno
-* James Gerstenberger
+
+- Tek Jones
+- William Moreno
+- James Gerstenberger
 
 ## About
+
 - A game that you control a ship and move across a path of planets to an end goal. At each stop an event will happen that will tell you what happens or present you with a choice to make. The events will be generated randomly with differing outcomes being weighted differently. The ships stats will be affected by events. The goal is to reach the final frontier.
- 
 
 ## What for
-To provide a short entertaining game to play for relaxation.
 
-
-## MVP
-  What problem or pain point does it solve? a. Keep it high level without going into too much detail.
-
-## What for
 To provide a short entertaining game to play for relaxation.
 
 ## MVP
+
+What problem or pain point does it solve? a. Keep it high level without going into too much detail.
+
+## What for
+
+To provide a short entertaining game to play for relaxation.
+
+## MVP
+
 1. “About Us” page
 2. Appealing properly themed background
 3. Intro and direction ‘page’
@@ -33,19 +38,19 @@ To provide a short entertaining game to play for relaxation.
 10. Fuel gauge
 11. Crew members
 
-
 ## Domain Modeling
-* [See file DOM Code 201](DOM_code_201.png)
 
+- [See file DOM Code 201](DOM_code_201.png)
 
 ## Credit
-* Images and font all licensed from envato elements https://elements.envato.com/license-terms
-* W3Schools for help in sorting arrays numerically
-* Stack Overflow
-* JavascriptTutorial.net for help with radio buttons
-* Chart.js
-* MDN Web Documents for help in utilizing Math. functions
-* [Unsplash](https://unsplash.com/) photographers whose work was utilized in the making of the game:
+
+- Images and font all licensed from envato elements https://elements.envato.com/license-terms
+- W3Schools for help in sorting arrays numerically
+- Stack Overflow
+- JavascriptTutorial.net for help with radio buttons
+- Chart.js
+- MDN Web Documents for help in utilizing Math. functions
+- [Unsplash](https://unsplash.com/) photographers whose work was utilized in the making of the game:
 
 #### Planets
 
@@ -84,3 +89,10 @@ To provide a short entertaining game to play for relaxation.
 - Kai Pilger
 - John Baker
 - Bill Jelen
+
+#### Music
+
+Space Ambience by Alexander Nakarada | https://www.serpentsoundstudios.com
+Music promoted by https://www.free-stock-music.com
+Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/

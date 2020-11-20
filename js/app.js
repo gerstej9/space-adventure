@@ -280,9 +280,6 @@ function tabulatePoints(){
     if(totalPoints < 0){
         totalPoints = 0;
     }
-    console.log(`resource ${resourcePoints}`)
-    console.log(`ingame ${inGamePoints}`)
-    console.log(`total Points ${totalPoints}`);
     return totalPoints;
 }
 

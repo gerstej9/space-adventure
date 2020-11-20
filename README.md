@@ -35,7 +35,7 @@ To provide a short entertaining game to play for relaxation.
 
 
 ## Domain Modeling
-* See file DOM_model
+* [See file DOM Code 201](DOM_code_201.png)
 
 
 ## Credit

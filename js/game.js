@@ -34,6 +34,7 @@ var userName;
 // game start
 
 function startGame(){
+    tabulatePoints();
     removeNavPoints();
     plotCourse.classList.add('nav-start');
     planetOne.addEventListener('click', planetOneZoomIn);

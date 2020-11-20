@@ -715,6 +715,8 @@ function formRemoval(){
 
 generateChart();
 
+
+
 var formElement = document.getElementById('new-player-form');
 radioEasy.addEventListener('click', difficultyLevel)
 radioMedium.addEventListener('click', difficultyLevel)

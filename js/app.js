@@ -320,3 +320,6 @@ if(localStorage.leaderboard == undefined){
 
 //Generates event card array for use in game.js
 eventCardArrayGenerator();
+
+//Add score to right side bar on game page
+document.getElementById("current-score-h5").innerHTML = `Your current score is ${totalPoints}`;

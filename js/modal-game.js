@@ -30,7 +30,7 @@ function makeLeaderBoard(){
     var trElement = document.createElement('tr');
     leaderboardParent.appendChild(trElement);
     var tdElement = document.createElement('td');
-    tdElement.textContent = leaderBoard[i].name;
+    tdElement.textContent = `Captain ${leaderBoard[i].name}`;
     trElement.appendChild(tdElement);
     var tdTwoElement = document.createElement('td');
     tdTwoElement.textContent = leaderBoard[i].points;

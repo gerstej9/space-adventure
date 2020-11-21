@@ -28,7 +28,6 @@ img.main-logo {
 }
 
 .side-bar {
-  /* background-color: #1a0a26; */
   background-image: url(../img/nav_bar.png);
   background-repeat: repeat;
 }
@@ -111,7 +110,9 @@ h3#score-title {
 
 #form {
   z-index: 7;
-  background-color: rgb(155, 155, 155);
+  /* background-color: rgb(155, 155, 155); */
+  background-image: url(../img/nav_bar.png);
+  background-repeat: repeat;
   border: 5px outset gray;
 }
 

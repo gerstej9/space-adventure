@@ -203,7 +203,6 @@ h3#score-title {
 #world-one {
   height: 360px;
   width: 360px;
-  /* background-color: seagreen; */
   background-image: url(../img/locations/krcmarek-planet.png);
   background-size: 360px 360px;
   border-radius: 50%;
